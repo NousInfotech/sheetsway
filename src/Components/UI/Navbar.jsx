@@ -1,22 +1,80 @@
 "use client";
 import useWindowPosition from "@/hooks/useWindowPosition";
-import { Button, NavLink, useMantineColorScheme } from "@mantine/core";
+import {
+  Button,
+  Menu,
+  MenuDivider,
+  MenuDropdown,
+  MenuItem,
+  MenuLabel,
+  MenuTarget,
+  NavLink,
+  useMantineColorScheme,
+} from "@mantine/core";
+import { AiOutlineAudit } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
+import { IoIosArrowDown } from "react-icons/io";
 
+export const Icon = ({ children }) => (
+  <span className="heading mr-2 font-bold text-2xl border border-[rgba(0,0,0,0.3)] w-12 h-12 flex justify-center items-center p-2 rounded-xl">
+    <i>{children}</i>
+  </span>
+);
 const data = [
-  {
-    label: "About Us",
-    description: "Item with description",
-    link: "/about-us",
-  },
   {
     label: "Solution",
     description: "Item with description",
-    link: "/solution",
+    menus: [
+      {
+        label: "Audit Software",
+        link: "/solution/audit-software",
+        description:
+          "Lorem ipsum dolor sit amet. Sit nemo optio sit sint galisum ut nihil veniam. ",
+        icon: <Icon>Au</Icon>,
+      },
+      {
+        label: "Drafting",
+        link: "/solution/drafting",
+        description:
+          "Lorem ipsum dolor sit amet. Sit nemo optio sit sint galisum ut nihil veniam. ",
+        icon: <Icon>Dr</Icon>,
+      },
+      {
+        label: "Workspace",
+        link: "/solution/workspace",
+        description:
+          "Lorem ipsum dolor sit amet. Sit nemo optio sit sint galisum ut nihil veniam. ",
+        icon: <Icon>Ws</Icon>,
+      },
+      {
+        label: "Client Portal",
+        link: "/solution/client-portal",
+        description:
+          "Lorem ipsum dolor sit amet. Sit nemo optio sit sint galisum ut nihil veniam. ",
+        icon: <Icon>Cp</Icon>,
+      },
+    ],
+  },
+  {
+    label: "Knowledge Base",
+    description: "Item with description",
+    menus: [
+      {
+        label: "How to Guide",
+        link: "/knowledge-base/how-to-guide",
+        description:
+          "Lorem ipsum dolor sit amet. Sit nemo optio sit sint galisum ut nihil veniam. ",
+      },
+      {
+        label: "FAQ",
+        link: "/knowledge-base/faq",
+        description:
+          "Lorem ipsum dolor sit amet. Sit nemo optio sit sint galisum ut nihil veniam. ",
+      },
+    ],
   },
   {
     label: "Pricing",
@@ -24,9 +82,9 @@ const data = [
     link: "/pricing",
   },
   {
-    label: "How to Guide",
+    label: "About Us",
     description: "Item with description",
-    link: "/how-to-guide",
+    link: "/about-us",
   },
   {
     label: "Contact Us",
@@ -42,19 +100,62 @@ function Navbar() {
         <Image src={`/logo.svg`} alt="sheetsway logo" width={150} height={0} />
       </Link>
       <div className="flex gap-8 items-center">
-        {data.map((item) => (
-          <Link href={item.link}>
-            <NavLink
-              active={pathname === item.link}
-              className="w-fit"
-              label={item.label}
-              key={item.label}
-            />
-          </Link>
-        ))}
+        {data.map((item) =>
+          item.menus ? (
+            <>
+              <Menu
+                trigger="hover"
+                position="bottom-start"
+                width={400}
+                withArrow
+                shadow="md"
+              >
+                <MenuTarget>
+                  <NavLink
+                    rightSection={<IoIosArrowDown />}
+                    active={pathname === item.link}
+                    className="w-fit"
+                    label={item.label}
+                    key={item.label}
+                  />
+                </MenuTarget>
+
+                <MenuDropdown>
+                  {item.menus.map((item) => (
+                    <MenuItem className="">
+                      <Link href={item.link}>
+                        <NavLink
+                          description={item.description}
+                          active={pathname === item.link}
+                          leftSection={item.icon}
+                          label={item.label}
+                          key={item.label}
+                        />
+                      </Link>
+                    </MenuItem>
+                  ))}
+                </MenuDropdown>
+              </Menu>
+            </>
+          ) : (
+            <Link href={item.link}>
+              <NavLink
+                active={pathname === item.link}
+                className="w-fit"
+                label={item.label}
+                key={item.label}
+              />
+            </Link>
+          )
+        )}
       </div>
       <div className="item-center gap-2 flex">
-        <NavLink className="w-fit" label="Login" />
+        <NavLink
+          target="_blank"
+          href="https://audit.sheetsway.com/login"
+          className="w-fit"
+          label="Login"
+        />
         <Button variant="light">Try for Free</Button>
       </div>
     </div>

@@ -11,7 +11,7 @@ import { MdHistory } from "react-icons/md";
 import { IoEyeOutline } from "react-icons/io5";
 import Cta from "@/Components/UI/Cta";
 import Footer from "@/Components/UI/Footer";
-const FeatureCard = ({ icon, heading, description }) => (
+export const FeatureCard = ({ icon, heading, description }) => (
   <div className="col-span-1 flex flex-col gap-2">
     <span className="text-4xl text-gray-300">{icon}</span>
     <p className="text-xl mt-4 font-bold">{heading}</p>
@@ -47,7 +47,7 @@ function page() {
               placeholder="Enter your work email."
             />
             <Button className="px-12 text-base" size="xl">
-              Try for free
+              Try for Free
             </Button>
           </div>
           <Image
@@ -73,7 +73,7 @@ function page() {
             description="Lorem ipsum dolor sit amet. Id error quia et libero voluptatem aut nihil omnis id iusto dignissimos.Lorem ipsum dolor sit amet."
           />
           <div className="rounded flex flex-col gap-8 mx-auto">
-            <div className="bg-gray-200 flex justify-center items-center p-8 pt-16 pb-0">
+            <div className="bg-zinc-100 rounded flex justify-center items-center p-8 pt-16 pb-0">
               <Image
                 src={`/draft.png`}
                 className="rounded"
@@ -84,7 +84,7 @@ function page() {
             </div>
             <div className="flex gap-8">
               <div>
-                <div className="bg-gray-200 rounded pt-8 pl-8">
+                <div className="bg-zinc-100 rounded pt-8 pl-8">
                   <Image
                     src={`/download.png`}
                     className="rounded"
@@ -100,7 +100,7 @@ function page() {
                 </p>
               </div>
               <div>
-                <div className="bg-gray-200 rounded pt-8 pl-8">
+                <div className="bg-zinc-100 rounded pt-8 pl-8">
                   <Image
                     src={`/var.png`}
                     className="rounded"
@@ -153,6 +153,41 @@ function page() {
             >
               Learn More
             </Button>
+          </div>
+        </div>
+
+        {/* Workspace Portal Section */}
+        <div className="my-56 flex gap-16">
+          <div className="flex flex-col gap-16">
+            <h1 className="text-6xl heading">
+              Keep your
+              <br />
+              <strong className="text-theme italic bg-orange-100 px-4">
+                Client
+              </strong>{" "}
+              Updated
+            </h1>
+            <h2 className="text-xl text-gray-500">
+              Lorem ipsum dolor sit amet. Nam voluptas nisi in quia nesciunt rem
+              vitae modi qui rerum animi! Rem quas totam et maiores dolores et
+              vitae necessitatibus aut animi Quis ut harum
+            </h2>
+            <Button
+              rightSection={<GoArrowRight />}
+              className="w-fit"
+              variant="light"
+            >
+              Learn More
+            </Button>
+          </div>
+          <div className="bg-gray-200 rounded w-[125%] p-8 pb-0 pr-0">
+            <Image
+              src={`/client.png`}
+              className="rounded"
+              alt="sheetsway logo"
+              width={1200}
+              height={0}
+            />
           </div>
         </div>
 

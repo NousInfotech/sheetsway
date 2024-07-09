@@ -11,17 +11,17 @@ function Cta() {
             Sheetsway
           </strong>{" "}
           <br />
-          is for every need.
+          is for every Audit need.
         </h1>
         <Button className="px-12 w-fit text-base" size="xl">
-          Try for free
+          Try for Free
         </Button>
       </div>
       <div>
         <Image
           width={1000}
           height={1000}
-          className="absolute h-full object-cover z-[-1] opacity-10 top-0 left-0 w-full"
+          className="absolute h-full object-cover z-[-1] opacity-5 top-0 left-0 w-full"
           src="/back.svg"
         />
       </div>
