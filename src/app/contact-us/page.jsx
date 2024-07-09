@@ -20,11 +20,11 @@ import {
 } from "@mantine/core";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { writeData } from "@/api/fb";
 export const getNextId = () => String(Math.random()).slice(2);
 
-function about() {
+const ContactUS = () => {
   const {
     handleSubmit,
     register,
@@ -70,9 +70,7 @@ function about() {
       minRows: 5,
     },
   };
-  const [submitted, setSubmitted] = useState(
-    Boolean(localStorage.getItem("contact-us"))
-  );
+
   const cregister = (name) => ({
     ...register(name),
     ...Datatype[name],
@@ -87,6 +85,43 @@ function about() {
     setSubmitted(true);
     reset();
   };
+
+  return (
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="col-span-1 rounded-xl border py-8 flex flex-col gap-4 p-8"
+    >
+      <p className="text-semibold text-3xl">Contact Us 👋</p>
+      <p className="text-gray-500">
+        Feel free to send us a message or call us. Our team is ready to assist
+        you with professional advice and personalized solutions.
+      </p>
+      <div className="grid grid-cols-2 gap-4">
+        <TextInput className="col-span-2" {...cregister("name")} />
+        <TextInput className="col-span-2" {...cregister("email")} />
+        <TextInput className="col-span-2" {...cregister("mobile")} />
+        <Textarea className="col-span-2" {...cregister("position")} />
+        <Textarea className="col-span-2" {...cregister("message")} />
+
+        <Button
+          type="submit"
+          loading={isSubmitting}
+          radius={10}
+          className="h-10 font-normal col-span-2"
+        >
+          Contact Us
+        </Button>
+      </div>
+    </form>
+  );
+};
+
+function about() {
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    setSubmitted(Boolean(localStorage.getItem("contact-us")));
+  }, []);
   return (
     <ScrollAreaAutosize mah={"100vh"}>
       <div className="lg:w-[80%] lg:p-0 p-8 w-full mx-auto">
@@ -152,32 +187,9 @@ function about() {
               </Button>
             </div>
           ) : (
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="col-span-1 rounded-xl border py-8 flex flex-col gap-4 p-8"
-            >
-              <p className="text-semibold text-3xl">Contact Us 👋</p>
-              <p className="text-gray-500">
-                Feel free to send us a message or call us. Our team is ready to
-                assist you with professional advice and personalized solutions.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                <TextInput className="col-span-2" {...cregister("name")} />
-                <TextInput className="col-span-2" {...cregister("email")} />
-                <TextInput className="col-span-2" {...cregister("mobile")} />
-                <Textarea className="col-span-2" {...cregister("position")} />
-                <Textarea className="col-span-2" {...cregister("message")} />
-
-                <Button
-                  type="submit"
-                  loading={isSubmitting}
-                  radius={10}
-                  className="h-10 font-normal col-span-2"
-                >
-                  Contact Us
-                </Button>
-              </div>
-            </form>
+            <Suspense>
+              <ContactUS />
+            </Suspense>
           )}
         </div>
         <div className="gap-32 my-56">

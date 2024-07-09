@@ -8,7 +8,7 @@ import {
   Textarea,
   TextInput,
 } from "@mantine/core";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { getNextId } from "../contact-us/page";
 import { writeData } from "@/api/fb";
@@ -22,9 +22,11 @@ function page() {
     formState: { isSubmitting },
   } = useForm();
 
-  const [submitted, setSubmitted] = useState(
-    Boolean(localStorage.getItem("demo-us"))
-  );
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    setSubmitted(Boolean(localStorage.getItem("demo-us")));
+  }, []);
 
   const Datatype = {
     name: {
@@ -83,7 +85,7 @@ function page() {
               personalized demo and discover how our intelligent automation
               platform can transform your audit and finance operations.
             </p>
-            <br/>
+            <br />
             <p className="text-zinc-500">
               <strong>Customized Tour</strong>: Get a walkthrough tailored to
               your specific needs and business processes.
@@ -96,7 +98,7 @@ function page() {
               <strong>See the Benefits:</strong> Understand how SheetSway can
               increase efficiency, accuracy, and scalability for your team.
             </p>
-            <br/>
+            <br />
             <p className="font-semibold">Ready to see Sheetsway in action?</p>
             <p className="font-semibold">
               Book your demo and take the first step towards greater

@@ -4,7 +4,7 @@ import { useMediaQuery } from "@mantine/hooks";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 
 export const useOpenBookADemo = () => {
@@ -13,7 +13,7 @@ export const useOpenBookADemo = () => {
   return () => router.push(`${pathname}?book-a-demo=true`);
 };
 
-function BookADemoModal() {
+function DemoModal() {
   const router = useRouter();
   const isMobile = useMediaQuery("(max-width: 50em)");
   const searchParams = useSearchParams();
@@ -86,4 +86,9 @@ function BookADemoModal() {
   );
 }
 
+const BookADemoModal = () => (
+  <Suspense>
+    <DemoModal />
+  </Suspense>
+);
 export default BookADemoModal;
