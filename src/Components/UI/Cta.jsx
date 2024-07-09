@@ -1,8 +1,11 @@
+"use client"
+import { useOpenBookADemo } from "@/app/BookADemoModal";
 import { Button } from "@mantine/core";
 import Image from "next/image";
 import React from "react";
 
 function Cta() {
+  const call = useOpenBookADemo()
   return (
     <div className="flex relative justify-center gap-16 py-56 flex-col items-center text-center">
       <div className="flex flex-col items-center gap-16">
@@ -13,7 +16,7 @@ function Cta() {
           <br />
           is for every Audit need.
         </h1>
-        <Button className="px-12 w-fit text-base" size="xl">
+        <Button onClick={call} className="px-12 w-fit text-base" size="xl">
           Try for Free
         </Button>
       </div>

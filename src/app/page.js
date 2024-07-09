@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Button, Input, ScrollAreaAutosize } from "@mantine/core";
 import Navbar from "@/Components/UI/Navbar";
@@ -11,6 +12,8 @@ import { MdHistory } from "react-icons/md";
 import { IoEyeOutline } from "react-icons/io5";
 import Cta from "@/Components/UI/Cta";
 import Footer from "@/Components/UI/Footer";
+import { useOpenBookADemo } from "./BookADemoModal";
+import Link from "next/link";
 export const FeatureCard = ({ icon, heading, description }) => (
   <div className="col-span-1 flex flex-col gap-2">
     <span className="text-4xl text-gray-300">{icon}</span>
@@ -28,6 +31,7 @@ const NumberCard = ({ percentage, description, className }) => (
   </div>
 );
 function page() {
+  const call = useOpenBookADemo();
   return (
     <ScrollAreaAutosize mah={"100vh"}>
       <div className="lg:w-[80%] lg:p-0 p-8 w-full mx-auto">
@@ -40,15 +44,16 @@ function page() {
             description="Lorem ipsum dolor sit amet. Id error quia et libero voluptatem aut nihil omnis id iusto dignissimos.Lorem ipsum dolor sit amet."
           />
           <div className="flex items-center gap-6">
-            <Input
-              className="w-[25vw]"
-              size="xl"
-              radius={10}
-              placeholder="Enter your work email."
-            />
-            <Button className="px-12 text-base" size="xl">
-              Try for Free
-            </Button>
+            <Link target="_blank" href="https://audit.sheetsway.com/signup">
+              <Button variant="light" className="px-12 text-base" size="xl">
+                Try for Free
+              </Button>
+            </Link>
+            <Link href="/book-demo">
+              <Button className="px-12 text-base" size="xl">
+                Book A Demo
+              </Button>
+            </Link>
           </div>
           <Image
             src={`/dash.png`}

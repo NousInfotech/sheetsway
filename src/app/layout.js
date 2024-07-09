@@ -1,25 +1,14 @@
 import "@mantine/core/styles.css";
 import "./globals.css";
-import {
-  ColorSchemeScript,
-  createTheme,
-  MantineProvider,
-  virtualColor,
-} from "@mantine/core";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import Wrapper from "./BookADemoModal";
+import BookADemoModal from "./BookADemoModal";
 export const metadata = {
   title: "Sheetsway",
   description: "",
 };
 
 export default function RootLayout({ children }) {
-  const themeOverride = createTheme({
-    // other: {
-    //   deepOrangeLight: '#E17900',
-    //   deepOrangeDark: '#FC8C0C',
-    //   heroHeight: rem(400),
-    // },
-  });
-
   return (
     <html lang="en">
       <head>
@@ -47,6 +36,7 @@ export default function RootLayout({ children }) {
           withGlobalStyles
           withNormalizeCSS
         >
+          <BookADemoModal />
           {children}
         </MantineProvider>
       </body>

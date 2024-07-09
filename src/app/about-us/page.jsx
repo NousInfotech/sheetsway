@@ -1,9 +1,49 @@
 import Footer from "@/Components/UI/Footer";
 import Heading from "@/Components/UI/Heading";
 import Navbar from "@/Components/UI/Navbar";
-import { Avatar, ScrollAreaAutosize } from "@mantine/core";
+import { Avatar, Badge, Button, ScrollAreaAutosize } from "@mantine/core";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { CiLinkedin, CiMail } from "react-icons/ci";
+import { IoIosArrowForward } from "react-icons/io";
+
+const badges = [
+  {
+    text: "Be sincere",
+    leftSection: "✌️",
+  },
+  {
+    text: "Stronger Together",
+    leftSection: "🤝",
+  },
+  {
+    text: "Keep it Simple",
+    leftSection: "🙂",
+  },
+  {
+    text: "Take Intelligent Risk",
+    leftSection: "💡",
+  },
+];
+const team = [
+  {
+    name: "Cleven Carl D'amato",
+    role: "Founder and CEO",
+  },
+  {
+    name: "Jean Vella",
+    role: "Co-Founder and CCO",
+  },
+  {
+    name: "Dhruv Aggarwal",
+    role: "Co-Founder and CTO",
+  },
+  {
+    name: "Xiaoyang Lou",
+    role: "Co-Founder and CFO",
+  },
+];
 
 function about() {
   return (
@@ -25,24 +65,7 @@ function about() {
           />
         </div>
         <div className="grid grid-cols-4 gap-32 mt-24">
-          {[
-            {
-              name: "Cleven Carl D'amato",
-              role: "Founder and CEO",
-            },
-            {
-              name: "Jean Vella",
-              role: "Co-Founder and CCO",
-            },
-            {
-              name: "Xiaoyang Lou",
-              role: "Co-Founder and CFO",
-            },
-            {
-              name: "Dhruv Aggarwal",
-              role: "Co-Founder and CTO",
-            },
-          ].map((item) => (
+          {team.map((item) => (
             <div className="flex flex-col items-center">
               <img
                 className="rounded-full w-32 object-cover h-32"
@@ -53,12 +76,79 @@ function about() {
               <br />
               <p className="font-semibold">{item.name}</p>
               <p className="text-zinc-500">{item.role}</p>
+              <div className="flex items-center gap-2">
+                <Button variant="default" className="p-0 border-none text-lg">
+                  <CiLinkedin />
+                </Button>
+                <Button variant="default" className="p-0 border-none text-lg">
+                  <CiMail />
+                </Button>
+              </div>
             </div>
           ))}
         </div>
-        <div>
-          <div>
-            <h4>How we Thrive</h4>
+        <div className="my-56 grid grid-cols-2 gap-16">
+          <div className="flex flex-col items-end gap-16">
+            <Image
+              src="https://images.pexels.com/photos/8117462/pexels-photo-8117462.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              width={1200}
+              className="rounded-2xl"
+              height={1200}
+            />
+            <Image
+              src="https://images.pexels.com/photos/3153198/pexels-photo-3153198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              className="w-[80%] rounded-2xl"
+              width={1000}
+              height={1000}
+            />
+          </div>
+          <div className="flex flex-col gap-16">
+            <h4 className="text-7xl heading">
+              We're good <br /> neighbors
+            </h4>
+            <h2 className="text-xl text-gray-500">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </h2>
+            <Link href="/contact-us?message=Hii, I want to become a part of your journey">
+              <Button
+                className="w-fit"
+                rightSection={<IoIosArrowForward />}
+                variant="light"
+              >
+                Join Us, Make a Change
+              </Button>
+            </Link>
+            <Image
+              className="rounded-2xl"
+              src="https://images.pexels.com/photos/2422294/pexels-photo-2422294.jpeg?auto=compress&cs=tinysrgb&w=800"
+              width={1200}
+              height={1200}
+            />
+          </div>
+        </div>
+        <div className="my-56 grid grid-cols-2 gap-16">
+          <div className="flex flex-col gap-16">
+            <h4 className="text-7xl heading">How we Thrive</h4>
+            <h2 className="text-xl text-gray-500">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
+            </h2>
+          </div>
+          <div className="flex flex-wrap gap-4">
+            {badges.map((badge, index) => (
+              <Badge
+                key={index}
+                className="p-4 bg-zinc-100 capitalize font-normal w-fit text-2xl py-8 text-black"
+                size="xl"
+                leftSection={badge.leftSection}
+                color="gray"
+              >
+                {badge.text}
+              </Badge>
+            ))}
           </div>
         </div>
         <div className="my-56">

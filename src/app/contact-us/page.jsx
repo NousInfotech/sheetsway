@@ -1,3 +1,5 @@
+"use client"
+
 import Cta from "@/Components/UI/Cta";
 import Footer from "@/Components/UI/Footer";
 import { SubHeading } from "@/Components/UI/Heading";
@@ -15,9 +17,12 @@ import {
   Text,
   Textarea,
 } from "@mantine/core";
+import { useSearchParams } from "next/navigation";
 import React from "react";
 
 function about() {
+  const searchParams = useSearchParams();
+  const search = searchParams.get("message");
   return (
     <ScrollAreaAutosize mah={"100vh"}>
       <div className="lg:w-[80%] lg:p-0 p-8 w-full mx-auto">
@@ -59,42 +64,37 @@ function about() {
               assist you with professional advice and personalized solutions.
             </p>
             <div className="grid grid-cols-2 gap-4">
-              <InputWrapper
-                required
-                className="col-span-1"
-                label="Your First Name"
-              >
-                <Input radius={10} placeholder="Your name" />
-              </InputWrapper>
-              <InputWrapper
-                required
-                className="col-span-1"
-                label="Your Last Name"
-              >
-                <Input radius={10} placeholder="Your name" />
+              <InputWrapper required className="col-span-2" label="Your Name">
+                <Input radius={10} />
               </InputWrapper>
               <InputWrapper
                 required
                 className="col-span-2"
-                label="Your Company Name"
-              >
-                <Input radius={10} placeholder="Your name" />
-              </InputWrapper>
-              <InputWrapper
-                required
-                className="col-span-2"
+                description="We'll send you an e-mail with suggested dates and times"
                 label="Your Personal or Company Email"
               >
-                <Input radius={10} placeholder="Your name" />
+                <Input radius={10} />
               </InputWrapper>
               <InputWrapper
                 required
                 className="col-span-2"
-                label="Your Position"
+                description="We'll give you a short call to book a time slot that suits you best"
+                label="Mobile phone number"
               >
-                <Input radius={10} placeholder="Your name" />
+                <Input radius={10} />
               </InputWrapper>
+
               <Textarea
+                radius={10}
+                autosize
+                required
+                className="col-span-2"
+                label="What Descripe you the best?"
+                description="We'll make sure you're connected to the right expert"
+                minRows={5}
+              />
+              <Textarea
+                defaultValue={search}
                 autosize
                 required
                 className="col-span-2"
@@ -102,7 +102,6 @@ function about() {
                 minRows={5}
                 label="Message"
                 radius={10}
-                placeholder="Your name"
               />
 
               <Button radius={10} className="h-10 font-normal col-span-2">
@@ -127,9 +126,9 @@ function about() {
               <p className="text-lg font-semibold">Malta Office</p>
               <p>A4, Triq San Giljan, San Gwann, Malta</p>
             </div>
-            <br/>
+            <br />
             <iframe
-            className="rounded-2xl"
+              className="rounded-2xl"
               width="100%"
               height="600"
               src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=52.70967533219885, -8.020019531250002&amp;q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
