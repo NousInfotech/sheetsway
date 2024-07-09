@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Cta from "@/Components/UI/Cta";
 import Footer from "@/Components/UI/Footer";
@@ -16,13 +16,77 @@ import {
   ScrollAreaAutosize,
   Text,
   Textarea,
+  TextInput,
 } from "@mantine/core";
+import { useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
+import { writeData } from "@/api/fb";
+export const getNextId = () => String(Math.random()).slice(2);
 
 function about() {
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { isSubmitting },
+  } = useForm();
   const searchParams = useSearchParams();
   const search = searchParams.get("message");
+  const Datatype = {
+    name: {
+      label: "Your Name",
+      required: true,
+      radius: 10,
+    },
+    email: {
+      type: "email",
+      label: "Your Personal or Company Email",
+      description: "We'll send you an e-mail with suggested dates and times",
+      required: true,
+      radius: 10,
+    },
+    mobile: {
+      label: "Mobile phone number",
+      description:
+        "We'll give you a short call to book a time slot that suits you best",
+      required: true,
+      radius: 10,
+    },
+    position: {
+      label: "What Descripe you the best? ",
+      description: "We'll make sure you're connected to the right expert",
+      required: true,
+      radius: 10,
+      autosize: true,
+      minRows: 5,
+    },
+    message: {
+      label: "How can we help you?",
+      defaultValue: search,
+      required: true,
+      radius: 10,
+      autosize: true,
+      minRows: 5,
+    },
+  };
+  const [submitted, setSubmitted] = useState(
+    Boolean(localStorage.getItem("contact-us"))
+  );
+  const cregister = (name) => ({
+    ...register(name),
+    ...Datatype[name],
+  });
+  const onSubmit = async (data) => {
+    const id = getNextId();
+    await writeData(`/leads/${id}`, {
+      ...data,
+      id,
+    });
+    await localStorage.setItem("contact-us", id);
+    setSubmitted(true);
+    reset();
+  };
   return (
     <ScrollAreaAutosize mah={"100vh"}>
       <div className="lg:w-[80%] lg:p-0 p-8 w-full mx-auto">
@@ -57,58 +121,64 @@ function about() {
               </button>
             </div>
           </div>
-          <form className="col-span-1 rounded-xl border py-8 flex flex-col gap-4 p-8">
-            <p className="text-semibold text-3xl">Contact Us 👋</p>
-            <p className="text-gray-500">
-              Feel free to send us a message or call us. Our team is ready to
-              assist you with professional advice and personalized solutions.
-            </p>
-            <div className="grid grid-cols-2 gap-4">
-              <InputWrapper required className="col-span-2" label="Your Name">
-                <Input radius={10} />
-              </InputWrapper>
-              <InputWrapper
-                required
-                className="col-span-2"
-                description="We'll send you an e-mail with suggested dates and times"
-                label="Your Personal or Company Email"
-              >
-                <Input radius={10} />
-              </InputWrapper>
-              <InputWrapper
-                required
-                className="col-span-2"
-                description="We'll give you a short call to book a time slot that suits you best"
-                label="Mobile phone number"
-              >
-                <Input radius={10} />
-              </InputWrapper>
-
-              <Textarea
-                radius={10}
-                autosize
-                required
-                className="col-span-2"
-                label="What Descripe you the best?"
-                description="We'll make sure you're connected to the right expert"
-                minRows={5}
+          {submitted ? (
+            <div className="col-span-1 overflow-clip relative rounded-xl justify-center border py-8 flex flex-col gap-4 p-8">
+              <p className="text-5xl">🧡</p>
+              <p className="text-semibold heading text-5xl">
+                We value you at Sheetsway
+              </p>
+              <p className="text-semibold text-zinc-500">
+                We value your feedback and inquiries. At SheetSway, our team is
+                committed to providing exceptional service and support. Whether
+                you have questions about our solutions, need assistance with
+                your data management, or simply want to share your thoughts,
+                we're here to listen and help.
+              </p>
+              <Image
+                src="/back.svg"
+                width={1200}
+                height={1200}
+                className="absolute z-[-1] opacity-20 top-0 left-0"
               />
-              <Textarea
-                defaultValue={search}
-                autosize
-                required
-                className="col-span-2"
-                description=""
-                minRows={5}
-                label="Message"
-                radius={10}
-              />
-
-              <Button radius={10} className="h-10 font-normal col-span-2">
-                Contact Us
+              <Button
+                variant="light"
+                className="w-fit"
+                onClick={() => {
+                  setSubmitted(false);
+                  localStorage.removeItem("contact-us");
+                }}
+              >
+                Message Us Again
               </Button>
             </div>
-          </form>
+          ) : (
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="col-span-1 rounded-xl border py-8 flex flex-col gap-4 p-8"
+            >
+              <p className="text-semibold text-3xl">Contact Us 👋</p>
+              <p className="text-gray-500">
+                Feel free to send us a message or call us. Our team is ready to
+                assist you with professional advice and personalized solutions.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <TextInput className="col-span-2" {...cregister("name")} />
+                <TextInput className="col-span-2" {...cregister("email")} />
+                <TextInput className="col-span-2" {...cregister("mobile")} />
+                <Textarea className="col-span-2" {...cregister("position")} />
+                <Textarea className="col-span-2" {...cregister("message")} />
+
+                <Button
+                  type="submit"
+                  loading={isSubmitting}
+                  radius={10}
+                  className="h-10 font-normal col-span-2"
+                >
+                  Contact Us
+                </Button>
+              </div>
+            </form>
+          )}
         </div>
         <div className="gap-32 my-56">
           <SubHeading

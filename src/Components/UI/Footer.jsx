@@ -41,15 +41,20 @@ function Footer() {
       <div className="col-span-2 flex flex-col gap-6">
         <p className="font-bold text-white text-lg">Product</p>
         <Link href="/">Home</Link>
-        <Link href="/solution">Solution</Link>
         <Link href="/pricing">Pricing</Link>
         <Link href="/how-to-guide">How To Guide</Link>
         <Link href="/how-to-guide">FAQ</Link>
       </div>
       <div className="col-span-2 flex flex-col gap-6">
+        <p className="font-bold text-white text-lg">Solutions</p>
+        <Link href="/about-us">Audit Portal</Link>
+        <Link href="/about-us#blogs">Drafting</Link>
+        <Link href="/contact-us">Workspace</Link>
+        <Link href="/contact-us">Client Portal</Link>
+      </div>
+      <div className="col-span-2 flex flex-col gap-6">
         <p className="font-bold text-white text-lg">Company</p>
         <Link href="/about-us">About Us</Link>
-        <Link href="/about-us#blogs">Blog</Link>
         <Link href="/contact-us">Contact Us</Link>
       </div>
       <div className="col-span-2 flex flex-col gap-6">

@@ -30,18 +30,22 @@ const team = [
   {
     name: "Cleven Carl D'amato",
     role: "Founder and CEO",
+    src: "/avatars/3.svg",
   },
   {
     name: "Jean Vella",
     role: "Co-Founder and CCO",
+    src: "/avatars/2.svg",
   },
   {
     name: "Dhruv Aggarwal",
     role: "Co-Founder and CTO",
+    src: "/avatars/1.svg",
   },
   {
     name: "Xiaoyang Lou",
     role: "Co-Founder and CFO",
+    src: "/avatars/4.svg",
   },
 ];
 
@@ -67,11 +71,11 @@ function about() {
         <div className="grid grid-cols-4 gap-32 mt-24">
           {team.map((item) => (
             <div className="flex flex-col items-center">
-              <img
-                className="rounded-full w-32 object-cover h-32"
-                src={
-                  "https://png.pngtree.com/background/20230525/original/pngtree-anime-girl-holds-a-pumpkin-and-wears-black-hat-picture-image_2735703.jpg"
-                }
+              <Image
+                width={500}
+                height={500}
+                className="rounded-b-full w-32 object-cover"
+                src={item.src}
               />
               <br />
               <p className="font-semibold">{item.name}</p>
