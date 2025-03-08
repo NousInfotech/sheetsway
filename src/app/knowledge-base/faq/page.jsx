@@ -1,8 +1,5 @@
 "use client";
-import Cta from "@/Components/UI/Cta";
-import Footer from "@/Components/UI/Footer";
-import Heading, { SubHeading } from "@/Components/UI/Heading";
-import Navbar from "@/Components/UI/Navbar";
+import { SubHeading } from "@/Components/UI/Heading";
 import { faq } from "@/data/faq";
 import {
   Accordion,
@@ -12,17 +9,16 @@ import {
   Input,
   ScrollAreaAutosize,
 } from "@mantine/core";
+import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-import { CiSearch } from "react-icons/ci";
+import { useState } from "react";
 
 function page() {
   const [search, setSearch] = useState("");
   return (
-    <ScrollAreaAutosize mah={"100vh"}>
-      <div className="lg:w-[80%] mb-72 lg:p-0 p-8 w-full mx-auto">
-        <Navbar />
+    <>
+      <div className="lg:w-[80%] lg:p-0 p-8 w-full mx-auto mb-20">
         <div className="flex relative flex-col mt-24 gap-8">
           <SubHeading
             heading={
@@ -36,7 +32,7 @@ function page() {
             onChange={(e) => setSearch(e.target.value)}
             size="xl"
             className="w-full"
-            leftSection={<CiSearch />}
+            leftSection={<Search />}
             placeholder="Search Questions..."
           />
           <p>
@@ -82,8 +78,7 @@ function page() {
           })}
         </div>
       </div>
-      <Footer />
-    </ScrollAreaAutosize>
+    </>
   );
 }
 

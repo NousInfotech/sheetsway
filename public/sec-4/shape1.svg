@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="712" height="634" viewBox="0 0 712 634">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #197380;
+        fill-rule: evenodd;
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" x="1224" y="5948" width="712" height="634" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="5.196"/>
+      <feFlood result="flood" flood-opacity="0.39"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feBlend result="blend" in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path id="Shape_3_copy_2" data-name="Shape 3 copy 2" class="cls-1" d="M1354.36,6508.26c55.66-45.6,130.93-54.71,180.64-62.26,64.4-9.79,327.34-5.21,363-164s-27.94-270.25-123-290c-136.14-28.29-212.12,85.52-420-12-26.03-12.21-121.06-9.06-81,90,23.28,57.57,62.06,242.41-19.83,444.68C1244.79,6537.85,1249.76,6593.96,1354.36,6508.26Z" transform="translate(-1224 -5948)"/>
+</svg>
+
+

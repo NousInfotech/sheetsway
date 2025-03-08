@@ -1,10 +1,7 @@
-import Footer from "@/Components/UI/Footer";
 import Heading from "@/Components/UI/Heading";
-import Navbar from "@/Components/UI/Navbar";
-import { Avatar, Badge, Button, ScrollAreaAutosize } from "@mantine/core";
+import { Badge, Button } from "@mantine/core";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { CiLinkedin, CiMail } from "react-icons/ci";
 import { IoIosArrowForward } from "react-icons/io";
 
@@ -51,9 +48,8 @@ const team = [
 
 function about() {
   return (
-    <ScrollAreaAutosize mah={"100vh"}>
+    <>
       <div className="lg:w-[80%] lg:p-0 p-8 w-full mx-auto">
-        <Navbar />
         <div className="flex text-center mx-auto justify-center items-center flex-col mt-24 gap-8">
           <Heading
             heading={
@@ -176,8 +172,7 @@ function about() {
           </div>
         </div>
       </div>
-      <Footer />
-    </ScrollAreaAutosize>
+    </>
   );
 }
 

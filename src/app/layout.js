@@ -1,10 +1,15 @@
-import "@mantine/core/styles.css";
-import "./globals.css";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
-import Wrapper from "./BookADemoModal";
+import "@mantine/core/styles.css";
 import BookADemoModal from "./BookADemoModal";
+import Footer from "./_components/Footer";
+import Header from "./_components/Header";
+import "./globals.css";
+
 export const metadata = {
-  title: "Sheetsway",
+  title: {
+    default: "Sheetsway",
+    template: "%s | Sheetsway",
+  },
   description: "",
 };
 
@@ -13,6 +18,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <ColorSchemeScript />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>
         <MantineProvider
@@ -37,7 +50,9 @@ export default function RootLayout({ children }) {
           withNormalizeCSS
         >
           <BookADemoModal />
-          {children}
+          <Header />
+          <main>{children}</main>
+          <Footer />
         </MantineProvider>
       </body>
     </html>

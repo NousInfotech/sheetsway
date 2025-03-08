@@ -22,6 +22,7 @@ import { useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
 import React, { Suspense, useEffect, useState } from "react";
 import { writeData } from "@/api/fb";
+import ShowSection from "../_components/ShowSection";
 export const getNextId = () => String(Math.random()).slice(2);
 
 const ContactUS = () => {
@@ -123,9 +124,8 @@ function about() {
     setSubmitted(Boolean(localStorage.getItem("contact-us")));
   }, []);
   return (
-    <ScrollAreaAutosize mah={"100vh"}>
+    <>
       <div className="lg:w-[80%] lg:p-0 p-8 w-full mx-auto">
-        <Navbar />
         <div className="mx-auto grid grid-cols-2 gap-32 mt-24">
           <div className="col-span-1 flex flex-col gap-4 ">
             <p className="text-gray-500">CONTACT US</p>
@@ -222,9 +222,8 @@ function about() {
           </div>
         </div>
       </div>
-      <Cta />
-      <Footer />
-    </ScrollAreaAutosize>
+      <ShowSection />
+    </>
   );
 }
 

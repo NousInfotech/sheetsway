@@ -1,23 +1,17 @@
 "use client";
-import useWindowPosition from "@/hooks/useWindowPosition";
+import { useOpenBookADemo } from "@/app/BookADemoModal";
 import {
   Button,
   Menu,
-  MenuDivider,
   MenuDropdown,
   MenuItem,
-  MenuLabel,
   MenuTarget,
   NavLink,
-  useMantineColorScheme,
 } from "@mantine/core";
-import { AiOutlineAudit } from "react-icons/ai";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import { useOpenBookADemo } from "@/app/BookADemoModal";
 
 export const Icon = ({ children }) => (
   <span className="heading mr-2 font-bold text-2xl border border-[rgba(0,0,0,0.3)] w-12 h-12 flex justify-center items-center p-2 rounded-xl">
@@ -96,8 +90,9 @@ const data = [
 function Navbar() {
   const pathname = usePathname();
   const call = useOpenBookADemo();
+
   return (
-    <div className="lg:py-8 py-2 sticky items-baseline backdrop-blur-sm z-10 justify-between flex top-0">
+    <div className="lg:py-8 py-2 sticky items-baseline backdrop-blur-sm z-10 justify-between flex top-0 ">
       <Link href="/">
         <Image src={`/logo.svg`} alt="sheetsway logo" width={150} height={0} />
       </Link>

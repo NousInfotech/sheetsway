@@ -1,11 +1,7 @@
 "use client";
-import Cta from "@/Components/UI/Cta";
-import Footer from "@/Components/UI/Footer";
 import Heading from "@/Components/UI/Heading";
-import Navbar from "@/Components/UI/Navbar";
 import {
   Button,
-  ScrollAreaAutosize,
   Table,
   TableTbody,
   TableTd,
@@ -14,15 +10,11 @@ import {
   TableTr,
 } from "@mantine/core";
 import Image from "next/image";
-import React from "react";
-import {
-  FaExpandArrowsAlt,
-  FaUnlockAlt,
-  FaSeedling,
-  FaGift,
-} from "react-icons/fa";
-import { useOpenBookADemo } from "../BookADemoModal";
 import Link from "next/link";
+import { Expand, Gift, Sprout, Unlock } from "lucide-react";
+
+import ShowSection from "../_components/ShowSection";
+import { useOpenBookADemo } from "../BookADemoModal";
 
 const elements = [
   {
@@ -57,22 +49,22 @@ const elements = [
 const cardData = [
   {
     title: "Scalable",
-    icon: <FaExpandArrowsAlt />,
+    icon: <Expand />,
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     title: "Full Access",
-    icon: <FaUnlockAlt />,
+    icon: <Unlock />,
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     title: "Grow with Us",
-    icon: <FaSeedling />,
+    icon: <Sprout />,
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     title: "Reward Growth",
-    icon: <FaGift />,
+    icon: <Gift />,
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
@@ -81,10 +73,9 @@ function about() {
   const call = useOpenBookADemo();
   const customPricing = "/contact-us?message=Give me custom pricing";
   return (
-    <ScrollAreaAutosize mah={"100vh"}>
+    <>
       <div className="lg:w-[80%] lg:p-0 p-8 w-full mx-auto">
-        <Navbar />
-        <div className="flex relative text-center mx-auto justify-center items-center flex-col mt-24 gap-8">
+        <div className="flex relative text-center mx-auto justify-center items-center flex-col mt-5 gap-8">
           <Heading
             heading={
               <span>
@@ -189,9 +180,8 @@ function about() {
           </Link>
         </div>
       </div>
-      <Cta />
-      <Footer />
-    </ScrollAreaAutosize>
+      <ShowSection />
+    </>
   );
 }
 
