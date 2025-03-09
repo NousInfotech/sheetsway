@@ -1,9 +1,10 @@
 import Button from "./Button";
 import FadeUpAnimation from "./FadeUpAnimation";
+import TryButton from "./TryButton";
 
 export default function ShowSection() {
   return (
-    <FadeUpAnimation className="relative w-full bg-gray-100/60 h-[400px] flex flex-col items-center justify-center text-center mt-20">
+    <FadeUpAnimation className="relative w-full bg-accent/10 h-[380px] flex flex-col items-center justify-center text-center mt-20">
       <div
         className="absolute inset-0 bg-cover"
         style={{
@@ -19,7 +20,7 @@ export default function ShowSection() {
         <br />
         <span className="font-medium ">Meets every Audit need.</span>
       </h1>
-      <Button type="primary">Try for Free</Button>
+      <TryButton type="primary" className="relative z-50" />
     </FadeUpAnimation>
   );
 }

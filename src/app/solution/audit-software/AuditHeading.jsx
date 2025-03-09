@@ -1,6 +1,7 @@
 import Button from "@/app/_components/Button";
 import ChangingText from "@/app/_components/ChangingText";
 import FadeUpAnimation from "@/app/_components/FadeUpAnimation";
+import TryButton from "@/app/_components/TryButton";
 
 const changingText = [
   "results",
@@ -29,7 +30,7 @@ export default function AuditHeading() {
         colorOftext="text-orange-500"
       />
       <div className="mt-4 flex justify-center space-x-4 z-30">
-        <Button type="secondary">Try For Free</Button>
+        <TryButton />
         <Button type="primary">Book a Demo</Button>
       </div>
     </FadeUpAnimation>

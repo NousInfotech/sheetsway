@@ -1,10 +1,12 @@
 "use client";
 
+import { NavLink } from "@mantine/core";
 import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import Button from "./Button";
 import Logo from "./Logo";
+import TryButton from "./TryButton";
+import { usePathname } from "next/navigation";
 
 const solutions = [
   {
@@ -50,9 +52,10 @@ export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <header className="flex justify-between items-center py-6 px-10 relative mb-5">
+    <header className="flex justify-between items-center py-6 px-10 relative ">
       <div className="md:hidden flex items-center">
         <button
           className="text-gray-700"
@@ -140,16 +143,24 @@ export default function Header() {
           <Link
             key={link.label}
             href={link.to}
-            className="text-gray-700  hover:text-theme hover:bg-accent py-1 px-2 rounded-md text-sm md:text-base"
+            className={`text-gray-700  hover:text-theme hover:bg-accent py-1 px-2 rounded-md text-sm md:text-base ${
+              pathname === link.to ? "text-theme bg-accent" : ""
+            }`}
           >
             {link.label}
           </Link>
         ))}
       </nav>
 
-      <div className="flex space-x-1 md:space-x-2">
-        <Button type="tertiary">Login</Button>
-        <Button type="secondary">Try for Free</Button>
+      <div className="flex gap-1 md:gap-2">
+        {/* <Button type="tertiary">Login</Button> */}
+        <NavLink
+          target="_blank"
+          href="https://audit.sheetsway.com/login"
+          className="w-fit"
+          label="Login"
+        />
+        <TryButton />
       </div>
 
       {menuOpen && (

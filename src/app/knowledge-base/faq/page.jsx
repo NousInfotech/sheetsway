@@ -7,7 +7,6 @@ import {
   AccordionItem,
   AccordionPanel,
   Input,
-  ScrollAreaAutosize,
 } from "@mantine/core";
 import { Search } from "lucide-react";
 import Image from "next/image";
