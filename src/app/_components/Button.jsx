@@ -12,8 +12,8 @@ export default function Button({
     return (
       <button
         onClick={onClick}
-        {...props}
         className={`bg-theme text-white font-semibold font-sans lg:px-6 lg:py-3 px-4 py-2 max-sm:text-sm rounded-lg shadow-md hover:bg-theme/85 transition ${className}`}
+        {...props}
       >
         {children}
       </button>

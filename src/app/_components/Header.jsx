@@ -56,7 +56,7 @@ export default function Header() {
 
   return (
     <header className="flex justify-between items-center py-6 px-10 relative ">
-      <div className="md:hidden flex items-center">
+      <div className="lg:hidden flex items-center">
         <button
           className="text-gray-700"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -65,11 +65,11 @@ export default function Header() {
         </button>
       </div>
 
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <Logo />
       </div>
 
-      <nav className="hidden md:flex relative flex-grow justify-center items-center gap-4 font-inter">
+      <nav className="hidden lg:flex relative flex-grow justify-center items-center gap-4 font-inter">
         <div
           className="relative group"
           onMouseEnter={() => setDropdownOpen("solution")}
