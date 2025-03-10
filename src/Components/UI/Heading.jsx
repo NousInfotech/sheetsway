@@ -15,7 +15,9 @@ function Heading({ heading, description }) {
 export function SubHeading({ heading, description }) {
   return (
     <div className="flex justify-between w-full items-end gap-32">
-      <h1 className="text-7xl shrink-0 leading-[1.2] heading">{heading}</h1>
+      <h1 className="lg:text-7xl md:text-6xl sm:text-5xl text-4xl shrink-0 leading-[1.2] heading">
+        {heading}
+      </h1>
       <h2 className="text-xl text-zinc-500">{description}</h2>
     </div>
   );

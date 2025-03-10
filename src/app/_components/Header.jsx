@@ -55,7 +55,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="flex justify-between items-center py-6 px-10 relative ">
+    <header className="flex justify-between items-center py-6 sm:px-10 px-5 relative ">
       <div className="lg:hidden flex items-center">
         <button
           className="text-gray-700"

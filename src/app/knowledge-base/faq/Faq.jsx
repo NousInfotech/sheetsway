@@ -9,12 +9,26 @@ import {
   Input,
 } from "@mantine/core";
 import { Search } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Faq() {
   const [search, setSearch] = useState("");
+
+  const filterData = !search.length
+    ? faq
+    : faq.filter((dt) => {
+        const res = dt.questions.filter(
+          (q) =>
+            q.question.toLowerCase().includes(search.toLowerCase()) ||
+            q.answer.toLowerCase().includes(search.toLowerCase())
+        );
+
+        return res.length > 0 ? { ...dt, questions: res } : null;
+      });
+
+  // console.log(filterData);
+
   return (
     <>
       <div className="relative">
@@ -26,7 +40,7 @@ export default function Faq() {
           }}
         ></div>
 
-        <div className="flex relative flex-col gap-8 max-w-screen-xl mx-auto py-10">
+        <div className="flex relative flex-col sm:gap-8 gap-6 xl:max-w-screen-xl lg:max-w-screen-lg container mx-auto sm:py-10 py-4">
           <SubHeading
             heading={
               <span>
@@ -35,10 +49,11 @@ export default function Faq() {
               </span>
             }
           />
+
           <Input
             onChange={(e) => setSearch(e.target.value)}
-            size="xl"
-            className="w-full"
+            size="lg" // Default size
+            className="w-full text-base sm:text-lg md:text-xl"
             leftSection={<Search />}
             placeholder="Search Questions..."
           />
@@ -51,34 +66,32 @@ export default function Faq() {
           </p>
         </div>
       </div>
-      <div className="max-w-screen-xl mx-auto mb-20">
-        <div className="mt-14 flex flex-col gap-16">
-          {faq.map((item) => {
-            const res = item.questions.filter(
-              (p) =>
-                p.question.toLowerCase().includes(search.toLowerCase()) ||
-                p.answer.toLowerCase().includes(search.toLowerCase())
-            );
-            if (res.length === 0) return <></>;
-            return (
+      <div className="lg:max-w-screen-lg container mx-auto mb-20">
+        <div className="sm:mt-14 mt-8 flex flex-col sm:gap-16 gap-8">
+          {!filterData.length ? (
+            <p className="text-xl text-center">No Results Found!🙂</p>
+          ) : (
+            filterData?.map((item) => (
               <div>
-                <p className="text-xl font-semibold">{item.heading}</p>
+                <p className="sm:text-xl text-lg font-semibold font-sans ">
+                  {item?.heading}
+                </p>
                 <br />
                 <Accordion>
-                  {res.map((item, index) => (
-                    <AccordionItem key={item.key} value={item.question}>
-                      <AccordionControl>
-                        {index + 1}. {item.question}
+                  {item?.questions?.map((item, index) => (
+                    <AccordionItem key={item.key} value={item?.question}>
+                      <AccordionControl className="max-sm:text-base">
+                        {index + 1}. {item?.question}
                       </AccordionControl>
-                      <AccordionPanel className="text-gray-500">
-                        {item.answer}
+                      <AccordionPanel className="text-gray-500 max-sm:text-xs">
+                        {item?.answer}
                       </AccordionPanel>
                     </AccordionItem>
                   ))}
                 </Accordion>
               </div>
-            );
-          })}
+            ))
+          )}
         </div>
       </div>
     </>
