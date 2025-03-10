@@ -16,6 +16,7 @@ module.exports = {
       screens: {
         xs: "400px", // Custom breakpoint for extra small screens
         mdsm: "500px",
+        mdlg: "600px",
         xl2: "1440px", // Custom breakpoint for extra large screens
       },
       stroke: {

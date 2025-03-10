@@ -128,11 +128,13 @@ export default function About() {
           </div>
         </div> */}
 
-        <div className="my-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+        <div className="sm:my-24 my-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 px-10">
           {/* Left Section */}
-          <div className="flex flex-col gap-8 md:gap-16">
-            <h4 className="text-4xl md:text-7xl heading">How we Thrive</h4>
-            <h2 className="text-lg md:text-xl text-gray-500">
+          <div className="flex flex-col md:gap-y-8 lg:gap-16">
+            <h4 className="sm:text-5xl text-4xl lg:text-7xl heading sm:mb-5 mb-4">
+              How we Thrive
+            </h4>
+            <h2 className="sm:text-lg text-base lg:text-xl text-gray-500">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
               ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -141,7 +143,7 @@ export default function About() {
           </div>
 
           {/* Right Section (Badges) */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-8">
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-6 lg:gap-8">
             {badges.map((badge, index) => (
               <div
                 key={index}

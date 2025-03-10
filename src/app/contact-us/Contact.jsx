@@ -21,6 +21,7 @@ const ContactUS = () => {
   const Datatype = {
     name: {
       label: "Your Name",
+      description: "Enter full name",
       required: true,
       radius: 10,
     },
@@ -48,6 +49,7 @@ const ContactUS = () => {
     },
     message: {
       label: "How can we help you?",
+      description: "We'll make sure you're connected to the right expert",
       defaultValue: search,
       required: true,
       radius: 10,
@@ -74,19 +76,33 @@ const ContactUS = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="col-span-1 rounded-xl border py-8 flex flex-col gap-4 p-8"
+      className="col-span-1 rounded-xl border py-8 flex flex-col gap-4 lg:p-8 sm:p-6 xs:p-4"
     >
-      <p className="text-semibold text-3xl">Contact Us 👋</p>
-      <p className="text-gray-500">
+      <p className="text-semibold lg:text-3xl md:text-2xl text-xl">
+        Contact Us 👋
+      </p>
+      <p className="text-gray-500 lg:text-base md:text-sm text-xs">
         Feel free to send us a message or call us. Our team is ready to assist
         you with professional advice and personalized solutions.
       </p>
-      <div className="grid grid-cols-2 gap-4">
-        <TextInput className="col-span-2" {...cregister("name")} />
-        <TextInput className="col-span-2" {...cregister("email")} />
+      <div className="grid grid-cols-2 gap-4 items-center justify-center ">
+        <TextInput
+          className="lg:col-span-2 sm:col-span-1 col-span-2 self-end"
+          {...cregister("name")}
+        />
+        <TextInput
+          className="lg:col-span-2 sm:col-span-1 col-span-2"
+          {...cregister("email")}
+        />
         <TextInput className="col-span-2" {...cregister("mobile")} />
-        <Textarea className="col-span-2" {...cregister("position")} />
-        <Textarea className="col-span-2" {...cregister("message")} />
+        <Textarea
+          className="lg:col-span-2 sm:col-span-1 col-span-2"
+          {...cregister("position")}
+        />
+        <Textarea
+          className="lg:col-span-2 sm:col-span-1 self-end col-span-2"
+          {...cregister("message")}
+        />
 
         <Button
           type="submit"
@@ -110,33 +126,34 @@ export default function Contact() {
 
   return (
     <>
-      <div className="max-w-screen-xl mx-auto">
-        <div className="mx-auto grid grid-cols-2 gap-32 mt-24">
+      <div className="xl:max-w-screen-xl container mx-auto max-mdsm:px-5">
+        <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-32 md:gap-24 gap-10  lg:mt-24 md:mt-10">
           <div className="col-span-1 flex flex-col gap-4 ">
             <p className="text-gray-500">CONTACT US</p>
-            <br />
-            <p className="text-7xl heading">Let's Talk</p>
-            <br />
-            <p className="text-gray-500">
+
+            <p className="lg:text-7xl md:text-6xl sm:text-5xl text-3xl heading">
+              Let's Talk
+            </p>
+
+            <p className="text-gray-500 lg:text-base text-sm">
               Get in touch with us for all your data management needs. At
               Sheetsway, we are dedicated to providing top-notch solutions for
               your spreadsheet and data analysis challenges. Whether you have a
               question about our services, need support with our products, or
               want to give feedback, we're here to help.
             </p>
-            <br />
-            <br />
-            <div className="flex gap-4">
+
+            <div className="flex gap-4 mt-10">
               <button className="w-fit bg-secondary rounded-xl text-white">
-                <div className="flex font-normal p-8 py-4 text-left flex-col">
-                  <p className="text-sm opacity-50">Call Us</p>
-                  <p className="text-lg">(356) 77142418</p>
+                <div className="flex font-normal lg:p-8 lg:py-4 sm:p-6 sm:py-2 p-4 py-1.5 text-left flex-col">
+                  <p className="sm:text-sm text-xs opacity-50">Call Us</p>
+                  <p className="lg:text-lg text-base">(356) 77142418</p>
                 </div>
               </button>
               <button className="w-fit border border-secondary rounded-xl text-secondary">
-                <div className="flex font-normal p-8 py-4 text-left flex-col">
-                  <p className="text-sm opacity-50">Email Us</p>
-                  <p className="text-lg">info@sheetsway.com</p>
+                <div className="flex font-normal lg:p-8 lg:py-4 sm:p-6 sm:py-2 p-4 py-1.5 text-left flex-col">
+                  <p className="sm:text-sm text-xs opacity-50">Email Us</p>
+                  <p className="lg:text-lg text-base">info@sheetsway.com</p>
                 </div>
               </button>
             </div>
@@ -177,19 +194,21 @@ export default function Contact() {
             </Suspense>
           )}
         </div>
-        <div className="gap-32 my-24">
-          <SubHeading
-            heading={<span>Our Office</span>}
-            description={
+        <div className="gap-32 md:my-24 mt-14 mb-10">
+          <div className="flex sm:flex-row justify-between flex-col w-full">
+            <h1 className="lg:text-7xl md:text-6xl sm:text-5xl text-4xl shrink-0 leading-[1.2] heading">
+              Our Office
+            </h1>
+            <h2 className="md:text-xl text-base text-zinc-500">
               <span>
                 Amazing Cities, totally tricked out offices
                 <br />
                 Explore the world of sheetsway
               </span>
-            }
-          />
-          <div className="mt-24">
-            <div className="flex flex-col gap-2">
+            </h2>
+          </div>
+          <div className="sm:mt-24 mt-5">
+            <div className="flex flex-col gap-2 font-sans">
               <p className="text-lg font-semibold">Malta Office</p>
               <p>A4, Triq San Giljan, San Gwann, Malta</p>
             </div>
