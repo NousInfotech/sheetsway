@@ -15,19 +15,23 @@ import { useState } from "react";
 export default function Faq() {
   const [search, setSearch] = useState("");
 
+  //null returs if we use filter then the questions arr will not filter.
   const filterData = !search.length
     ? faq
-    : faq.filter((dt) => {
-        const res = dt.questions.filter(
-          (q) =>
-            q.question.toLowerCase().includes(search.toLowerCase()) ||
-            q.answer.toLowerCase().includes(search.toLowerCase())
-        );
+    : faq
+        .map((dt) => {
+          const questions = dt.questions.filter(
+            (q) =>
+              q.question.toLowerCase().includes(search.toLowerCase()) ||
+              q.answer.toLowerCase().includes(search.toLowerCase())
+          );
 
-        return res.length > 0 ? { ...dt, questions: res } : null;
-      });
+          return questions.length > 0 ? { ...dt, questions: questions } : null;
+        })
+        // not return null
+        .filter(Boolean);
 
-  // console.log(filterData);
+  console.log(filterData);
 
   return (
     <>
@@ -66,32 +70,41 @@ export default function Faq() {
           </p>
         </div>
       </div>
-      <div className="lg:max-w-screen-lg container mx-auto mb-20">
+      <div className="xl:max-w-screen-xl lg:max-w-screen-lg container mx-auto mb-20">
         <div className="sm:mt-14 mt-8 flex flex-col sm:gap-16 gap-8">
-          {!filterData.length ? (
-            <p className="text-xl text-center">No Results Found!🙂</p>
-          ) : (
-            filterData?.map((item) => (
-              <div>
-                <p className="sm:text-xl text-lg font-semibold font-sans ">
-                  {item?.heading}
-                </p>
-                <br />
-                <Accordion>
-                  {item?.questions?.map((item, index) => (
-                    <AccordionItem key={item.key} value={item?.question}>
-                      <AccordionControl className="max-sm:text-base">
-                        {index + 1}. {item?.question}
-                      </AccordionControl>
-                      <AccordionPanel className="text-gray-500 max-sm:text-xs">
-                        {item?.answer}
-                      </AccordionPanel>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            ))
-          )}
+          {/**every check where all the results are null or not (when i use only map not filter at the end) */}
+          {
+            // filterData.every((dt) => dt === null) ? (
+            //   <p className="text-xl text-center">No Results Found!🙂</p>
+            // )
+            !filterData.length ? (
+              <p className="text-xl text-center">No Results Found!🙂</p>
+            ) : (
+              filterData?.map((item) => {
+                if (item === null) return;
+                return (
+                  <div>
+                    <p className="sm:text-xl text-lg font-semibold font-sans ">
+                      {item?.heading}
+                    </p>
+                    <br />
+                    <Accordion>
+                      {item?.questions?.map((item, index) => (
+                        <AccordionItem key={item.key} value={item?.question}>
+                          <AccordionControl className="max-sm:text-base">
+                            {index + 1}. {item?.question}
+                          </AccordionControl>
+                          <AccordionPanel className="text-gray-500 max-sm:text-xs">
+                            {item?.answer}
+                          </AccordionPanel>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </div>
+                );
+              })
+            )
+          }
         </div>
       </div>
     </>
