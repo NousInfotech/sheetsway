@@ -1,10 +1,12 @@
+"use client";
+
 import Heading from "@/Components/UI/Heading";
-import { Badge, Button } from "@mantine/core";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { CiLinkedin, CiMail } from "react-icons/ci";
 import { badges, team } from "../_constants/about-us-data";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
@@ -24,28 +26,38 @@ export default function About() {
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
           />
         </div>
-        {/* <div className="grid md:grid-cols-4 grid-cols-2 lg:gap-32 gap-4 sm:mt-20 mt-10"> */}
-        <div className="grid grid-cols-[repeat(auto-fit,_minmax(10rem,1fr))]  gap-4 sm:mt-20 mt-8">
-          {team.map((item) => (
-            <div className="flex flex-col items-center font-sans">
+        {/* <div className="grid grid-cols-[repeat(auto-fit,_minmax(10rem,15rem))] justify-between gap-4 sm:mt-20 mt-8"> */}
+        <div className="grid lg:grid-cols-[repeat(4,15rem)] sm:grid-cols-[repeat(2,15rem)] xs:grid-cols-[repeat(2,10rem)] lg:justify-between justify-center gap-4 sm:mt-20 mt-5">
+          {team.map((item, i) => (
+            <motion.div
+              className={`flex flex-col items-center font-sans p-2 rounded-xl`}
+              initial={{ backgroundColor: "#fff", scale: 1 }}
+              whileHover={{
+                backgroundColor: i % 2 === 0 ? "#FFCE33" : "#3B4EFF",
+                scale: 1.05,
+                boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
+                rotate: 3,
+              }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
               <Image
                 width={500}
                 height={500}
-                className="rounded-b-full sm:w-32 w-20 object-cover mb-2"
+                className={`rounded-b-full sm:w-32 w-20 object-cover mb-2 `}
                 src={item.src}
+                alt="img"
               />
-              {/* <br /> */}
               <p className="font-semibold max-sm:text-sm">{item.name}</p>
               <p className="text-zinc-500 max-sm:text-xs">{item.role}</p>
-              <div className="flex items-center gap-2">
-                <Button variant="default" className="p-0 border-none text-lg">
-                  <CiLinkedin />
-                </Button>
-                <Button variant="default" className="p-0 border-none text-lg">
-                  <CiMail />
-                </Button>
+              <div className="flex items-center gap-2 mt-2">
+                <Link href={"#"} className="">
+                  <CiLinkedin size={16} />
+                </Link>
+                <Link href={"#"}>
+                  <CiMail size={16} />
+                </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -94,39 +106,6 @@ export default function About() {
             />
           </div>
         </div>
-
-        {/* <div className="my-24 grid grid-cols-2 gap-16">
-          <div className="flex flex-col gap-16">
-            <h4 className="text-7xl heading">How we Thrive</h4>
-            <h2 className="text-xl text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
-            </h2>
-          </div>
-          <div className="flex flex-wrap gap-8">
-            {badges.map((badge, index) => (
-              <div
-                key={index}
-                className="relative flex items-center bg-zinc-100  gap-4 px-4 rounded-3xl w-fit cursor-pointer group overflow-hidden"
-              >
-                <div className="relative w-8 h-8 scale-125 bg-accent rounded-full z-10 flex items-center justify-center transition-colors duration-500 ease-in-out ">
-                  {badge.leftSection}
-                </div>
-
-                <p className="relative z-10 text-xl font-normal text-black capitalize transition-colors duration-500 ease-in-out group-hover:text-white">
-                  {badge.text}
-                </p>
-
-                <div
-                  className="absolute inset-0 bg-theme rounded-3xl scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-in-out"
-                  style={{ transformOrigin: "left 50%" }}
-                ></div>
-              </div>
-            ))}
-          </div>
-        </div> */}
 
         <div className="sm:my-24 my-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 px-10">
           {/* Left Section */}

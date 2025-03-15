@@ -22,7 +22,7 @@ export const footerData = [
       links: [
         { label: "Home", href: "/" },
         { label: "Pricing", href: "/pricing" },
-        { label: "FAQ", href: "/faq" },
+        { label: "FAQ", href: "/knowledge-base/faq" },
       ],
     },
   },
@@ -50,9 +50,9 @@ export const footerData = [
     more: {
       heading: "More",
       links: [
-        { label: "Terms and Condition", href: "#" },
-        { label: "Privacy Policy", href: "#" },
-        { label: "License", href: "#" },
+        { label: "Terms and Conditions", href: "/terms-and-conditions" },
+        { label: "Privacy Policy", href: "/privacy-policy" },
+        { label: "License", href: "/license" },
       ],
     },
   },

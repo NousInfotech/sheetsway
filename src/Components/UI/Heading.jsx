@@ -6,7 +6,7 @@ function Heading({ heading, description }) {
       <h1 className="lg:text-7xl md:text-6xl sm:text-5xl xs:text-4xl text-3xl heading leading-[1.2] sm:w-[70%] w-[80%]">
         {heading}
       </h1>
-      <h2 className="md:text-xl sm:text-base xs:text-sm text-xs md:max-w-screen-sm xs:max-w-screen-xs w-[85%] mx-auto text-zinc-500">
+      <h2 className="md:text-xl sm:text-base xs:text-sm text-xs md:max-w-screen-sm xs:max-w-screen-xs w-[88%] mx-auto text-zinc-500">
         {description}
       </h2>
     </div>

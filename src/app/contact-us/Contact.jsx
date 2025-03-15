@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import ShowSection from "../_components/ShowSection";
 export const getNextId = () => String(Math.random()).slice(2);
 
-const ContactUS = () => {
+const ContactUS = ({ setSubmitted }) => {
   const {
     handleSubmit,
     register,
@@ -76,7 +76,7 @@ const ContactUS = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="col-span-1 rounded-xl border py-8 flex flex-col gap-4 lg:p-8 sm:p-6 xs:p-4"
+      className="col-span-1 rounded-xl border xs:py-6 flex flex-col gap-4 lg:p-8 sm:p-6 xs:p-4 p-2 "
     >
       <p className="text-semibold lg:text-3xl md:text-2xl text-xl">
         Contact Us 👋
@@ -132,7 +132,7 @@ export default function Contact() {
             <p className="text-gray-500">CONTACT US</p>
 
             <p className="lg:text-7xl md:text-6xl sm:text-5xl text-3xl heading">
-              Let's Talk
+              Let&apos;s Talk
             </p>
 
             <p className="text-gray-500 lg:text-base text-sm">
@@ -140,7 +140,7 @@ export default function Contact() {
               Sheetsway, we are dedicated to providing top-notch solutions for
               your spreadsheet and data analysis challenges. Whether you have a
               question about our services, need support with our products, or
-              want to give feedback, we're here to help.
+              want to give feedback, we&apos;re here to help.
             </p>
 
             <div className="flex gap-4 mt-10">
@@ -159,27 +159,27 @@ export default function Contact() {
             </div>
           </div>
           {submitted ? (
-            <div className="col-span-1 overflow-clip relative rounded-xl justify-center border py-8 flex flex-col gap-4 p-8">
-              <p className="text-5xl">🧡</p>
-              <p className="text-semibold heading text-5xl">
+            <div className="col-span-1 relative rounded-xl justify-center border sm:py-6 py-4 flex flex-col gap-4 sm:p-8 p-4">
+              <p className="sm:text-5xl text-3xl">🧡</p>
+              <p className="text-semibold heading sm:text-5xl text-4xl">
                 We value you at Sheetsway
               </p>
-              <p className="text-semibold text-zinc-500">
+              <p className="text-semibold text-zinc-500 sm:text-base text-sm">
                 We value your feedback and inquiries. At SheetSway, our team is
                 committed to providing exceptional service and support. Whether
                 you have questions about our solutions, need assistance with
                 your data management, or simply want to share your thoughts,
-                we're here to listen and help.
+                we&apos;re here to listen and help.
               </p>
               <Image
                 src="/back.svg"
-                width={1200}
-                height={1200}
-                className="absolute z-[-1] opacity-20 top-0 left-0"
+                className="absolute inset-0 opacity-20 object-cover h-full w-full"
+                alt="background-img"
               />
+
               <Button
                 variant="light"
-                className="w-fit"
+                className="w-fit relative z-50"
                 onClick={() => {
                   setSubmitted(false);
                   localStorage.removeItem("contact-us");
@@ -190,7 +190,7 @@ export default function Contact() {
             </div>
           ) : (
             <Suspense>
-              <ContactUS />
+              <ContactUS setSubmitted={setSubmitted} />
             </Suspense>
           )}
         </div>
@@ -218,10 +218,10 @@ export default function Contact() {
               width="100%"
               height="600"
               src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=52.70967533219885, -8.020019531250002&amp;q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
-              frameborder="0"
+              // frameborder="0"
               scrolling="no"
-              marginheight="0"
-              marginwidth="0"
+              // marginheight="0"
+              // marginwidth="0"
             ></iframe>
           </div>
         </div>

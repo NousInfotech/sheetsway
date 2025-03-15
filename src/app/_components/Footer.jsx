@@ -4,19 +4,33 @@ import Logo from "./Logo";
 import { footerData, icons } from "../_constants/footer-data";
 import FadeUpAnimation from "./FadeUpAnimation";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 function RenderList({ data }) {
   if (!data) return;
   return (
     <div>
-      <h4 className="text-white font-semibold mb-3">{data.heading}</h4>
+      <h4 className="text-white font-semibold mb-3 font-sans">
+        {data.heading}
+      </h4>
       <ul className="space-y-2">
         {data.links.map((link) => (
-          <li key={link.label}>
-            <Link href={link.href} className="hover:text-white">
+          <motion.li
+            key={link.label}
+            initial={{
+              rotate: 0,
+            }}
+            whileHover={{
+              rotate: -3,
+            }}
+          >
+            <Link
+              href={link.href}
+              className="hover:text-white hover:underline"
+            >
               {link.label}
             </Link>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </div>
