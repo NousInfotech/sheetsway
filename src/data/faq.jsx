@@ -1,4 +1,4 @@
-export const faq = [
+export const faqs = [
   {
     heading: "General Information",
     id: "general-information",

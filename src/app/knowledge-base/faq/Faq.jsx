@@ -1,6 +1,6 @@
 "use client";
 import { SubHeading } from "@/Components/UI/Heading";
-import { faq } from "@/data/faq";
+import { faqs } from "@/data/faq";
 import {
   Accordion,
   AccordionControl,
@@ -17,8 +17,8 @@ export default function Faq() {
 
   //null returs if we use filter then the questions arr will not filter.
   const filterData = !search.length
-    ? faq
-    : faq
+    ? faqs
+    : faqs
         .map((dt) => {
           const questions = dt.questions.filter(
             (q) =>
@@ -31,7 +31,17 @@ export default function Faq() {
         // not return null
         .filter(Boolean);
 
-  console.log(filterData);
+  // const filterData = !search.length
+  //   ? faqs
+  //   : faqs.filter((faq) =>
+  //       faq.questions.some(
+  //         (fq) =>
+  //           fq.question.toLowerCase().includes(search.toLowerCase()) ||
+  //           fq.answer.toLowerCase().includes(search.toLowerCase())
+  //       )
+  //     );
+
+  // console.log(filterData);
 
   return (
     <>
@@ -80,10 +90,10 @@ export default function Faq() {
             !filterData.length ? (
               <p className="text-xl text-center">No Results Found!🙂</p>
             ) : (
-              filterData?.map((item) => {
+              filterData?.map((item, i) => {
                 if (item === null) return;
                 return (
-                  <div>
+                  <div key={i}>
                     <p className="sm:text-xl text-lg font-semibold font-sans ">
                       {item?.heading}
                     </p>
