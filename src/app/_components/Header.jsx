@@ -55,7 +55,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="flex justify-between items-center py-6 sm:px-10 px-5 relative ">
+    <header className="flex justify-between items-center py-6 sm:px-32 px-5 relative ">
       <div className="lg:hidden flex items-center">
         <button
           className="text-gray-700"
@@ -65,11 +65,11 @@ export default function Header() {
         </button>
       </div>
 
-      <div className="hidden lg:block">
+      <div className="hidden lg:block flex-1">
         <Logo />
       </div>
 
-      <nav className="hidden lg:flex relative flex-grow justify-center items-center gap-4 font-inter">
+      <nav className="hidden lg:flex relative justify-center items-center gap-4 font-inter flex-[3]">
         <div
           className="relative group"
           onMouseEnter={() => setDropdownOpen("solution")}
@@ -152,7 +152,7 @@ export default function Header() {
         ))}
       </nav>
 
-      <div className="flex gap-1 md:gap-2">
+      <div className="flex gap-1 md:gap-2 flex-1 justify-end">
         {/* <Button type="tertiary">Login</Button> */}
         <NavLink
           target="_blank"

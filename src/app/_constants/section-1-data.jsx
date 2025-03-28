@@ -74,7 +74,7 @@ export const navigationOptions = [
     text: "Enable direct document uploads and live collaboration with clients.",
   },
   {
-    label: "Cross Referencing",
+    label: "Audit Memos",
     src: "/sec-1/Audit_memos_queries.png",
     icon: <BookMarked className="h-5 w-5" />,
     text: "Centralize discussions, client feedback, and internal reviews, keeping everyone aligned in one place.",

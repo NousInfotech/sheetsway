@@ -9,7 +9,7 @@ export const features = [
       </p>
     ),
     className:
-      "md:top-20 md:left-10 top-10 left-10 max-xs:top-4 max-xs:left-4 shadow-[0px_1px_4px_rgba(255,140,0,0.4)] bg-white",
+      "md:top-20 md:left-10 top-10 left-10 max-xs:top-4 max-xs:left-4 shadow-lg bg-white",
     imgClass: "scale-x-[-1] md:h-6 h-4",
   },
   {
@@ -21,7 +21,7 @@ export const features = [
       </p>
     ),
     className:
-      "md:top-28 md:right-0 top-20 right-0 max-xs:top-20 max-xs:-right-5 py-1.5 px-3 shadow-[0px_10px_40px_rgba(255,140,0,0.5)] bg-white",
+      "md:top-28 md:right-0 top-20 right-0 max-xs:top-20 max-xs:-right-5 py-1.5 px-3 shadow-lg bg-white",
     imgClass: "md:h-6 h-4",
   },
   {
@@ -31,7 +31,7 @@ export const features = [
       <p className="md:text-sm text-[8px] text-gray-600 font-medium">Audit</p>
     ),
     className:
-      "md:bottom-3 md:-left-10 bottom-2 -left-10 max-xs:bottom-2 max-xs:-left-10 px-4 shadow-[0px_1px_4px_rgba(255,140,0,0.4)] bg-white",
+      "md:bottom-3 md:-left-10 bottom-2 -left-10 max-xs:bottom-2 max-xs:-left-10 px-4 shadow-lg bg-white",
     imgClass: "md:h-6 h-4",
   },
   {
@@ -43,7 +43,7 @@ export const features = [
       </p>
     ),
     className:
-      "md:bottom-10 md:left-20 bottom-10 left-10 max-xs:bottom-14 max-xs:-left-2 px-3 py-2 shadow-[0px_1px_4px_rgba(255,140,0,0.4)] bg-white",
+      "md:bottom-10 md:left-20 bottom-10 left-10 max-xs:bottom-14 max-xs:-left-2 px-3 py-2 shadow-lg bg-white",
     imgClass: "md:h-6 h-4",
   },
   {
@@ -57,7 +57,7 @@ export const features = [
       </p>
     ),
     className:
-      "md:-bottom-10 md:right-20 -bottom-8 right-15 px-3 py-2 shadow-[0px_1px_4px_rgba(255,140,0,0.4)] bg-white",
+      "md:-bottom-10 md:right-20 -bottom-8 right-15 px-3 py-2 shadow-lg bg-white",
     imgClass: "md:h-6 h-4",
   },
   {
@@ -65,7 +65,7 @@ export const features = [
     alt: "Audit",
     Text: "",
     className:
-      "md:-top-10 md:left-[30%] -top-12 left-[40%] p-2 shadow-[0px_1px_4px_rgba(255,140,0,0.4)] bg-white",
+      "md:-top-10 md:left-[30%] -top-12 left-[40%] p-2 shadow-lg bg-white",
     imgClass: "md:h-6 h-6 max-xs:h-4",
   },
   {
@@ -96,7 +96,7 @@ export const features = [
     alt: "Chat",
     Text: "",
     className:
-      "md:-right-10 md:top-[65%] -right-14 top-[60%] max-xs:-right-10 p-2 shadow-[0px_1px_4px_rgba(255,140,0,0.4)] bg-white",
+      "md:-right-10 md:top-[65%] -right-14 top-[60%] max-xs:-right-10 p-2 shadow-lg bg-white",
     imgClass: "md:h-8 h-6 max-xs:h-5",
   },
 ];

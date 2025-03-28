@@ -102,7 +102,7 @@ export default function IndustryAwareAI() {
                 <div className="absolute left-0 top-2 bottom-0 flex">
                   <div className="w-1 bg-primary rounded">
                     <div
-                      className="h-full bg-gray-200 loader-vertical-animation"
+                      className="h-full w-1 bg-gray-200 loader-vertical-animation"
                       style={{ animationDuration: "10s" }}
                     ></div>
                   </div>

@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       boxShadow: {
         black: "0px 10px 40px rgba(0, 0, 0, 0.1)",
-        lightBlack: "0px -10px 40px rgba(0, 0, 0, 0.4)",
+        lightBlack: "0px 0px 40px rgba(0, 0, 0, 0.4)",
         orange: "0px 1px 8px rgba(255,140,0,0.4)",
         lightorange: "0px 1px 8px rgba(255,140,0,0.12)",
       },
