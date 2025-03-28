@@ -43,7 +43,7 @@ function AnimatedOrbit() {
       </div>
 
       {/* Popup Features */}
-      <div className="absolute w-[80%] h-[80%] flex justify-center items-center z-50">
+      <div className="absolute w-[90%] h-[90%] flex justify-center items-center z-50">
         {/* Feature Items */}
         {features.map(({ src, alt, Text, className, imgClass }, index) => (
           <motion.div
@@ -92,12 +92,13 @@ export default function AuditPlatform() {
             </div>
           )}
 
-          <h2 className="text-2xl sm:text-3xl font-bold mt-6 text-gray-700">
+          <h2 className="text-2xl sm:text-3xl font-montserrat font-bold mt-12 text-gray-700">
             An Audit Organizational Management Tool
           </h2>
-          <p className="text-gray-500 mt-4 text-sm sm:text-lg">
-            Meticulously researched and planned tools any auditor should have
-            under his belt in one portal.
+          <p className="text-gray-500 mt-4 text-sm sm:text-lg font-nunito">
+            Meticulously researched and planned tools <br /> 
+            any auditor should have under his belt <br />
+            in one portal.
           </p>
           <div className="mt-8 flex gap-4 justify-center lg:justify-start relative z-20">
             <Button type="secondary" size="lg">

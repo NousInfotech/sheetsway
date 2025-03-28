@@ -13,7 +13,7 @@ const ArticleCarousel = () => {
 
   return (
     <>
-      <div className="flex justify-evenly gap-4 gap-y-6 items-center flex-wrap mt-10 bg-white border-2 border-gray-200 opacity-100 p-5">
+      <div className="flex relative justify-evenly gap-4 gap-y-6 items-center flex-wrap mt-10 bg-white border-2 border-gray-200 opacity-100 p-5">
         {logos.map((logo, index) => (
           <img
             onClick={() => setCurrentIndex(index)}

@@ -33,7 +33,7 @@ const ScrollableFeatures = ({ setCurrFeature, currFeature }) => {
   }, [currFeature]);
 
   return (
-    <div className="relative sm:mt-12 mt-6 overflow-hidden ">
+    <div className="relative sm:mt-12 mt-6">
       <div ref={scrollRef} className="overflow-x-auto scrollbar-hide px-4">
         <motion.div
           ref={dragRef}
@@ -66,7 +66,7 @@ const ScrollableFeatures = ({ setCurrFeature, currFeature }) => {
                 alt={feature.label}
                 className="h-8 w-8 sm:h-16 sm:w-16 object-contain mb-2"
               />
-              <p className="sm:text-sm text-[10px] font-sans font-medium text-gray-600 text-center">
+              <p className="sm:text-sm text-[10px] font-sans font-medium text-gray-600 text-center mb-6">
                 {feature.label}
               </p>
             </motion.div>

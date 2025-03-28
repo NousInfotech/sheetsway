@@ -4,13 +4,13 @@ import Video from "@/app/_components/Video";
 function Plugin({ heading, p1, p2, p3, link, videoSrc, shadow }) {
   return (
     <FadeUpAnimation className="flex flex-col items-center w-full md:w-1/2 lg:w-2/5 font-sans">
-      <h3 className="text-2xl sm:text-3xl font-bold text-gray-700 mb-4">
+      <h3 className="text-2xl sm:text-3xl font-montserrat font-bold text-gray-700 mb-4">
         {heading}
       </h3>
-      <p className="text-gray-600 text-sm sm:text-base text-center font-semibold mb-3 max-sm:mb-4 leading-[20px]">
+      <p className="text-gray-600 font-nunito text-sm sm:text-base text-center font-semibold mb-3 max-sm:mb-4 leading-[20px]">
         {p1} <br /> {p2}
       </p>
-      <p className="text-gray-600 text-xs text-center max-sm:max-w-xs mx-auto mb-10 font-semibold">
+      <p className="text-gray-600 text-xs font-nunito text-center max-sm:max-w-xs mx-auto mb-10 font-semibold">
         {p3}
       </p>
 

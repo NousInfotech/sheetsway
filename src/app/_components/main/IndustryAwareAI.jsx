@@ -6,7 +6,7 @@ import useInterval from "@/hooks/useInterval";
 import useMobile from "@/hooks/useMobile";
 
 export default function IndustryAwareAI() {
-  const [active, setActive] = useInterval(0, industryAwareData.length, 5000);
+  const [active, setActive] = useInterval(0, industryAwareData.length, 10000);
   const [isMobile] = useMobile(700);
 
   if (isMobile) {
@@ -18,26 +18,33 @@ export default function IndustryAwareAI() {
           "AI Driven Answers",
           "AI Chat Bot",
         ].map((el, i) => (
-          <div key={i}>
+          <div key={i} className="relative">
             <div
-              className={`${
-                active === i ? "border-l-4 border-primary -mx-6 px-6" : ""
-              }`}
+              className={`${active === i ? "border-l-4 border-primary -mx-6 px-6" : ""
+                }`}
             >
+              {/* {active === i && (
+                <div className="absolute left-0 top-2 bottom-0 flex">
+                  <div className="w-1 bg-primary rounded">
+                    <div
+                      className="h-full bg-gray-200 loader-vertical-animation"
+                      style={{ animationDuration: "10s" }}
+                    ></div>
+                  </div>
+                </div>
+              )} */}
               <h1
-                className={`${
-                  active === i ? "text-primary" : "text-gray-400 mb-4"
-                } text-2xl font-extrabold`}
+                className={`${active === i ? "text-primary" : "text-gray-400 mb-4"
+                  } text-2xl font-extrabold font-montserrat`}
                 onClick={() => setActive(i)}
               >
                 {el}
               </h1>
               {active === i && (
                 <>
-                  <p className="text-sm font-semibold text-gray-800 mt-1 max-w-xs">
+                  <p className="text-sm font-semibold text-gray-800 mt-1 max-w-xs font-nunito">
                     {industryAwareData[active].description.split(".")[0]}.
                   </p>
-
                   <div className="flex gap-2 mt-4">
                     {industryAwareData[active].tags.map((tag) => (
                       <button
@@ -75,7 +82,7 @@ export default function IndustryAwareAI() {
           Getting to know our <br />
           <span className="text-orange-500">Industry-Aware AI</span>
         </h1>
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl mt-4 text-gray-600">
+        <p className="text-sm sm:text-base font-montserrat md:text-lg lg:text-xl mt-4 text-gray-600">
           Meet the AI that knows <br /> your industry inside and out.
         </p>
       </FadeUpAnimation>
@@ -88,35 +95,49 @@ export default function IndustryAwareAI() {
           amount={0.6}
         >
           {industryAwareData.map((el, index) => (
-            <div className="text-left mb-5" key={index}>
-              <h2
-                className={`text-lg sm:text-xl md:text-2xl font-extrabold cursor-pointer hover:text-primary ${
-                  active === index ? "text-primary" : "text-[#A8A8A8]"
-                }`}
-                onClick={() => setActive(index)}
-              >
-                {el.title}
-              </h2>
+            // Wrap the whole item in a relative container
+            <div key={index} className="relative mb-5">
+              {/* Loader placed absolutely on the left side */}
               {active === index && (
-                <>
-                  <p className="text-gray-700 mt-2 text-xs sm:text-sm md:text-base lg:text-lg">
-                    <span className="font-bold">
-                      {el.description.split(".")[0]}.
-                    </span>
-                    {el.description.split(".").splice(1).join(".")}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2 mb-8">
-                    {el.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-white text-gray-600 rounded-md text-xs sm:text-sm border"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                <div className="absolute left-0 top-2 bottom-0 flex">
+                  <div className="w-1 bg-primary rounded">
+                    <div
+                      className="h-full bg-gray-200 loader-vertical-animation"
+                      style={{ animationDuration: "10s" }}
+                    ></div>
                   </div>
-                </>
+                </div>
               )}
+              {/* Content container with left padding to avoid overlap */}
+              <div className="pl-3 flex flex-col justify-between">
+                <h2
+                  className={`text-lg sm:text-xl md:text-2xl font-extrabold cursor-pointer font-montserrat hover:text-primary ${active === index ? "text-primary" : "text-[#A8A8A8]"
+                    }`}
+                  onClick={() => setActive(index)}
+                >
+                  {el.title}
+                </h2>
+                {active === index && (
+                  <div className="space-y-4">
+                    <p className="text-gray-700 mt-2 font-nunito text-xs sm:text-sm md:text-base lg:text-lg">
+                      <span className="font-bold">
+                        {el.description.split(".")[0]}.
+                      </span>
+                      {el.description.split(".").splice(1).join(".")}
+                    </p>
+                    <div className="flex flex-wrap gap-2 items-end">
+                      {el.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-white text-gray-600 rounded-md text-xs sm:text-sm border"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </FadeUpAnimation>
@@ -153,6 +174,23 @@ export default function IndustryAwareAI() {
           </div>
         </FadeUpAnimation>
       </div>
+      <style jsx>{`
+        .loader-vertical-animation {
+          /* Use scaleY transform for smooth animation */
+          transform-origin: bottom;
+          animation-name: loaderVerticalFill;
+          animation-timing-function: linear;
+          animation-fill-mode: forwards;
+        }
+        @keyframes loaderVerticalFill {
+          from {
+            transform: scaleY(1);
+          }
+          to {
+            transform: scaleY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 }

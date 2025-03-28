@@ -8,7 +8,7 @@ export default function FeatureSection() {
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center px-6">
       <div
-        className="absolute inset-0 bg-cover"
+        className="absolute inset-0 bg-cover z-30"
         style={{
           backgroundImage: "url('/Background pattern.png')",
           opacity: 0.06,
@@ -16,7 +16,7 @@ export default function FeatureSection() {
       ></div>
 
       {/* Grid Container */}
-      <div className="flex flex-col lg:gap-32 sm:gap-y-10  md:gap-y-10 z-50 max-w-7xl mx-auto">
+      <div className="flex flex-col lg:gap-32 sm:gap-y-10  md:gap-y-10 max-w-7xl mx-auto">
         {features.map((feature, index) => {
           const { firstSentence, rest } = getfirstSentence(feature.description);
 
@@ -34,10 +34,10 @@ export default function FeatureSection() {
                 initialY={80}
                 className="w-full md:w-1/2 flex justify-center relative"
               >
-                <Video src={feature.videoSrc} />
-                <img src={feature.shapeSrc} className={feature.imgClass} />
+                <Video src={feature.videoSrc} className={"relative z-40"}/>
+                <img src={feature.shapeSrc} className={`${feature.imgClass} -z-10`} />
               </FadeUpAnimation>
-              <div className="w-full md:w-1/2 max-w-lg">
+              <div className="w-full md:w-1/2 max-w-lg z-40">
                 {feature.title}
                 <p className="text-gray-600 mt-4">
                   <strong>{firstSentence}.</strong> {rest.join(" ")}
