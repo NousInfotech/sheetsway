@@ -3,7 +3,7 @@ import FadeUpAnimation from "@/app/_components/FadeUpAnimation";
 
 export default function NewsCarousel() {
   return (
-    <div className=" text-center relative mb-10">
+    <div className=" text-center relative py-20">
       <div
         className="absolute inset-0 bg-cover"
         style={{

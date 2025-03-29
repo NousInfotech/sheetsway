@@ -66,7 +66,7 @@ export default function AuditPlatform() {
   const [isMobile] = useMobile(700);
 
   return (
-    <div className="relative">
+    <div className="relative py-10">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -74,7 +74,7 @@ export default function AuditPlatform() {
           opacity: 0.07,
         }}
       ></div>
-      <div className="flex flex-col lg:flex-row items-center justify-center max-w-screen-xl mx-auto lg:mt-0 gap-20 max-sm:mx-6 md:mt-72">
+      <div className="flex flex-col lg:flex-row items-center justify-center max-w-screen-xl mx-auto lg:mt-0 gap-24 max-sm:mx-6 md:mt-72">
         {/* Left Section */}
         <div className="md:text-center lg:text-left max-w-lg">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-bodoni sm:leading-tight ">

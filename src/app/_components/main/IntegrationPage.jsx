@@ -28,7 +28,7 @@ function Plugin({ heading, p1, p2, p3, link, videoSrc, shadow }) {
 const IntegrationPage = () => {
   return (
     // <div className="px-2 sm:px-14 min-h-screen flex flex-col items-center mb-16">
-    <div className="px-2 sm:px-14 min-h-screen flex flex-col items-center">
+    <div className="px-2 py-10 sm:px-14 min-h-screen flex flex-col items-center">
       {/* Main Heading */}
       <FadeUpAnimation>
         <h2 className="text-3xl sm:text-4xl font-light font-bodoni mb-12 text-center">
@@ -39,7 +39,7 @@ const IntegrationPage = () => {
       </FadeUpAnimation>
 
       {/* Integration Sections */}
-      <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-10 w-full">
+      <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-6 w-full">
         {/* Word Plugin Section */}
         <Plugin
           link={"Drafting"}
@@ -54,7 +54,7 @@ const IntegrationPage = () => {
         />
 
         {/* Divider */}
-        <div className="hidden md:flex w-[1px] bg-gray-300 h-full min-h-[550px] mx-8"></div>
+        <div className="hidden md:flex w-[2px] bg-gray-100 min-h-[500px] mx-8"></div>
 
         <Plugin
           link={"Extraction"}

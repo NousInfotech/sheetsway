@@ -81,9 +81,9 @@ const AuditSolution = () => {
   const [currFeature, setCurrFeature] = useInterval(0, features.length, 5000);
 
   return (
-    <div className=" px-6 ">
+    <div className="px-6 py-10 relative z-40">
       {/* Top Border Decoration */}
-      <div className="border-t-[30px] border-[#FFB231] mb-6 -mx-6 shadow-xl"></div>
+      <div className="border-t-[30px] realtive z-40 border-[#FFB231] mb-6 -mx-6 shadow-xl"></div>
 
       <FadeUpAnimation
         amount={0.2}
@@ -111,7 +111,7 @@ const AuditSolution = () => {
           className="flex flex-col items-center justify-center"
         >
           <AnimatedTextPortal
-            className="lg:text-sm sm:mt-10 mt-14 md:text-sm max-sm:text-xs max-xs:text-xs font-medium text-gray-600 xl:max-w-full lg:max-w-full md:max-w-full "
+            className="lg:text-sm sm:mt-10 mt-14 md:text-sm max-sm:text-xs max-xs:text-xs font-medium text-gray-600 xl:max-w-[60%] lg:max-w-[65%] md:max-w-[70%] "
             paraText={features[currFeature].text}
           />
 

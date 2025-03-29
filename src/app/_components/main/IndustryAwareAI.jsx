@@ -11,7 +11,7 @@ export default function IndustryAwareAI() {
 
   if (isMobile) {
     return (
-      <div className="lg:min-h-screen text-gray-900 bg-gradient-to-b from-white via-orange-50 to-white px-6 ">
+      <div className="lg:min-h-screen text-gray-900 bg-gradient-to-b from-white via-orange-50 to-white px-6 py-10">
         {[
           "Automatic FS Mapping",
           "Procedures Generation",

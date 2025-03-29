@@ -8,7 +8,7 @@ import NewsCarousel from "./_components/main/NewsCarousel";
 
 function page() {
   return (
-    <div className="flex flex-col gap-y-20">
+    <div className="flex flex-col gap-y-10">
       <FinancialAuditUI />
       <AuditPlatform />
       <IntegrationPage />
