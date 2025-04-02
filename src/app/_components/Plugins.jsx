@@ -16,16 +16,16 @@ export default function Plugins({ plugin }) {
       amount={0.3}
       duration={1.2}
       initialY={80}
-      className="bg-gray-50 shadow-[0px_0px_20px_rgba(0,0,0,0.2)] relative pt-14 pb-24 mt-24"
+      className="bg-gray-50 shadow-[0px_0px_20px_rgba(0,0,0,0.2)] relative z-30"
     >
       <div
         className="absolute inset-0 bg-cover"
-        style={{
-          backgroundImage: "url('/Background pattern.png')",
-          opacity: 0.09,
-        }}
+        // style={{
+        //   backgroundImage: "url('/Background pattern.png')",
+        //   opacity: 0.09,
+        // }}
       ></div>
-      <div className="text-center flex lg:flex-row flex-col items-center lg:gap-20 gap-10 md:justify-center justify-evenly relative">
+      <div className="text-center flex lg:flex-row flex-col items-center lg:gap-32 gap-10 md:justify-center justify-evenly relative py-16">
         <div className="flex items-center flex-col">
           <img src={plugin.imgSrc} alt={plugin.alt} className="w-[300px] " />
 
@@ -35,7 +35,7 @@ export default function Plugins({ plugin }) {
               backgroundColor: plugin.color,
             }}
           >
-            <h2 className="text-center lg:max-w-96 w-full lg:ml-44 ">
+            <h2 className="text-center lg:max-w-96 w-full lg:ml-32">
               {plugin.primaryHeading} <br /> {plugin.secondaryHeading}
             </h2>
           </div>

@@ -16,18 +16,18 @@ import {
 import useInterval from "@/hooks/useInterval";
 
 export default function ClientPortal() {
-  const [currImg, setCurrImg] = useInterval(0, images.length);
+  const [currImg, setCurrImg] = useInterval(0, images.length, 7000);
 
   return (
     <div className="min-h-screen mt-5">
       {/** */}
-      <FadeUpAnimation className="text-center mb-14 flex flex-col gap-6">
+      <FadeUpAnimation className="text-center mb-14 flex flex-col gap-2 relative z-30">
         <AnimatedTextPortal
           headingText="Client Portal"
           paraText="Empower your clients with a dedicated portal for managing audit-related tasks, including document uploads, query responses, and real-time progress tracking, ensuring client satisfaction as a priority."
         />
 
-        <div className="mt-4 flex justify-center space-x-4">
+        <div className="flex w-[30%] mx-auto justify-evenly relative z-20">
           <Button type="secondary">Try For Free</Button>
           <Button type="primary">Book a Demo</Button>
         </div>

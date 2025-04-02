@@ -57,38 +57,40 @@ export default function Tabs({ tabs, currImg, setCurrImg }) {
   const [isMobile] = useMobile(600);
 
   return (
-    <div className="bg-white grid grid-cols-[1fr_1fr] justify-center items-center p-4 sm:p-6 w-[100%] sm:w-[85%] md:w-[65%] absolute sm:-bottom-14 -bottom-24 left-1/2 transform -translate-x-1/2 rounded-2xl outline-2 outline outline-white outline-offset-8 shadow-[0px_1px_40px_rgba(0,0,0,0.4)]">
+    <div className="bg-white z-30 grid overflow-hidden grid-cols-[1fr_1fr] gap-12 justify-center items-center p-4 sm:p-6 w-[100%] sm:w-[85%] md:w-[65%] absolute sm:-bottom-14 -bottom-24 left-1/2 transform -translate-x-1/2 rounded-2xl outline-2 outline outline-white outline-offset-8 shadow-[0px_1px_40px_rgba(0,0,0,0.4)]">
       <div
-        className="absolute inset-0 bg-cover"
+        className="absolute inset-0 bg-cover z-10"
         style={{
           backgroundImage: "url('/Background pattern.png')",
-          opacity: 0.15,
+          opacity: 0.1,
+          width: "314%"
         }}
       ></div>
 
-      <div className="flex flex-col relative justify-between gap-y-4 font-sans">
-        <div className="absolute left-[11px] top-0 bottom-0 w-[1.5px] border-l-1 border border-gray-300"></div>
-        {tabs.map((tab, index) => (
-          <div key={index} className="relative flex items-center">
-            {/* Timeline Dots (Fixed Position) */}
-            <div className="w-1.5 h-1.5 bg-gray-600 rounded-full absolute left-2 top-1/2 transform -translate-y-1/2"></div>
-            {/* Button Text (Fixed Height to Prevent Movement) */}
-            <button
-              onClick={() => setCurrImg(index)}
-              className={`ml-10 text-left cursor-pointer font-semibold sm:text-sm text-[10px] transition-all duration-300 ${
-                index === currImg ? " text-theme" : "text-gray-600 "
-              }`}
-            >
-              {tab.btnText}
-            </button>
-          </div>
-        ))}
+      <div>
+        <div className="z-[15] flex flex-col relative justify-between gap-y-4 font-sans w-3/4 mx-auto">
+          <div className="absolute left-[10px] top-0 bottom-0 w-[1.5px] border-l-1 border border-gray-300"></div>
+          {tabs.map((tab, index) => (
+            <div key={index} className="relative flex items-center">
+              {/* Timeline Dots (Fixed Position) */}
+              <div className="w-1.5 h-1.5 bg-gray-600 rounded-full absolute left-2 top-1/2 transform -translate-y-1/2"></div>
+              {/* Button Text (Fixed Height to Prevent Movement) */}
+              <button
+                onClick={() => setCurrImg(index)}
+                className={`ml-10 text-left cursor-pointer sm:text-sm text-[10px] transition-all duration-300 ${index === currImg ? " text-theme font-bold text-[12px]" : "text-gray-600 font-semibold"
+                  }`}
+              >
+                {tab.btnText}
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="h-24 w-0.5 bg-gray-300 fixed left-[45%]"></div>
+      <div className="h-24 w-0.5 bg-gray-300 fixed left-1/2 -translate-x-1/2"></div>
 
-      <div className="flex flex-col items-center font-sans">
-        <div className="bg-white z-20 mb-2 p-2 rounded-lg shadow-[0px_1px_10px_rgba(255,140,0,0.4)]">
+      <div className="flex flex-col items-center justify-center font-sans">
+        <div className="bg-white z-20 mb-2 p-2 rounded-lg shadow-md">
           {tabs[currImg].icon}
         </div>
         <div className="text-center">

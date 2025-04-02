@@ -12,7 +12,7 @@ export default function ImageDetailsPortal({
         <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-3xl font-bodoni mb-2">
           {headingtext} <br /> {secondaryText}
         </h1>
-        <p className="text-gray-500 font-normal lg:text-base md:text-base sm:text-sm text-sm">
+        <p className="text-gray-500 font-normal font-nunito lg:text-base md:text-base sm:text-sm text-sm">
           {paraText}
         </p>
       </FadeUpAnimation>
@@ -23,11 +23,11 @@ export default function ImageDetailsPortal({
             <img
               src={el.src}
               alt={el.alt}
-              className="shadow-[0px_0px_10px_rgba(0,0,0,0.1)] border rounded-xl"
+              className="shadow-[4px_4px_10px_rgba(0,0,0,0.1)] border rounded-xl"
             />
             <div className="mt-8 ml-3">
               <h2 className="text-base font-bold mb-1">{el.heading}</h2>
-              <p className="text-gray-400 text-xs font-serif">{el.para}</p>
+              <p className="text-gray-400 text-xs font-nunito">{el.para}</p>
             </div>
           </FadeUpAnimation>
         ))}

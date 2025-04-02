@@ -66,7 +66,7 @@ export default function AnimatedTextPortal({
   colorOftext = "text-orange-500",
 }) {
   return (
-    <div className="text-gray-800 text-center lg:mb-12">
+    <div className="text-gray-800 text-center lg:mb-6">
       {/* Heading */}
       {headingText && (
         <h1 className="xl:text-5xl lg:text-4xl md:text-4xl text-3xl font-medium text-gray-700 font-bodoni mb-8">

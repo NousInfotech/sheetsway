@@ -18,17 +18,17 @@ import {
 import useInterval from "@/hooks/useInterval";
 
 export default function Drafting() {
-  const [currImg, setCurrImg] = useInterval(0, images.length);
+  const [currImg, setCurrImg] = useInterval(0, images.length, 70000);
 
   return (
     <div className="min-h-screen mt-5">
-      <FadeUpAnimation className="text-center mb-14 flex flex-col gap-6">
+      <FadeUpAnimation className="text-center mb-14 flex flex-col">
         <AnimatedTextPortal
           headingText="Drafting Tool-Word Plugin"
           paraText="The Workspace is Sheetsway simplifies auditing with easy document access, referencing, and management. Features like document reconciliation and AI-driven text extraction ensure efficient and accurate audit tasks."
         />
 
-        <div className="mt-4 flex justify-center space-x-4">
+        <div className="flex w-[30%] mx-auto justify-evenly relative z-20">
           <Button type="secondary">Try For Free</Button>
           <Button type="primary">Book a Demo</Button>
         </div>

@@ -1,4 +1,4 @@
-import { Cable } from "lucide-react";
+import { AlertCircle, Cable, Handshake } from "lucide-react";
 
 export const images = [
   { alt: "customizable", src: "/navigation-Page.png" },
@@ -18,14 +18,14 @@ export const tabs = [
       "Quickly adapt procedures to each engagement’s needs. Our AI-driven tool generates comprehensive steps, ensuring nothing’s overlooked.",
   },
   {
-    icon: <Cable className="text-primary md:size-6 size-4" />,
+    icon: <AlertCircle className="text-primary md:size-6 size-4" />,
     btnText: "Risk Analysis",
     primaryText: "Comprehensive Risk Overview",
     secondaryText:
       "Get a clear view of high-risk accounts. AI flags potential issues, helping you focus on what matters most in every audit.",
   },
   {
-    icon: <Cable className="text-primary md:size-6 size-4" />,
+    icon: <Handshake className="text-primary md:size-6 size-4" />,
     btnText: "Client Collaboration",
     primaryText: "Client Portal Integration",
     secondaryText:

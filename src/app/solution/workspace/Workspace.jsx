@@ -18,7 +18,7 @@ import {
 import useInterval from "@/hooks/useInterval";
 
 export default function Workspace() {
-  const [currImg, setCurrImg] = useInterval(0, images.length);
+  const [currImg, setCurrImg] = useInterval(0, images.length, 7000);
 
   return (
     <div className="min-h-screen mt-5">

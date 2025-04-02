@@ -29,9 +29,11 @@ export default function AuditHeading() {
         speed={3000}
         colorOftext="text-orange-500"
       />
-      <div className="mt-4 flex justify-center space-x-4 z-30">
-        <TryButton />
-        <Button type="primary">Book a Demo</Button>
+      <div className="mt-8 flex w-[30%] mx-auto justify-evenly relative z-20 my-5">
+        <Button type="secondary" size="lg">
+          Try it for Free
+        </Button>
+        <Button type="primary">Book an Demo</Button>
       </div>
     </FadeUpAnimation>
   );

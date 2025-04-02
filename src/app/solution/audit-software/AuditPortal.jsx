@@ -15,7 +15,7 @@ import ImageDetailsPortal from "@/app/_components/ImageDetailsPortal";
 import FeaturesPortal from "@/app/_components/FeaturesPortal";
 
 export default function AuditPortal() {
-  const [currImg, setCurrImg] = useInterval(0, images.length, 5000);
+  const [currImg, setCurrImg] = useInterval(0, images.length, 7000);
 
   return (
     <div className="min-h-screen my-5">
