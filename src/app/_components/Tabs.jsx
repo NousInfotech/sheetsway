@@ -68,7 +68,7 @@ export default function Tabs({ tabs, currImg, setCurrImg }) {
       ></div>
 
       <div>
-        <div className="z-[15] flex flex-col relative justify-between gap-y-4 font-sans w-3/4 mx-auto">
+        <div className="z-[15] flex flex-col relative justify-between gap-y-4 font-sans w-4/5 mx-auto">
           <div className="absolute left-[10px] top-0 bottom-0 w-[1.5px] border-l-1 border border-gray-300"></div>
           {tabs.map((tab, index) => (
             <div key={index} className="relative flex items-center">
@@ -77,7 +77,7 @@ export default function Tabs({ tabs, currImg, setCurrImg }) {
               {/* Button Text (Fixed Height to Prevent Movement) */}
               <button
                 onClick={() => setCurrImg(index)}
-                className={`ml-10 text-left cursor-pointer sm:text-sm text-[10px] transition-all duration-300 ${index === currImg ? " text-theme font-bold text-[12px]" : "text-gray-600 font-semibold"
+                className={`ml-10 text-left cursor-pointer transition-all duration-300 ${index === currImg ? " text-theme font-bold text-[12px] sm:text-sm" : "text-gray-600 font-semibold sm:text-xs text-[10px]"
                   }`}
               >
                 {tab.btnText}

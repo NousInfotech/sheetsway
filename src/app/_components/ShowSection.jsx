@@ -4,7 +4,7 @@ import TryButton from "./TryButton";
 
 export default function ShowSection() {
   return (
-    <FadeUpAnimation className="relative w-full bg-accent/10 h-[380px] flex flex-col items-center justify-center text-center mt-20">
+    <FadeUpAnimation className="relative w-full bg-accent/10 h-[380px] flex flex-col items-center justify-center text-center mt-10 py-10">
       <div
         className="absolute inset-0 bg-cover"
         style={{

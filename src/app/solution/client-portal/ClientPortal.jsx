@@ -21,13 +21,13 @@ export default function ClientPortal() {
   return (
     <div className="min-h-screen mt-5">
       {/** */}
-      <FadeUpAnimation className="text-center mb-14 flex flex-col gap-2 relative z-30">
+      <FadeUpAnimation className="text-center lg:w-3/4 mx-auto mb-14 flex flex-col items-center justify-center gap-2 relative z-30">
         <AnimatedTextPortal
           headingText="Client Portal"
           paraText="Empower your clients with a dedicated portal for managing audit-related tasks, including document uploads, query responses, and real-time progress tracking, ensuring client satisfaction as a priority."
         />
 
-        <div className="flex w-[30%] mx-auto justify-evenly relative z-20">
+        <div className="flex justify-center gap-4 relative z-20">
           <Button type="secondary">Try For Free</Button>
           <Button type="primary">Book a Demo</Button>
         </div>

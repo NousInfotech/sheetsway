@@ -55,7 +55,7 @@ const ScrollableFeatures = ({ setCurrFeature, currFeature }) => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className={`flex flex-col items-center justify-center bg-white sm:p-4 my-5 p-2 rounded-lg shadow-[0px_1px_10px_rgba(255,140,0,0.1)] min-w-[100px] sm:min-w-[140px] transition-transform ${
+              className={`flex flex-col items-center justify-center bg-white sm:p-4 my-5 p-2 rounded-lg shadow-[0px_1px_10px_rgba(197,200,205,0.41)] min-w-[100px] sm:min-w-[140px] transition-transform ${
                 index === currFeature ? "scale-100" : "scale-90"
               }`}
               whileHover={{ scale: 0.9 }}

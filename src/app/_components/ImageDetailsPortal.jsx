@@ -7,7 +7,7 @@ export default function ImageDetailsPortal({
   paraText = "",
 }) {
   return (
-    <div className="mt-20 lg:min-h-screen lg:mb-0 sm:mb-20 mb-20 px-10 max-w-screen-xl mx-auto">
+    <div className="mt-20 lg:mb-0 sm:mb-20 mb-20 px-10 section-spacing max-w-screen-xl mx-auto">
       <FadeUpAnimation amount={0.8} className="lg:pb-20 pb-10">
         <h1 className="lg:text-5xl md:text-4xl sm:text-3xl text-3xl font-bodoni mb-2">
           {headingtext} <br /> {secondaryText}
@@ -23,7 +23,7 @@ export default function ImageDetailsPortal({
             <img
               src={el.src}
               alt={el.alt}
-              className="shadow-[4px_4px_10px_rgba(0,0,0,0.1)] border rounded-xl"
+              className="rounded-xl"
             />
             <div className="mt-8 ml-3">
               <h2 className="text-base font-bold mb-1">{el.heading}</h2>

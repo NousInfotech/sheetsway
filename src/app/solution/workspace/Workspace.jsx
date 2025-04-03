@@ -22,13 +22,13 @@ export default function Workspace() {
 
   return (
     <div className="min-h-screen mt-5">
-      <FadeUpAnimation className="text-center mb-14 flex flex-col gap-6">
+      <FadeUpAnimation className="text-center lg:w-3/4 mx-auto flex flex-col items-center justify-center gap-2 relative z-30">
         <AnimatedTextPortal
           headingText="Workspace"
           paraText="The Workspace is Sheetsway simplifies auditing with easy document access, referencing, and management. Features like document reconciliation and AI-driven text extraction ensure efficient and accurate audit tasks."
         />
 
-        <div className="mt-4 flex justify-center space-x-4">
+        <div className="flex justify-center gap-4 relative z-20">
           <Button type="secondary">Try For Free</Button>
           <Button type="primary">Book a Demo</Button>
         </div>

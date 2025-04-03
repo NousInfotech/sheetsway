@@ -16,31 +16,36 @@ export default function Plugins({ plugin }) {
       amount={0.3}
       duration={1.2}
       initialY={80}
-      className="bg-gray-50 shadow-[0px_0px_20px_rgba(0,0,0,0.2)] relative z-30"
+      className="bg-gray-50 shadow-[0px_0px_20px_rgba(0,0,0,0.2)] relative z-30 section-spacing"
     >
-      <div
+      {/* <div
         className="absolute inset-0 bg-cover"
         // style={{
         //   backgroundImage: "url('/Background pattern.png')",
         //   opacity: 0.09,
         // }}
-      ></div>
+      ></div> */}
       <div className="text-center flex lg:flex-row flex-col items-center lg:gap-32 gap-10 md:justify-center justify-evenly relative py-16">
-        <div className="flex items-center flex-col">
+        <div className="flex items-center flex-col gap-8">
           <img src={plugin.imgSrc} alt={plugin.alt} className="w-[300px] " />
 
+          <h2 className="text-center relative z-30 xs:text-3xl text-2xl text-white font-bold">
+            {plugin.primaryHeading} <br /> {plugin.secondaryHeading}
+          </h2>
+
           <div
-            className="xs:text-3xl text-2xl w-full lg:top-[45%] xs:top-[25%] top-[25%] left-0 font-bold p-2 absolute text-white mb-4"
+            className="xs:text-3xl text-2xl w-full lg:top-[45%] xs:top-[25%] top-[25%] left-0 z-10 font-bold p-4 absolute mb-4"
             style={{
               backgroundColor: plugin.color,
+              color: plugin.color
             }}
           >
-            <h2 className="text-center lg:max-w-96 w-full lg:ml-32">
+            <h2 className="text-center relative z-30 xs:text-3xl text-2xl font-bold">
               {plugin.primaryHeading} <br /> {plugin.secondaryHeading}
             </h2>
           </div>
 
-          <ul className="text-left text-gray-700 space-y-3 xs:mt-36 mt-20">
+          <ul className="text-left text-gray-700 space-y-3">
             {plugin.listData.map((el, i) => (
               <motion.li
                 key={i}

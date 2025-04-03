@@ -19,7 +19,7 @@ export const features = [
       <h2 className="text-4xl font-medium text-gray-900 font-bodoni">
         Smarter Planning,
         <br />{" "}
-        <span className="text-primary">Powered by Industry Expert AI</span>
+        <span className="text-primary">Powered by <br /> Industry Expert AI</span>
       </h2>
     ),
     description:

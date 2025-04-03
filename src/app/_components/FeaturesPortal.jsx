@@ -23,7 +23,7 @@ export default function FeaturesPortal({
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center pb-10 container my-10 mx-auto">
+    <div className="flex flex-col items-center pb-10 container section-spacing mx-auto">
       <FadeUpAnimation className="text-center max-w-2xl lg:mb-28 mb-16">
         <h1 className="text-4xl font-medium font-bodoni">{headingText}</h1>
         <FadeUpAnimation duration={1}>

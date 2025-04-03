@@ -28,7 +28,7 @@ export default function Drafting() {
           paraText="The Workspace is Sheetsway simplifies auditing with easy document access, referencing, and management. Features like document reconciliation and AI-driven text extraction ensure efficient and accurate audit tasks."
         />
 
-        <div className="flex w-[30%] mx-auto justify-evenly relative z-20">
+        <div className="flex justify-center gap-4 relative z-20">
           <Button type="secondary">Try For Free</Button>
           <Button type="primary">Book a Demo</Button>
         </div>
