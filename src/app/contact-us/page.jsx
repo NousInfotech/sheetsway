@@ -1,15 +1,11 @@
-// src/app/contact-us/page.jsx
-import dynamic from "next/dynamic";
+import Contact from "./Contact";
 
-// Lazy load the Contact component with no SSR
-const Contact = dynamic(() => import("./Contact"), { ssr: false });
+// export const metadata = {
+//   title: "Contact-us",
+// };
 
-export const metadata = {
-  title: "Contact-us",
-};
-
-function Page() {
+function page() {
   return <Contact />;
 }
 
-export default Page;
+export default page;
