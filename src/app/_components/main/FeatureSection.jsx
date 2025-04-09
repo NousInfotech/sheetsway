@@ -6,7 +6,7 @@ import { getfirstSentence } from "@/utils/helper";
 
 export default function FeatureSection() {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center px-6 py-10">
+    <div className="relative flex flex-col items-center justify-center px-6 py-10">
       <div
         className="absolute inset-0 bg-cover z-30 h-[106%]"
         style={{

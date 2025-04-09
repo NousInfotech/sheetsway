@@ -3,7 +3,7 @@
 import { NavLink } from "@mantine/core";
 import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import TryButton from "./TryButton";
 import { usePathname } from "next/navigation";
@@ -49,8 +49,29 @@ const knowledgebase = [
 ];
 
 export default function Header() {
-  const [dropdownOpen, setDropdownOpen] = useState("");
+
+  // Inside Header component
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target)
+      ) {
+        setDropdownOpen("");
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState("");
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const pathname = usePathname();
 
@@ -72,8 +93,9 @@ export default function Header() {
       <nav className="hidden lg:flex relative justify-center items-center gap-4 font-inter flex-[3]">
         <div
           className="relative group"
+          ref={dropdownRef}
           onMouseEnter={() => setDropdownOpen("solution")}
-          onMouseLeave={() => setDropdownOpen("")}
+          // onMouseLeave={() => setDropdownOpen("")}
         >
           <button className="text-gray-700  hover:text-theme hover:bg-accent py-1 px-2 rounded-md flex items-center gap-1">
             Solutions
@@ -110,7 +132,7 @@ export default function Header() {
           onMouseLeave={() => setDropdownOpen("")}
         >
           <button className="text-gray-700  hover:text-theme hover:bg-accent py-1 px-2 rounded-md flex items-center gap-1">
-            knowledge base
+            Knowledge base
             <ChevronDown
               className={`h-5 w-5 transition-transform duration-200 ease-in-out `}
             />
@@ -143,9 +165,8 @@ export default function Header() {
           <Link
             key={link.label}
             href={link.to}
-            className={`text-gray-700  hover:text-theme hover:bg-accent py-1 px-2 rounded-md text-sm md:text-base ${
-              pathname === link.to ? "text-theme bg-accent" : ""
-            }`}
+            className={`text-gray-700  hover:text-theme hover:bg-accent py-1 px-2 rounded-md text-sm md:text-base ${pathname === link.to ? "text-theme bg-accent" : ""
+              }`}
           >
             {link.label}
           </Link>
@@ -164,7 +185,7 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="fixed top-0 left-0 w-full h-screen bg-gray-50 shadow-lg flex flex-col items-center justify-center space-y-6 p-6 md:hidden z-50">
+        <div className="fixed top-0 left-0 w-full h-screen bg-gray-50 shadow-lg flex flex-col items-center justify-center space-y-6 p-6 md:hidden z-[90]">
           <button
             className="absolute top-5 right-5 text-gray-700"
             onClick={() => setMenuOpen(false)}
@@ -177,9 +198,8 @@ export default function Header() {
           >
             Solutions
             <ChevronDown
-              className={`h-5 w-5 transition-transform ${
-                mobileDropdownOpen ? "rotate-180" : ""
-              }`}
+              className={`h-5 w-5 transition-transform ${mobileDropdownOpen ? "rotate-180" : ""
+                }`}
             />
           </button>
           {mobileDropdownOpen && (

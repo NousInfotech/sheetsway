@@ -11,7 +11,7 @@ export default function IndustryAwareAI() {
 
   if (isMobile) {
     return (
-      <div className="lg:min-h-screen text-gray-900 bg-gradient-to-b from-white via-orange-50 to-white px-6 py-10">
+      <div className="text-gray-900 bg-gradient-to-b from-white via-orange-50 to-white px-6 py-10">
         {[
           "Automatic FS Mapping",
           "Procedures Generation",
@@ -75,7 +75,7 @@ export default function IndustryAwareAI() {
   }
 
   return (
-    <div className="min-h-screen text-gray-900 bg-gradient-to-b from-white via-orange-50 to-white px-4 sm:px-6 md:px-8 lg:px-12">
+    <div className="text-gray-900 bg-gradient-to-b from-white via-orange-50 to-white px-4 sm:px-6 md:px-8 lg:px-12">
       {/* Header Section */}
       <FadeUpAnimation className="text-center pt-8 mb-16 md:mb-20 lg:mb-12">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-bodoni">

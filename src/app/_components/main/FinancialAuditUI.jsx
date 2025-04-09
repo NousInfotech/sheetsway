@@ -34,7 +34,7 @@ export default function FinancialAuditUI() {
   };
 
   return (
-    <div className="lg:min-h-screen text-center flex flex-col items-center lg:mb-60 max-sm:px-12 md:pb-32">
+    <div className="text-center flex flex-col items-center lg:mb-60 max-sm:px-12 md:pb-32">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}

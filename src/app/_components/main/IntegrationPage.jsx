@@ -28,7 +28,7 @@ function Plugin({ heading, p1, p2, p3, link, videoSrc, shadow }) {
 const IntegrationPage = () => {
   return (
     // <div className="px-2 sm:px-14 min-h-screen flex flex-col items-center mb-16">
-    <div className="px-2 py-10 sm:px-14 min-h-screen flex flex-col items-center">
+    <div className="px-2 py-10 sm:px-14 flex flex-col items-center">
       {/* Main Heading */}
       <FadeUpAnimation>
         <h2 className="text-3xl sm:text-4xl font-light font-bodoni mb-12 text-center">

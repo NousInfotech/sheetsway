@@ -67,7 +67,7 @@ const AuditSolution = () => {
   const [currFeature, setCurrFeature] = useInterval(0, features.length, 5000);
 
   return (
-    <div className="px-6 py-10 relative z-40">
+    <div className="px-6 my-10 relative z-40">
       {/* Top Border Decoration */}
       <div className="border-t-[30px] realtive z-40 border-[#FFB231] mb-6 -mx-6 shadow-xl"></div>
 
