@@ -76,7 +76,7 @@ export default function AuditPlatform() {
       ></div>
       <div className="flex flex-col lg:flex-row items-center justify-center max-w-screen-xl mx-auto lg:mt-0 gap-24 max-sm:mx-6 md:mt-72">
         {/* Left Section */}
-        <div className="md:text-center lg:text-left max-w-lg">
+        <div className="md:text-center lg:text-left max-w-lg mt-72 md:mt-0">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-bodoni sm:leading-tight ">
             <span className="text-primary">One Platform</span> for all your
             audit needs

@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 export default function useCursor() {
-  const [position, setPosition] = useState < Position > { x: 0, y: 0 };
-  const [isInteractive, setIsInteractive] = useState < boolean > false;
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isInteractive, setIsInteractive] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -17,7 +17,6 @@ export default function useCursor() {
       const interactive =
         target.tagName === "A" ||
         target.tagName === "BUTTON" ||
-        target.tagName === "TEXT" ||
         target.closest("p, span, h1, h2, h3, h4, h5, h6, li, ul, img, video");
 
       setIsInteractive(!!interactive);

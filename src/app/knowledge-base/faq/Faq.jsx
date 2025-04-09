@@ -72,7 +72,7 @@ export default function Faq() {
             placeholder="Search Questions..."
           />
           <p>
-            Haven't found what you're looking for?
+           {"Haven't found what you're looking for?"}
             <br />
             <Link href="/contact-us" className="text-secondary">
               Contact Us

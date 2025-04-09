@@ -26,6 +26,7 @@ function Cta() {
           height={1000}
           className="absolute h-full object-cover z-[-1] opacity-5 top-0 left-0 w-full"
           src="/back.svg"
+          alt=""
         />
       </div>
     </div>

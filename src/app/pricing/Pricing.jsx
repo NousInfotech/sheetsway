@@ -87,8 +87,9 @@ export default function Pricing() {
 
           {/* Responsive Table Container */}
           <div className="overflow-x-auto ">
-            {elements.map((tb) => (
-              <Table className="mb-10 w-full min-w-[700px] ">
+          {elements.map((tb) => (
+  <Table
+    key={tb.name} className="mb-10 w-full min-w-[700px] ">
                 <TableThead className="border">
                   <TableTr className="bg-zinc-100 ">
                     <TableTh className="p-4">{tb.name}</TableTh>

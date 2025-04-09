@@ -11,7 +11,7 @@ function Footer() {
     <div className="bg-zinc-900 text-gray-500 p-16 grid gap-16 grid-cols-10">
       <div className="col-span-3 flex justify-between flex-col gap-10">
         <div className="flex flex-col gap-8">
-          <Image width={200} height={200} src="/logo.svg" />
+          <Image width={200} height={200} src="/logo.svg" alt="" />
           <div className="flex gap-4">
             <ActionIcon
               size="lg"

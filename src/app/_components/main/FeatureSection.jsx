@@ -3,6 +3,7 @@ import Button from "@/app/_components/Button";
 import { features } from "@/app/_constants/features-section-data";
 import Video from "@/app/_components/Video";
 import { getfirstSentence } from "@/utils/helper";
+import Image from "next/image";
 
 export default function FeatureSection() {
   return (
@@ -35,7 +36,7 @@ export default function FeatureSection() {
                 className="w-full md:w-1/2 flex justify-center relative"
               >
                 <Video src={feature.videoSrc} className={"relative z-40"} />
-                <img src={feature.shapeSrc} className={`${feature.imgClass} -z-10`} />
+                <Image src={feature.shapeSrc} className={`${feature.imgClass} -z-10`} alt=""/>
               </FadeUpAnimation>
               <div className="w-full md:w-1/2 max-w-lg z-40">
                 {feature.title}

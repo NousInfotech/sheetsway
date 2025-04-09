@@ -14,7 +14,7 @@ import { getNextId } from "../contact-us/page";
 import { writeData } from "@/api/fb";
 import Image from "next/image";
 
-function page() {
+function Page() {
   const {
     handleSubmit,
     register,
@@ -107,12 +107,14 @@ function page() {
           </div>
           {submitted ? (
             <div className="col-span-1 relative overflow-clip rounded-xl border flex flex-col justify-center gap-4">
-              <Image
-                src="/call.jpg"
-                width={1200}
-                height={1200}
-                className="w-full h-full object-cover"
-              />
+           <Image
+  src="/call.jpg"
+  width={1200}
+  height={1200}
+  alt="Call demo preview"
+  className="w-full h-full object-cover"
+/>
+
             </div>
           ) : (
             <form
@@ -147,4 +149,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

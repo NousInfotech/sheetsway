@@ -25,6 +25,8 @@
     "tailwind-scrollbar-hide": "^2.0.0"
   },
   "devDependencies": {
+    "eslint": "^9.24.0",
+    "eslint-config-next": "^15.2.5",
     "postcss": "^8.4.39",
     "postcss-preset-mantine": "^1.15.0",
     "postcss-simple-vars": "^7.0.1",

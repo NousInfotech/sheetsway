@@ -28,8 +28,9 @@ export default function About() {
         </div>
         {/* <div className="grid grid-cols-[repeat(auto-fit,_minmax(10rem,15rem))] justify-between gap-4 sm:mt-20 mt-8"> */}
         <div className="grid lg:grid-cols-[repeat(4,15rem)] sm:grid-cols-[repeat(2,15rem)] xs:grid-cols-[repeat(2,10rem)] lg:justify-between justify-center gap-4 sm:mt-20 mt-5">
-          {team.map((item, i) => (
-            <motion.div
+        {team.map((item, i) => (
+  <motion.div
+    key={i} 
               className={`flex flex-col items-center font-sans p-2 rounded-xl`}
               initial={{ backgroundColor: "#fff", scale: 1 }}
               whileHover={{
@@ -79,9 +80,10 @@ export default function About() {
             />
           </div>
           <div className="flex flex-col items-center md:items-start gap-8 md:gap-16 text-center md:text-left font-sans">
-            <h4 className="text-4xl md:text-7xl font-bold">
-              We're good <br /> neighbors
-            </h4>
+          <h4 className="text-4xl md:text-7xl font-bold">
+  We&apos;re good <br /> neighbors
+</h4>
+
             <h2 className="text-base sm:text-xl text-gray-500 max-sm:max-w-[95%]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.

@@ -5,6 +5,7 @@ import FadeUpAnimation from "@/app/_components/FadeUpAnimation";
 import { features } from "@/app/_constants/audit-solution-data";
 import useInterval from "@/hooks/useInterval";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const ScrollableFeatures = () => {
@@ -14,25 +15,26 @@ const ScrollableFeatures = () => {
   const SCROLL_SPEED = 50; // lower = faster
 
   // Start marquee-like animation
-  const startAnimation = async () => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const totalWidth = container.scrollWidth / 2;
-
-    await animationControls.start({
-      x: [-0, -totalWidth],
-      transition: {
-        ease: "linear",
-        duration: totalWidth / SCROLL_SPEED,
-        repeat: Infinity,
-      },
-    });
-  };
-
   useEffect(() => {
+    const startAnimation = async () => {
+      const container = scrollRef.current;
+      if (!container) return;
+  
+      const totalWidth = container.scrollWidth / 2;
+  
+      await animationControls.start({
+        x: [-0, -totalWidth],
+        transition: {
+          ease: "linear",
+          duration: totalWidth / SCROLL_SPEED,
+          repeat: Infinity,
+        },
+      });
+    };
+  
     startAnimation();
   }, []);
+  
 
   return (
     <div className="relative overflow-hidden w-full sm:mt-12 mt-6">
@@ -47,7 +49,7 @@ const ScrollableFeatures = () => {
             key={index}
             className="flex flex-col items-center justify-center bg-white sm:p-4 my-5 p-2 rounded-lg shadow-[0px_1px_10px_rgba(197,200,205,0.41)] min-w-[100px] sm:min-w-[140px]"
           >
-            <img
+            <Image
               src={feature.icon}
               alt={feature.label}
               className="h-8 w-8 sm:h-16 sm:w-16 object-contain mb-2"
