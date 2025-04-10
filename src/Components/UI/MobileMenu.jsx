@@ -110,8 +110,7 @@ const MobileMenu = ({
                                     Contact Us
                                 </Link>
 
-                                <div className="flex gap-2 pt-4">
-                                    <Button variant="outline">Login</Button>
+                                <div className="flex w-full gap-2 pt-4">
                                     <DynamicComponentWithNoSSR />
                                 </div>
                             </motion.div>

@@ -75,7 +75,7 @@ export default function FinancialAuditUI() {
             {/* Info Container fades/slides in second */}
             <motion.div
               variants={infoVariants}
-              className="bg-slate-50 w-11/12 sm:w-10/12 md:w-[85%] py-4 md:py-6 text-center absolute -bottom-64 sm:-bottom-68 md:-bottom-72 left-1/2 transform -translate-x-1/2 rounded-xl md:rounded-2xl outline outline-2 outline-white outline-offset-[6px] md:outline-offset-[12px] shadow-md md:shadow-lightBlack"
+              className="bg-slate-50 w-11/12 sm:w-10/12 md:w-[85%] py-4 md:py-6 text-center absolute -bottom-64 sm:-bottom-68 md:-bottom-72 left-1/2 transform -translate-x-1/2 rounded-xl md:rounded-2xl outline outline-2 outline-white outline-offset-[6px] md:outline-offset-[12px] shadow-md md:shadow-lightBlack overflow-hidden"
             >
               <p className="text-xl sm:text-2xl md:text-3xl font-medium font-bodoni px-2">
                 {navigationOptions[currImg].label}

@@ -66,7 +66,7 @@ export default function AuditPlatform() {
   const [isMobile] = useMobile(700);
 
   return (
-    <div className="relative py-10">
+    <div className="relative py-10 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -87,7 +87,7 @@ export default function AuditPlatform() {
 
           {/* //here */}
           {isMobile && (
-            <div className="my-5 mx-auto md:max-w-md max-w-sm">
+            <div className="my-12 mx-auto md:max-w-md max-w-sm">
               <AnimatedOrbit />
             </div>
           )}

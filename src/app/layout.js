@@ -27,8 +27,11 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
           rel="stylesheet"
         /> */}
+        <link rel="preconnect" href="https://assets.calendly.com" />
+        <link rel="dns-prefetch" href="https://assets.calendly.com" />
+
       </head>
-      <body>
+      <body id="calendly-root">
         <MantineProvider
           theme={{
             colors: {
@@ -53,7 +56,7 @@ export default function RootLayout({ children }) {
           <BookADemoModal />
           <Navbar />
           <main>{children}</main>
-          <FooterSection/>
+          <FooterSection />
         </MantineProvider>
       </body>
     </html>

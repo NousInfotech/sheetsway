@@ -9,14 +9,12 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { ChevronDown } from "lucide-react";
 import Button from "@/app/_components/Button";
 import MobileMenu from "./MobileMenu";
+import Call from "./call";
 
 export const contactUs = "/contact-us";
 export const aboutUs = "/about-us";
 export const pricing = "/pricing";
 
-const DynamicComponentWithNoSSR = dynamic(() => import("./call"), {
-  ssr: false,
-});
 
 const components = [
   {
@@ -196,7 +194,6 @@ export default function Navbar() {
   const [isMobile] = useMobile(800);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
-  console.log(isMobile)
   return (
     <nav className="flex relative z-[100] w-full p-8 items-center justify-between">
       <Logo />
@@ -281,11 +278,10 @@ export default function Navbar() {
           </NavigationMenuList>
         </NavigationMenu>
       )}
-      {!isMobile && (
-        <div className="flex items-center gap-4">
-          <Button variant="outline"> Login</Button>
-          <DynamicComponentWithNoSSR />
-        </div>)}
+
+      <div className="hidden lg:flex gap-4 justify-center lg:justify-start relative z-20">
+        <Call />
+      </div>
     </nav>
   );
 }
