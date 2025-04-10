@@ -33,3 +33,17 @@ body {
 .section-spacing {
   @apply py-10 my-10
 }
+
+/* Custom custom scrollbar-color */
+.custom-scrollbar-color::-webkit-scrollbar {
+  height: 5px;
+}
+
+.custom-scrollbar-color::-webkit-scrollbar-track {
+  background: #f8f8f8;
+}
+
+.custom-scrollbar-color::-webkit-scrollbar-thumb {
+  background-color: #fa8c32; /* Orange */
+  border-radius: 8px;
+}

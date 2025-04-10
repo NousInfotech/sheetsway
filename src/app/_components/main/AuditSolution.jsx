@@ -8,58 +8,71 @@ import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
-const ScrollableFeatures = () => {
-  const animationControls = useAnimation();
+const ScrollableFeatures = ({ setCurrFeature, currFeature }) => {
   const scrollRef = useRef(null);
+  const dragRef = useRef(null);
 
-  const SCROLL_SPEED = 50; // lower = faster
-
-  // Start marquee-like animation
   useEffect(() => {
-    const startAnimation = async () => {
+    if (scrollRef.current && dragRef.current) {
       const container = scrollRef.current;
-      if (!container) return;
-  
-      const totalWidth = container.scrollWidth / 2;
-  
-      await animationControls.start({
-        x: [-0, -totalWidth],
-        transition: {
-          ease: "linear",
-          duration: totalWidth / SCROLL_SPEED,
-          repeat: Infinity,
-        },
-      });
-    };
-  
-    startAnimation();
-  }, []);
-  
+      const activeButton = dragRef.current.children[currFeature];
+
+      if (activeButton) {
+        const containerWidth = container.offsetWidth;
+        const activeButtonWidth = activeButton.offsetWidth;
+        const activeButtonLeft = activeButton.offsetLeft;
+
+        const scrollLeft =
+          activeButtonLeft - containerWidth / 2 + activeButtonWidth / 2;
+
+        container.scrollTo({
+          left: scrollLeft,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [currFeature]);
 
   return (
-    <div className="relative overflow-hidden w-full sm:mt-12 mt-6">
-      <motion.div
-        ref={scrollRef}
-        className="flex gap-8 w-max"
-        animate={animationControls}
-      >
-        {/* Duplicate features to create infinite effect */}
-        {[...features, ...features].map((feature, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center justify-center bg-white sm:p-4 my-5 p-2 rounded-lg shadow-[0px_1px_10px_rgba(197,200,205,0.41)] min-w-[100px] sm:min-w-[140px]"
-          >
-            <img
-              src={feature.icon}
-              alt={feature.label}
-              className="h-8 w-8 sm:h-16 sm:w-16 object-contain mb-2"
-            />
-            <p className="sm:text-sm text-[10px] font-sans font-medium text-gray-600 text-center mb-6">
-              {feature.label}
-            </p>
-          </div>
-        ))}
-      </motion.div>
+    <div className="relative sm:mt-12 mt-6">
+      <div ref={scrollRef} className="overflow-x-auto px-4 custom-scrollbar-color">
+        <motion.div
+          ref={dragRef}
+          className="flex gap-8 cursor-grab active:cursor-grabbing"
+          drag="x"
+          dragConstraints={{
+            left:
+              -(
+                dragRef.current?.scrollWidth - scrollRef.current?.offsetWidth
+              ) || 0,
+            right: 0,
+          }}
+          whileTap={{ cursor: "grabbing" }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8 }}
+        >
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className={`flex flex-col items-center justify-center bg-white sm:p-4 my-5 p-2 rounded-lg shadow-[0px_1px_10px_rgba(255,140,0,0.1)] min-w-[100px] sm:min-w-[140px] transition-transform ${index === currFeature ? "scale-100" : "scale-90"
+                }`}
+              whileHover={{ scale: 0.9 }}
+              onClick={() => setCurrFeature(index)}
+            >
+              <img
+                src={feature.icon}
+                alt={feature.label}
+                className="h-8 w-8 sm:h-16 sm:w-16 object-contain mb-2"
+              />
+              <p className="sm:text-sm text-[10px] font-sans font-medium text-gray-600 text-center mb-6">
+                {feature.label}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </div>
   );
 };
