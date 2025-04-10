@@ -14,6 +14,88 @@ export const contactUs = "/contact-us";
 export const aboutUs = "/about-us";
 export const pricing = "/pricing";
 
+const DynamicComponentWithNoSSR = dynamic(() => import("./call"), {
+  ssr: false,
+});
+
+const components = [
+  {
+    title: "Introduction",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+  {
+    title: "Tutorials",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+  {
+    title: "Help Desk",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+  {
+    title: "Commnunity",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+  {
+    title: "Blogs",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+  {
+    title: "Webinars",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+  {
+    title: "Partners",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+  {
+    title: "Support Us",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+];
+
+const solutions = [
+  {
+    label: "Audit Software",
+    desc: "Manage and execute audit tasks efficiently.",
+    icon: "Au",
+    href: "/solution/audit-software",
+  },
+  {
+    label: "Drafting",
+    desc: "Editor for financial statements and audit letters.",
+    icon: "Dr",
+    href: "/solution/drafting",
+  },
+  {
+    label: "Workspace",
+    desc: "Online spreadsheets with OCR for fieldwork testing.",
+    icon: "Ws",
+    href: "/solution/workspace",
+  },
+  {
+    label: "Client Portal",
+    desc: "Platform for clients to answer queries and upload documents.",
+    icon: "Cp",
+    href: "/solution/client-portal",
+  },
+];
+
 
 const NavigationMenu = React.forwardRef(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Root
@@ -109,88 +191,6 @@ ListItem.displayName = "ListItem";
 
 
 
-
-const DynamicComponentWithNoSSR = dynamic(() => import("./call"), {
-  ssr: false,
-});
-
-const components = [
-  {
-    title: "Introduction",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-  {
-    title: "Tutorials",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-  {
-    title: "Help Desk",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-  {
-    title: "Commnunity",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-  {
-    title: "Blogs",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-  {
-    title: "Webinars",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-  {
-    title: "Partners",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-  {
-    title: "Support Us",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-];
-
-const solutions = [
-  {
-    label: "Audit Software",
-    desc: "Manage and execute audit tasks efficiently.",
-    icon: "Au",
-    href: "/solution/audit-software",
-  },
-  {
-    label: "Drafting",
-    desc: "Editor for financial statements and audit letters.",
-    icon: "Dr",
-    href: "/solution/drafting",
-  },
-  {
-    label: "Workspace",
-    desc: "Online spreadsheets with OCR for fieldwork testing.",
-    icon: "Ws",
-    href: "/solution/workspace",
-  },
-  {
-    label: "Client Portal",
-    desc: "Platform for clients to answer queries and upload documents.",
-    icon: "Cp",
-    href: "/solution/client-portal",
-  },
-];
 
 export default function Navbar() {
   const [isMobile] = useMobile(800);
