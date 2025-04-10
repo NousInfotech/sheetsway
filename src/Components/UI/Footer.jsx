@@ -1,47 +1,6 @@
-
+"use client";
 import * as React from "react";
 import Logo from "@/app/_components/Logo";
-
-function Footer({ className = "", ...props }) {
-  return (
-    <div
-      data-slot="footer"
-      className={`bg-background text-foreground pt-12 pb-4 ${className}`}
-      {...props}
-    />
-  );
-}
-
-function FooterContent({ className = "", ...props }) {
-  return (
-    <div
-      data-slot="footer-content"
-      className={`grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ${className}`}
-      {...props}
-    />
-  );
-}
-
-function FooterColumn({ className = "", ...props }) {
-  return (
-    <div
-      data-slot="footer-column"
-      className={`flex flex-col gap-4 ${className}`}
-      {...props}
-    />
-  );
-}
-
-function FooterBottom({ className = "", ...props }) {
-  return (
-    <div
-      data-slot="footer-bottom"
-      className={`border-border dark:border-border/15 text-muted-foreground mt-8 flex flex-col items-center justify-between gap-4 border-t pt-4 text-xs sm:flex-row ${className}`}
-      {...props}
-    />
-  );
-}
-
 
 const footerLinks = [
   {
@@ -92,7 +51,6 @@ const footerLinks = [
       { name: "Community", href: "/" },
     ],
   },
-
   {
     title: "Social Media",
     links: [
@@ -130,40 +88,40 @@ const footerLinks = [
 
 export default function FooterSection() {
   return (
-    <footer className="w-full bg-background px-32 border-t">
-      <div className="mx-auto max-w-container">
-        <Footer>
-          <FooterContent>
-            <FooterColumn className="col-span-2 sm:col-span-3 md:col-span-1">
-              <Logo className="h-8" />
-            </FooterColumn>
-            {footerLinks.map((section, index) => (
-              <FooterColumn key={index}>
-                <h3 className="text-md pt-1 font-semibold">{section.title}</h3>
-                {section.links.map((link, linkIndex) => (
-                  <a
-                    key={linkIndex}
-                    href={link.href}
-                    className="text-sm text-muted-foreground"
-                  >
-                    {link.name}
-                  </a>
-                ))}
-              </FooterColumn>
-            ))}
-          </FooterContent>
-          <FooterBottom>
-            <div>
-              © {new Date().getFullYear()} A4 Malta. All rights reserved
+    <footer className="w-full bg-background border-t px-6 lg:px-32 py-12">
+      <div className="mx-auto max-w-screen-xl">
+        {/* Top Content */}
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          <div className="col-span-2 sm:col-span-3 md:col-span-1 flex flex-col gap-4">
+            <Logo className="h-8" />
+          </div>
+
+          {footerLinks.map((section, index) => (
+            <div key={index} className="flex flex-col gap-4">
+              <h3 className="text-md pt-1 font-semibold">{section.title}</h3>
+              {section.links.map((link, linkIndex) => (
+                <a
+                  key={linkIndex}
+                  href={link.href}
+                  className="text-sm text-muted-foreground hover:underline"
+                >
+                  {link.name}
+                </a>
+              ))}
             </div>
-            <div className="flex items-center gap-4">
-              <a href="/">Privacy Policy</a>
-              <a href="/">Terms of Service</a>
-              <a href="/">License</a>
-              <a href="/">Application Security</a>
-            </div>
-          </FooterBottom>
-        </Footer>
+          ))}
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border pt-4 text-xs text-muted-foreground sm:flex-row">
+          <div>© {new Date().getFullYear()} A4 Malta. All rights reserved</div>
+          <div className="flex items-center gap-4">
+            <a href="/">Privacy Policy</a>
+            <a href="/">Terms of Service</a>
+            <a href="/">License</a>
+            <a href="/">Application Security</a>
+          </div>
+        </div>
       </div>
     </footer>
   );
