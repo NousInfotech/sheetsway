@@ -281,11 +281,11 @@ export default function Navbar() {
           </NavigationMenuList>
         </NavigationMenu>
       )}
-
-      <div className="flex items-center gap-4">
-        <Button variant="outline"> Login</Button>
-        <DynamicComponentWithNoSSR />
-      </div>
+      {!isMobile && (
+        <div className="flex items-center gap-4">
+          <Button variant="outline"> Login</Button>
+          <DynamicComponentWithNoSSR />
+        </div>)}
     </nav>
   );
 }

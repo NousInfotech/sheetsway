@@ -80,7 +80,7 @@ const MobileMenu = ({
                                     {solutions.map((item) => (
                                         <Link
                                             key={item.label}
-                                            href={`/solutions/${item.href}`}
+                                            href={`${item.href}`}
                                             className="block py-2 text-sm text-gray-700"
                                         >
                                             {item.label}
