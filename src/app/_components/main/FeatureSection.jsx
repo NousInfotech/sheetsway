@@ -36,7 +36,7 @@ export default function FeatureSection() {
                 className="w-full md:w-1/2 flex justify-center relative"
               >
                 <Video src={feature.videoSrc} className={"relative z-40"} />
-                <Image src={feature.shapeSrc} className={`${feature.imgClass} -z-10`} alt=""/>
+                <img src={feature.shapeSrc} className={`${feature.imgClass} -z-10`} alt=""/>
               </FadeUpAnimation>
               <div className="w-full md:w-1/2 max-w-lg z-40">
                 {feature.title}

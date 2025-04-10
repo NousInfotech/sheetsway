@@ -61,7 +61,7 @@ export default function FeaturesPortal({
                 className={`absolute left-1/2 -translate-x-1/2  -translate-y-1/2 w-2 h-2 bg-gray-200 rounded-full transition-all duration-300 ease-in-out`}
               ></div>
             </div>
-            <Image src={features[currFeature].gif} className="w-20 " alt="" />
+            <img src={features[currFeature].gif} className="w-20 " alt="" />
           </div>
 
           <div

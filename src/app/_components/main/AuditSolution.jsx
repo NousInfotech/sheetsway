@@ -49,7 +49,7 @@ const ScrollableFeatures = () => {
             key={index}
             className="flex flex-col items-center justify-center bg-white sm:p-4 my-5 p-2 rounded-lg shadow-[0px_1px_10px_rgba(197,200,205,0.41)] min-w-[100px] sm:min-w-[140px]"
           >
-            <Image
+            <img
               src={feature.icon}
               alt={feature.label}
               className="h-8 w-8 sm:h-16 sm:w-16 object-contain mb-2"

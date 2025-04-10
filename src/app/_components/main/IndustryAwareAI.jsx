@@ -62,7 +62,7 @@ export default function IndustryAwareAI() {
 
             {active === i && (
               <div className="my-4">
-                <Image
+                <img
                   src={industryAwareData[active].images.primarySrc}
                   alt={industryAwareData[active].title}
                   className="rounded-xl shadow-[0px_1px_10px_rgba(0,0,0,0.3)] w-full h-full object-cover"
@@ -160,7 +160,7 @@ export default function IndustryAwareAI() {
           ></div>
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <Image
+            <img
               src={industryAwareData[active].images.primarySrc}
               alt={industryAwareData[active].images.alt}
               className="rounded-xl z-10 shadow-[0px_1px_20px_rgba(0,0,0,0.4)] max-w-[90%] max-h-[90%] object-contain"
@@ -168,7 +168,7 @@ export default function IndustryAwareAI() {
           </div>
 
           <div className="absolute top-6 sm:top-10 md:top-16 lg:top-32 left-2 sm:left-4 md:left-8 lg:-left-10 bg-white p-2 sm:p-3 md:p-4 rounded-lg shadow-[0px_1px_20px_rgba(0,0,0,0.4)] border border-gray-200 z-30">
-            <Image
+            <img
               src={industryAwareData[active].images.secondarySrc}
               alt=""
               className="w-16 sm:w-20 md:w-24 lg:w-28 h-auto object-contain"

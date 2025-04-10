@@ -91,7 +91,7 @@ export default function FinancialAuditUI() {
               </p>
               <div
                 ref={containerRef}
-                className="flex overflow-x-auto scrollbar-hide py-3 md:py-4 gap-2 sm:gap-3 md:gap-4 mt-2 cursor-pointer justify-start md:justify-center px-3 sm:px-4"
+                className="flex lg:flex-wrap max-[425px]:overflow-x-auto max-[425px]:scrollbar-hide py-3 md:py-4 gap-2 sm:gap-3 md:gap-4 mt-2 cursor-pointer justify-start md:justify-center px-3 sm:px-4"
               >
                 {navigationOptions.map((option, index) => (
                   <motion.div
@@ -103,9 +103,8 @@ export default function FinancialAuditUI() {
                     className="px-2 sm:px-3 py-2 sm:py-3 bg-white shadow-md rounded-lg sm:rounded-xl flex flex-col items-center justify-start gap-1 sm:gap-2 md:gap-2.5 min-w-[5rem] sm:min-w-[6rem] md:min-w-[7rem] w-[5rem] sm:w-[6rem] md:w-[7rem] flex-shrink-0"
                   >
                     <span
-                      className={`p-1 sm:p-1.5 text-white rounded-lg ${
-                        index === currImg ? "bg-primary" : "bg-gray-300"
-                      }`}
+                      className={`p-1 sm:p-1.5 text-white rounded-lg ${index === currImg ? "bg-primary" : "bg-gray-300"
+                        }`}
                     >
                       {option.icon}
                     </span>

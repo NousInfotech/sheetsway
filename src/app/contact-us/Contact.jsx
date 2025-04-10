@@ -171,7 +171,7 @@ export default function Contact() {
                 your data management, or simply want to share your thoughts,
                 we&apos;re here to listen and help.
               </p>
-              <Image
+              <img
                 src="/back.svg"
                 className="absolute inset-0 opacity-20 object-cover h-full w-full"
                 alt="background-img"

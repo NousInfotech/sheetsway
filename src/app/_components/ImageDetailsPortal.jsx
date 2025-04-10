@@ -21,7 +21,7 @@ export default function ImageDetailsPortal({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         {data.map((el, i) => (
           <FadeUpAnimation duration={0.6 * (i + 5)} key={el.alt} className="">
-            <Image
+            <img
               src={el.src}
               alt={el.alt}
               className="rounded-xl"
