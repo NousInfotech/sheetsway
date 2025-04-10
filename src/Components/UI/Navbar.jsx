@@ -170,25 +170,25 @@ const solutions = [
     label: "Audit Software",
     desc: "Manage and execute audit tasks efficiently.",
     icon: "Au",
-    href: "/solutions/audit-software",
+    href: "/solution/audit-software",
   },
   {
     label: "Drafting",
     desc: "Editor for financial statements and audit letters.",
     icon: "Dr",
-    href: "/solutions/drafting",
+    href: "/solution/drafting",
   },
   {
     label: "Workspace",
     desc: "Online spreadsheets with OCR for fieldwork testing.",
     icon: "Ws",
-    href: "/solutions/workspace",
+    href: "/solution/workspace",
   },
   {
     label: "Client Portal",
     desc: "Platform for clients to answer queries and upload documents.",
     icon: "Cp",
-    href: "/solutions/client-portal",
+    href: "/solution/client-portal",
   },
 ];
 
