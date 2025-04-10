@@ -42,13 +42,7 @@ export default function FinancialAuditUI() {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="pt-8 lg:mb-10 md:mb-6 sm:mb-4 mb-2 z-50 gap-4 sm:gap-5 flex flex-col justify-center items-center max-w-4xl mx-auto"
       >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium font-bodoni tracking-normal">
-          Financial Audits <br />
-          with <span className="text-secondary">AI</span> Automation.
-        </h1>
-        <p className="text-gray-600 mt-2 sm:mt-4 font-montserrat text-sm sm:text-base px-2 sm:px-6 md:px-8 lg:px-0">
-          Leverage AI, OCR, and Custom Risk-Based Audits in One Powerful Platform.
-        </p>
+        <AnimatedHeading />
         <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-3/4 mx-auto justify-center items-center sm:justify-evenly relative z-20 my-3 sm:my-5">
           <Button type="secondary" size="lg" className="w-full sm:w-auto">
             Try it for Free

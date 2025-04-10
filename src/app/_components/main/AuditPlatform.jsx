@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Button from "../Button";
 import React, { useEffect, useState, useRef } from "react";
 import { features } from "@/app/_constants/audit-platform-data";
-import useMobile from "@/hooks/useMobile";
+import { useMobile } from "@/hooks/useMobile";
 
 function AnimatedOrbit() {
   const [isVisible, setIsVisible] = useState(false);

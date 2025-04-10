@@ -1,158 +1,312 @@
 "use client";
-import { useOpenBookADemo } from "@/app/BookADemoModal";
-import {
-  Button,
-  Menu,
-  MenuDropdown,
-  MenuItem,
-  MenuTarget,
-  NavLink,
-} from "@mantine/core";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { IoIosArrowDown } from "react-icons/io";
 
-export const Icon = ({ children }) => (
-  <span className="heading mr-2 font-bold text-2xl border border-[rgba(0,0,0,0.3)] w-12 h-12 flex justify-center items-center p-2 rounded-xl">
-    <i>{children}</i>
-  </span>
+import * as React from "react";
+import Link from "next/link";
+import { cn } from "@/utils/helper";
+import { useMobile, useMobileDetect } from "@/hooks/useMobile";
+import dynamic from "next/dynamic";
+import Logo from "@/app/_components/Logo";
+import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
+import { cva } from "class-variance-authority";
+import { ChevronDown } from "lucide-react";
+import Button from "@/app/_components/Button";
+import MobileMenu from "./MobileMenu";
+
+export const contactUs = "/contact-us";
+export const aboutUs = "/about-us";
+export const pricing = "/pricing";
+
+
+const NavigationMenu = React.forwardRef(({ className, children, ...props }, ref) => (
+  <NavigationMenuPrimitive.Root
+    ref={ref}
+    className={cn(
+      "relative z-30 flex max-w-max flex-1 items-center justify-center",
+      className
+    )}
+    {...props}
+  >
+    {children}
+    <NavigationMenuViewport />
+  </NavigationMenuPrimitive.Root>
+));
+NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName;
+
+const NavigationMenuList = React.forwardRef(({ className, ...props }, ref) => (
+  <NavigationMenuPrimitive.List
+    ref={ref}
+    className={cn(
+      "group flex flex-1 list-none items-center justify-center space-x-1",
+      className
+    )}
+    {...props}
+  />
+));
+NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
+
+const NavigationMenuItem = NavigationMenuPrimitive.Item;
+
+const navigationMenuTriggerStyle = cva(
+  "group inline-flex h-10 w-max items-center border-primary text-sm justify-center bg-background px-4 py-2 font-medium transition-colors hover:border-b focus:border-b focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:border-b data-[state=open]:border-b"
 );
 
-const data = [
+const NavigationMenuTrigger = React.forwardRef(({ className, children, ...props }, ref) => (
+  <NavigationMenuPrimitive.Trigger
+    ref={ref}
+    className={cn(navigationMenuTriggerStyle(), "group", className)}
+    {...props}
+  >
+    {children}{" "}
+    <ChevronDown
+      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+      aria-hidden="true"
+    />
+  </NavigationMenuPrimitive.Trigger>
+));
+NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
+
+const NavigationMenuContent = React.forwardRef(({ className, ...props }, ref) => (
+  <NavigationMenuPrimitive.Content
+    ref={ref}
+    className={cn(
+      "left-0 top-0 z-50 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto ",
+      className
+    )}
+    {...props}
+  />
+));
+NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
+
+const NavigationMenuLink = NavigationMenuPrimitive.Link;
+
+const NavigationMenuViewport = React.forwardRef(({ className, ...props }, ref) => (
+  <div className={cn("absolute left-0 top-full flex justify-center z-50")}>
+    <NavigationMenuPrimitive.Viewport
+      className={cn(
+        "origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]",
+        className
+      )}
+      ref={ref}
+      {...props}
+    />
+  </div>
+));
+NavigationMenuViewport.displayName = NavigationMenuPrimitive.Viewport.displayName;
+
+const NavigationMenuIndicator = React.forwardRef(({ className, ...props }, ref) => (
+  <NavigationMenuPrimitive.Indicator
+    ref={ref}
+    className={cn(
+      "top-full z-[20] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in",
+      className
+    )}
+    {...props}
+  >
+    <div className="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
+  </NavigationMenuPrimitive.Indicator>
+));
+NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;
+
+
+
+
+const DynamicComponentWithNoSSR = dynamic(() => import("./call"), {
+  ssr: false,
+});
+
+const components = [
   {
-    label: "Solution",
-    description: "Item with description",
-    menus: [
-      {
-        label: "Audit Software",
-        link: "/solution/audit-software",
-        description: "Lorem ipsum dolor sit amet. Sit nemo optio sit sint galisum ut nihil veniam.",
-        icon: <Icon>Au</Icon>,
-      },
-      {
-        label: "Drafting",
-        link: "/solution/drafting",
-        description: "Lorem ipsum dolor sit amet. Sit nemo optio sit sint galisum ut nihil veniam.",
-        icon: <Icon>Dr</Icon>,
-      },
-      {
-        label: "Workspace",
-        link: "/solution/workspace",
-        description: "Lorem ipsum dolor sit amet. Sit nemo optio sit sint galisum ut nihil veniam.",
-        icon: <Icon>Ws</Icon>,
-      },
-      {
-        label: "Client Portal",
-        link: "/solution/client-portal",
-        description: "Lorem ipsum dolor sit amet. Sit nemo optio sit sint galisum ut nihil veniam.",
-        icon: <Icon>Cp</Icon>,
-      },
-    ],
+    title: "Introduction",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
   {
-    label: "Knowledge Base",
-    description: "Item with description",
-    menus: [
-      {
-        label: "How to Guide",
-        link: "/knowledge-base/how-to-guide",
-        description: "Lorem ipsum dolor sit amet. Sit nemo optio sit sint galisum ut nihil veniam.",
-      },
-      {
-        label: "FAQ",
-        link: "/knowledge-base/faq",
-        description: "Lorem ipsum dolor sit amet. Sit nemo optio sit sint galisum ut nihil veniam.",
-      },
-    ],
+    title: "Tutorials",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
   {
-    label: "Pricing",
-    description: "Item with description",
-    link: "/pricing",
+    title: "Help Desk",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
   {
-    label: "About Us",
-    description: "Item with description",
-    link: "/about-us",
+    title: "Commnunity",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
   {
-    label: "Contact Us",
-    description: "Item with description",
-    link: "/contact-us",
+    title: "Blogs",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+  {
+    title: "Webinars",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+  {
+    title: "Partners",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+  {
+    title: "Support Us",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
 ];
 
-function Navbar() {
-  const pathname = usePathname();
-  const call = useOpenBookADemo();
+const solutions = [
+  {
+    label: "Audit Software",
+    desc: "Manage and execute audit tasks efficiently.",
+    icon: "Au",
+    href: "audit-software",
+  },
+  {
+    label: "Drafting",
+    desc: "Editor for financial statements and audit letters.",
+    icon: "Dr",
+    href: "drafting",
+  },
+  {
+    label: "Workspace",
+    desc: "Online spreadsheets with OCR for fieldwork testing.",
+    icon: "Ws",
+    href: "workspace",
+  },
+  {
+    label: "Client Portal",
+    desc: "Platform for clients to answer queries and upload documents.",
+    icon: "Cp",
+    href: "client-portal",
+  },
+];
 
+export default function Navbar() {
+  const [isMobile] = useMobile(800);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+
+  console.log(isMobile)
   return (
-    <div className="lg:py-8 py-2 sticky items-baseline backdrop-blur-sm z-10 justify-between flex top-0">
-      <Link href="/">
-        <Image src={`/logo.svg`} alt="sheetsway logo" width={150} height={0} />
-      </Link>
+    <nav className="flex relative z-[100] w-full p-8 items-center justify-between">
+      <Logo />
+      <MobileMenu
+        isMobile={isMobile}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        solutions={solutions}
+        components={components}
+        pricing="/pricing"
+        aboutUs="/about-us"
+        contactUs="/contact"
+      />
 
-      <div className="flex gap-8 items-center">
-        {data.map((item, index) =>
-          item.menus ? (
-            <Menu
-              key={item.label} // ✅ key here
-              trigger="hover"
-              position="bottom-start"
-              width={400}
-              withArrow
-              shadow="md"
-            >
-              <MenuTarget>
-                <NavLink
-                  rightSection={<IoIosArrowDown />}
-                  active={pathname === item.link}
-                  className="w-fit"
-                  label={item.label}
-                />
-              </MenuTarget>
+      {!isMobile && (
+        <NavigationMenu>
+          <NavigationMenuList className="max-lg:items-start">
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid gap-3 p-4 md:w-[500px] lg:w-[700px] lg:grid-cols-[.75fr_1fr] bg-white">
+                  <li className="row-span-3">
+                    <NavigationMenuLink asChild>
+                      <a
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        href="/"
+                      >
+                        <Logo />
+                        <p className="text-sm mt-4 leading-tight text-muted-foreground">
+                          We are not just software we are communtiy
+                        </p>
+                      </a>
+                    </NavigationMenuLink>
+                  </li>
+                  <div className="flex flex-col gap-3 bg-white">
+                    {solutions.map((item, index) => (
+                      <ListItem key={index} href={item.href} title={item.label}>
+                        {item.desc}
+                      </ListItem>
+                    ))}
+                  </div>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>knowledge base</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white">
+                  {components.map((component) => (
+                    <ListItem
+                      key={component.title}
+                      title={component.title}
+                      href={component.href}
+                    >
+                      {component.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href={pricing} legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Pricing
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href={aboutUs} legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Meet Our Team
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href={contactUs} legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Contact Us
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      )}
 
-              <MenuDropdown>
-                {item.menus.map((menuItem) => (
-                  <MenuItem key={menuItem.label}>
-                    <Link href={menuItem.link}>
-                      <NavLink
-                        description={menuItem.description}
-                        active={pathname === menuItem.link}
-                        leftSection={menuItem.icon}
-                        label={menuItem.label}
-                      />
-                    </Link>
-                  </MenuItem>
-                ))}
-              </MenuDropdown>
-            </Menu>
-          ) : (
-            <Link href={item.link} key={item.label}>
-              <NavLink
-                active={pathname === item.link}
-                className="w-fit"
-                label={item.label}
-              />
-            </Link>
-          )
-        )}
+      <div className="flex items-center gap-4">
+        <Button variant="outline"> Login</Button>
+        <DynamicComponentWithNoSSR />
       </div>
-
-      <div className="item-center gap-2 flex">
-        <NavLink
-          target="_blank"
-          href="https://audit.sheetsway.com/login"
-          className="w-fit"
-          label="Login"
-        />
-        <Button onClick={call} variant="light">
-          Try for Free
-        </Button>
-      </div>
-    </div>
+    </nav>
   );
 }
 
-export default Navbar;
+const ListItem = React.forwardRef(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-sidebar focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="font-bold text-sprimary text-base -none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug">{children}</p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";

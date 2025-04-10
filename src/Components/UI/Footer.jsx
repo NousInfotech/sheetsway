@@ -1,71 +1,179 @@
-import { ActionIcon, Button } from "@mantine/core";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { CiFacebook, CiTwitter, CiYoutube } from "react-icons/ci";
-import { FaLinkedinIn } from "react-icons/fa";
-import { TiSocialFacebook } from "react-icons/ti";
 
-function Footer() {
+import * as React from "react";
+import { cn } from "@/utils/helper";
+import Logo from "@/app/_components/Logo";
+
+function Footer({ className, ...props }) {
   return (
-    <div className="bg-zinc-900 text-gray-500 p-16 grid gap-16 grid-cols-10">
-      <div className="col-span-3 flex justify-between flex-col gap-10">
-        <div className="flex flex-col gap-8">
-          <Image width={200} height={200} src="/logo.svg" alt="" />
-          <div className="flex gap-4">
-            <ActionIcon
-              size="lg"
-              className="border bg-zinc-900 hover:bg-zinc-800 border-gray-500"
-              radius="xl"
-            >
-              <TiSocialFacebook />
-            </ActionIcon>
-            <ActionIcon
-              size="lg"
-              className="border bg-zinc-900 hover:bg-zinc-800 border-gray-500"
-              radius="xl"
-            >
-              <FaLinkedinIn />
-            </ActionIcon>
-            <ActionIcon
-              size="lg"
-              className="border bg-zinc-900 hover:bg-zinc-800 border-gray-500"
-              radius="xl"
-            >
-              <CiYoutube />
-            </ActionIcon>
-          </div>
-        </div>
-        <p>@{new Date().getFullYear()} A4 Malta Limited.</p>
-      </div>
-      <div className="col-span-2 flex flex-col gap-6">
-        <p className="font-bold text-white text-lg">Product</p>
-        <Link href="/">Home</Link>
-        <Link href="/pricing">Pricing</Link>
-        <Link href="/how-to-guide">How To Guide</Link>
-        <Link href="/how-to-guide">FAQ</Link>
-      </div>
-      <div className="col-span-2 flex flex-col gap-6">
-        <p className="font-bold text-white text-lg">Solutions</p>
-        <Link href="/about-us">Audit Portal</Link>
-        <Link href="/about-us#blogs">Drafting</Link>
-        <Link href="/contact-us">Workspace</Link>
-        <Link href="/contact-us">Client Portal</Link>
-      </div>
-      <div className="col-span-2 flex flex-col gap-6">
-        <p className="font-bold text-white text-lg">Company</p>
-        <Link href="/about-us">About Us</Link>
-        <Link href="/contact-us">Contact Us</Link>
-      </div>
-      <div className="col-span-2 flex flex-col gap-6">
-        <p className="font-bold text-white text-lg">More</p>
-        <Link href="/terms-and-condition">Terms and Condition</Link>
-        <Link href="/privacy-policy">Privacy Policy</Link>
-        <Link href="/license">License</Link>
-        <Link href="/about-us#why-us">Why Us?</Link>
-      </div>
-    </div>
+    <div
+      data-slot="footer"
+      className={cn("bg-background text-foreground pt-12 pb-4", className)}
+      {...props}
+    />
   );
 }
 
-export default Footer;
+function FooterContent({ className, ...props }) {
+  return (
+    <div
+      data-slot="footer-content"
+      className={cn(
+        "grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+function FooterColumn({ className, ...props }) {
+  return (
+    <div
+      data-slot="footer-column"
+      className={cn("flex flex-col gap-4", className)}
+      {...props}
+    />
+  );
+}
+
+function FooterBottom({ className, ...props }) {
+  return (
+    <div
+      data-slot="footer-bottom"
+      className={cn(
+        "border-border dark:border-border/15 text-muted-foreground mt-8 flex flex-col items-center justify-between gap-4 border-t pt-4 text-xs sm:flex-row",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+export { Footer, FooterColumn, FooterBottom, FooterContent };
+
+
+const footerLinks = [
+  {
+    title: "Solutions",
+    links: [
+      { name: "Sheetsway Audit Software", href: "/" },
+      { name: "Sheetsway Client Connect", href: "/" },
+      { name: "Advanced Extraction Excel Plugin", href: "/" },
+      { name: "Financial Statement Word Plugin", href: "/" },
+    ],
+  },
+  {
+    title: "What we offer?",
+    links: [
+      { name: "Customizable Audit Methodology", href: "/" },
+      { name: "Advanced Procedures Generation", href: "/" },
+      { name: "Accounting Software Connect", href: "/" },
+      { name: "Secure Clound Storage", href: "/" },
+      { name: "Customizable Branding", href: "/" },
+    ],
+  },
+  {
+    title: "Who we Serve?",
+    links: [
+      { name: "Organizations", href: "/" },
+      { name: "Enterprise", href: "/" },
+      { name: "Audit Firms", href: "/" },
+      { name: "External Auditors", href: "/" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { name: "About Us", href: "/" },
+      { name: "Meet Our Team", href: "/" },
+      { name: "Newsletters", href: "/" },
+      { name: "Media and Broadcast", href: "/" },
+    ],
+  },
+  {
+    title: "Knowledge Base",
+    links: [
+      { name: "Blogs", href: "/" },
+      { name: "Media and Broadcast", href: "/" },
+      { name: "Case Studies", href: "/" },
+      { name: "Seminars and Webinars", href: "/" },
+      { name: "Tutorials & Guides", href: "/" },
+      { name: "Community", href: "/" },
+    ],
+  },
+
+  {
+    title: "Social Media",
+    links: [
+      { name: "Twitter", href: "/" },
+      { name: "Linkedin", href: "/" },
+      { name: "Youtube", href: "/" },
+      { name: "Facebook", href: "/" },
+    ],
+  },
+  {
+    title: "Pricing",
+    links: [
+      { name: "Overview", href: "/" },
+      { name: "License", href: "/" },
+    ],
+  },
+  {
+    title: "Partner with us",
+    links: [
+      { name: "Overview", href: "/" },
+      { name: "Grow with us", href: "/" },
+    ],
+  },
+  {
+    title: "Care Center",
+    links: [
+      { name: "Contact Us", href: "/" },
+      { name: "Invest in us", href: "/" },
+      { name: "Meet with us", href: "/" },
+      { name: "Career", href: "/" },
+      { name: "Security", href: "/" },
+    ],
+  },
+];
+
+export default function FooterSection() {
+  return (
+    <footer className="w-full bg-background px-32 border-t">
+      <div className="mx-auto max-w-container">
+        <Footer>
+          <FooterContent>
+            <FooterColumn className="col-span-2 sm:col-span-3 md:col-span-1">
+              <Logo className="h-8" />
+            </FooterColumn>
+            {footerLinks.map((section, index) => (
+              <FooterColumn key={index}>
+                <h3 className="text-md pt-1 font-semibold">{section.title}</h3>
+                {section.links.map((link, linkIndex) => (
+                  <a
+                    key={linkIndex}
+                    href={link.href}
+                    className="text-sm text-muted-foreground"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </FooterColumn>
+            ))}
+          </FooterContent>
+          <FooterBottom>
+            <div>
+              © {new Date().getFullYear()} A4 Malta. All rights reserved
+            </div>
+            <div className="flex items-center gap-4">
+              <a href="/">Privacy Policy</a>
+              <a href="/">Terms of Service</a>
+              <a href="/">License</a>
+              <a href="/">Application Security</a>
+            </div>
+          </FooterBottom>
+        </Footer>
+      </div>
+    </footer>
+  );
+}

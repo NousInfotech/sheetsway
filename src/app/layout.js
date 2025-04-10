@@ -1,9 +1,10 @@
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import BookADemoModal from "./BookADemoModal";
-import Footer from "./_components/Footer";
 import Header from "./_components/Header";
 import "./globals.css";
+import FooterSection from "@/Components/UI/Footer";
+import Navbar from "@/Components/UI/Navbar";
 
 export const metadata = {
   title: {
@@ -50,9 +51,9 @@ export default function RootLayout({ children }) {
           withNormalizeCSS
         >
           <BookADemoModal />
-          <Header />
+          <Navbar />
           <main>{children}</main>
-          <Footer />
+          <FooterSection/>
         </MantineProvider>
       </body>
     </html>

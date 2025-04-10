@@ -3,7 +3,7 @@
 import FadeUpAnimation from "@/app/_components/FadeUpAnimation";
 import { industryAwareData } from "@/app/_constants/industryAware-data";
 import useInterval from "@/hooks/useInterval";
-import useMobile from "@/hooks/useMobile";
+import { useMobile } from "@/hooks/useMobile";
 import Image from "next/image";
 
 export default function IndustryAwareAI() {

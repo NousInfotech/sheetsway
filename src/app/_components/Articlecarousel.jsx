@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import useMobile from "@/hooks/useMobile";
+import { useMobile } from "@/hooks/useMobile";
 import { getfirstSentence } from "@/utils/helper";
 import Button from "./Button";
 import { logos, slides } from "../_constants/carousel";

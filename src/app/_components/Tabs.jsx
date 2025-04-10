@@ -1,5 +1,5 @@
 // import React from "react";
-// import useMobile from "@/hooks/useMobile";
+// import { useMobile } from "@/hooks/useMobile";
 
 // export default function Tabs({ tabs, currImg, setCurrImg }) {
 //   const [isMobile] = useMobile(600);
@@ -51,7 +51,7 @@
 // }
 
 import React from "react";
-import useMobile from "@/hooks/useMobile";
+import { useMobile } from "@/hooks/useMobile";
 
 export default function Tabs({ tabs, currImg, setCurrImg }) {
   const [isMobile] = useMobile(600);
