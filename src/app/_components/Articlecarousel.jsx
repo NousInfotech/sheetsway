@@ -222,7 +222,7 @@ function MobileCarousel({ currentIndex, setCurrentIndex }) {
 
                 {/* Article Image */}
                 <div className="sm:w-1/2">
-                  {article?.ytSrc ? (
+                  {article.ytSrc ? (
                     <ResponsiveYouTube
                       videoURL={article.ytSrc}
                       imgSrc={article.image}
