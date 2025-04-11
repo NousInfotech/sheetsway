@@ -12,15 +12,15 @@ const useAutoScroll = (activeIndex) => {
       const activeButton = activeButtonRef.current;
 
       // Calculate scroll position to center the active button
-      const scrollLeft =
-        activeButton.offsetLeft -
-        container.offsetWidth / 2 +
-        activeButton.offsetWidth / 2;
+      // const scrollLeft =
+      //   activeButton.offsetLeft -
+      //   container.offsetWidth / 2 +
+      //   activeButton.offsetWidth / 2;
 
-      container.scrollTo({
-        left: scrollLeft,
-        behavior: "smooth",
-      });
+      // container.scrollTo({
+      //   left: scrollLeft,
+      //   behavior: "smooth",
+      // });
     }
   }, [activeIndex]);
 

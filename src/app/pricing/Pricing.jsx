@@ -41,7 +41,7 @@ export default function Pricing() {
           }
           description="Try Sheetsway for 30 days to start connected with all your teams. Cancel any time. No Credit card required."
         />
-        <div className="flex sm:gap-8 gap-4 relative z-50">
+        <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-1/3 mx-auto justify-center items-center sm:justify-evenly relative z-20 my-3 sm:my-5">
           <Link href={customPricing}>
             <button
               type="primary"
@@ -87,9 +87,9 @@ export default function Pricing() {
 
           {/* Responsive Table Container */}
           <div className="overflow-x-auto ">
-          {elements.map((tb) => (
-  <Table
-    key={tb.name} className="mb-10 w-full min-w-[700px] ">
+            {elements.map((tb) => (
+              <Table
+                key={tb.name} className="mb-10 w-full min-w-[700px] ">
                 <TableThead className="border">
                   <TableTr className="bg-zinc-100 ">
                     <TableTh className="p-4">{tb.name}</TableTh>
@@ -120,13 +120,12 @@ export default function Pricing() {
                       {pricing.tier.map((tier, index) => (
                         <TableTd
                           key={index}
-                          className={`font-bold text-center ${
-                            tier === "✗"
-                              ? "text-red-500"
-                              : tier === "✓"
+                          className={`font-bold text-center ${tier === "✗"
+                            ? "text-red-500"
+                            : tier === "✓"
                               ? "text-green-500"
                               : ""
-                          }`}
+                            }`}
                         >
                           {tier}
                         </TableTd>

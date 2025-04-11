@@ -87,7 +87,7 @@ const AuditSolution = () => {
   return (
     <div className="px-6 my-10 relative z-40">
       {/* Top Border Decoration */}
-      <div className="border-t-[30px] realtive z-40 mb-6 -mx-6 shadow-xl"></div>
+      <div className="border-t-[30px] border-primary realtive z-40 mb-6 -mx-6 shadow-xl"></div>
 
       <FadeUpAnimation
         amount={0.2}

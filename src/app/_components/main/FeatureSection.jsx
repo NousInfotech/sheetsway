@@ -17,7 +17,7 @@ export default function FeatureSection() {
       ></div>
 
       {/* Grid Container */}
-      <div className="flex flex-col lg:gap-32 sm:gap-y-10  md:gap-y-20 max-w-7xl mx-auto">
+      <div className="flex flex-col gap-y-16 lg:gap-32 sm:gap-y-10  md:gap-y-20 max-w-7xl mx-auto">
         {features.map((feature, index) => {
           const { firstSentence, rest } = getfirstSentence(feature.description);
 
@@ -36,7 +36,7 @@ export default function FeatureSection() {
                 className="w-full md:w-1/2 flex justify-center relative"
               >
                 <Video src={feature.videoSrc} className={"relative z-40"} />
-                <img src={feature.shapeSrc} className={`${feature.imgClass} -z-10`} alt=""/>
+                <img src={feature.shapeSrc} className={`${feature.imgClass} -z-10`} alt="" />
               </FadeUpAnimation>
               <div className="w-full md:w-1/2 max-w-lg z-40">
                 {feature.title}

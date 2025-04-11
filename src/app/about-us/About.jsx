@@ -23,14 +23,14 @@ export default function About() {
                 of work
               </span>
             }
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+            description="At Sheetsway, our visionary founders are dedicated to pushing the boundaries of what's possible in audit automation. Meet the team driving your business forward."
           />
         </div>
         {/* <div className="grid grid-cols-[repeat(auto-fit,_minmax(10rem,15rem))] justify-between gap-4 sm:mt-20 mt-8"> */}
-        <div className="grid lg:grid-cols-[repeat(4,15rem)] sm:grid-cols-[repeat(2,15rem)] xs:grid-cols-[repeat(2,10rem)] lg:justify-between justify-center gap-4 sm:mt-20 mt-5">
-        {team.map((item, i) => (
-  <motion.div
-    key={i} 
+        <div className="grid lg:grid-cols-[repeat(3,15rem)] sm:grid-cols-[repeat(2,15rem)] xs:grid-cols-[repeat(2,10rem)] lg:justify-center justify-center gap-4 sm:mt-20 mt-5">
+          {team.map((item, i) => (
+            <motion.div
+              key={i}
               className={`flex flex-col items-center font-sans p-2 rounded-xl`}
               initial={{ backgroundColor: "#fff", scale: 1 }}
               whileHover={{
@@ -49,7 +49,7 @@ export default function About() {
                 alt="img"
               />
               <p className="font-semibold max-sm:text-sm">{item.name}</p>
-              <p className="text-zinc-500 max-sm:text-xs">{item.role}</p>
+              <p className="text-white max-sm:text-xs">{item.role}</p>
               <div className="flex items-center gap-2 mt-2">
                 <Link href={"#"} className="">
                   <CiLinkedin size={16} />
@@ -80,13 +80,14 @@ export default function About() {
             />
           </div>
           <div className="flex flex-col items-center md:items-start gap-8 md:gap-16 text-center md:text-left font-sans">
-          <h4 className="text-4xl md:text-7xl font-bold">
-  We&apos;re good <br /> neighbors
-</h4>
+            <h4 className="text-4xl md:text-7xl font-bold font-bodoni">
+              Become a <br />
+              Regional <br />
+              Distributor
+            </h4>
 
             <h2 className="text-base sm:text-xl text-gray-500 max-sm:max-w-[95%]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              We invite you to join our team as a regional distributor. This is your chance to partner with a forward-thinking company and contribute to our success. Reach out to us to discover more about this exciting opportunity and how you can help us grow.
             </h2>
             <Link href="/contact-us?message=Hii, I want to become a part of your journey">
               <button className="relative flex items-center justify-center md:justify-start gap-2 px-6 py-3 w-full md:w-auto text-sm font-semibold text-black group">
@@ -116,10 +117,7 @@ export default function About() {
               How we Thrive
             </h4>
             <h2 className="sm:text-lg text-base lg:text-xl text-gray-500">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Our success is intertwined with the well-being of our community. We work hand-in-hand with local partners and neighbors to drive positive change and development
             </h2>
           </div>
 

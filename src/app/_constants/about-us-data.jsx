@@ -32,9 +32,9 @@ export const team = [
     role: "Co-Founder and CTO",
     src: "/avatars/1.svg",
   },
-  {
-    name: "Xiaoyang Lou",
-    role: "Co-Founder and CFO",
-    src: "/avatars/4.svg",
-  },
+  // {
+  //   name: "Xiaoyang Lou",
+  //   role: "Co-Founder and CFO",
+  //   src: "/avatars/4.svg",
+  // },
 ];

@@ -38,7 +38,7 @@ function AnimatedOrbit() {
         <img
           src="/sec-2/Vector Smart Object.png"
           alt="Platform Logo"
-          // className="w-full"
+        // className="w-full"
         />
       </div>
 
@@ -82,7 +82,7 @@ export default function AuditPlatform() {
             audit needs
           </h1>
           <p className="text-gray-600 text-base sm:text-xl mt-3">
-            Starting at $120 / user / mo
+            Starting at €120 / user / mo
           </p>
 
           {/* //here */}
@@ -96,7 +96,7 @@ export default function AuditPlatform() {
             An Audit Organizational Management Tool
           </h2>
           <p className="text-gray-500 mt-4 text-sm sm:text-lg font-nunito">
-            Meticulously researched and planned tools <br /> 
+            Meticulously researched and planned tools <br />
             any auditor should have under his belt <br />
             in one portal.
           </p>

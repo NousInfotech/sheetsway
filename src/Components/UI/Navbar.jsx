@@ -20,12 +20,14 @@ const components = [
   {
     title: "How to Guide",
     href: "guide",
+    icon: "GU",
     description:
       "Manage and execute audit tasks efficiently.",
   },
   {
     title: "FAQ",
     href: "faq",
+    icon: "FAQ",
     description:
       "Editor for financial statements and audit letters.",
   },
@@ -169,17 +171,25 @@ const NavigationMenuIndicator = React.forwardRef(({ className, ...props }, ref) 
 ));
 NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;
 
-const ListItem = React.forwardRef(({ className, title, children, ...props }, ref) => {
+const ListItem = React.forwardRef(({ className, title, icon, children, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
+
         <a
           ref={ref}
-          className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-sidebar focus:bg-accent focus:text-accent-foreground ${className || ""}`}
+          className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors focus:bg-sidebar focus:bg-accent focus:text-accent-foreground ${className || ""}`}
           {...props}
         >
-          <div className="font-bold text-sprimary text-base -none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug">{children}</p>
+          <div className="flex gap-4 justify-start items-center">
+            <span className="p-2 w-10 flex italic justify-center items-center font-extrabold border text-gray-800 rounded-lg ">
+              {icon}
+            </span>
+            <div className="space-y-1">
+              <div className="font-bold text-sprimary text-base -none">{title}</div>
+              <p className="line-clamp-2 text-sm leading-snug">{children}</p>
+            </div>
+          </div>
         </a>
       </NavigationMenuLink>
     </li>
@@ -230,7 +240,7 @@ export default function Navbar() {
                   </li>
                   <div className="flex flex-col gap-3 bg-white">
                     {solutions.map((item, index) => (
-                      <ListItem key={index} href={item.href} title={item.label}>
+                      <ListItem key={index} href={item.href} icon={item.icon} title={item.label}>
                         {item.desc}
                       </ListItem>
                     ))}
