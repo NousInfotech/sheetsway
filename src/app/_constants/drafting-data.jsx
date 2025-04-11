@@ -4,7 +4,7 @@ import { Cable, CheckCircle, SaveAll, Target } from "lucide-react";
 export const draftingPlugin = {
   imgSrc: "/drafting/Microsoft_Office_Word_(2019–present).svg.png",
   alt: "drafting-word-img",
-  color: "darkBlue",
+  color: "#103f91",
   primaryHeading: "Turn word documents",
   secondaryHeading: "into dynamic audit tools",
   listData: [
@@ -21,7 +21,8 @@ export const draftingPlugin = {
       secondaryText: "manual copy-paste and reduce errors",
     },
   ],
-  videoSrc: "/drafting/word-placeholder.png",
+  videoSrc: "https://www.youtube.com/embed/yA2N3vrK_l0",
+  imgURL: "/drafting/word-placeholder.png"
 };
 
 export const tabs = [

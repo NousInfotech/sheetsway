@@ -167,5 +167,6 @@ export const workspacePlugin = {
       secondaryText: "audits with AI-driven accuracy",
     },
   ],
-  videoSrc: "/workspace/excel-placeholder.png",
+  imgURL: "/workspace/excel-placeholder.png",
+  videoSrc: "https://www.youtube.com/embed/PjC4RCOCfag"
 };

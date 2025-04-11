@@ -4,6 +4,8 @@ import { useMobile } from "@/hooks/useMobile";
 import { getfirstSentence } from "@/utils/helper";
 import Button from "./Button";
 import { logos, slides } from "../_constants/carousel";
+import ResponsiveYouTube from "./ResponsiveYoutube";
+
 
 const ArticleCarousel = () => {
   // const [currentIndex, setCurrentIndex] = useInterval(0, slides.length, 5000);
@@ -20,9 +22,8 @@ const ArticleCarousel = () => {
             key={index}
             src={logo.activeSrc}
             alt={logo.alt}
-            className={`lg:w-32 md:w-24 w-20 cursor-pointer ${
-              index === currentIndex ? "" : "grayscale opacity-75"
-            }`}
+            className={`lg:w-32 md:w-24 w-20 cursor-pointer ${index === currentIndex ? "" : "grayscale opacity-75"
+              }`}
           />
         ))}
       </div>
@@ -37,9 +38,8 @@ const ArticleCarousel = () => {
         {slides.map((_, index) => (
           <button
             key={index}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              currentIndex === index ? "bg-primary w-4" : "bg-gray-300"
-            }`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${currentIndex === index ? "bg-primary w-4" : "bg-gray-300"
+              }`}
             onClick={() => setCurrentIndex(index)}
           ></button>
         ))}
@@ -75,11 +75,10 @@ function Carousel({ currentIndex }) {
                     </div>
 
                     <div
-                      className={`md:mr-9 ${
-                        !article.author
-                          ? "flex flex-col items-start gap-10"
-                          : ""
-                      }`}
+                      className={`md:mr-9 ${!article.author
+                        ? "flex flex-col items-start gap-10"
+                        : ""
+                        }`}
                     >
                       <h3 className="lg:text-xl text-base font-semibold text-gray-600 italic leading-6 mb-5">
                         {article?.title}
@@ -119,17 +118,18 @@ function Carousel({ currentIndex }) {
                     </div>
                   )}
                 </div>
-
-                {article?.image && (
-                  <div className="sm:w-1/2">
+                <div className="sm:w-1/2">
+                  {article.ytSrc ? (
+                    <ResponsiveYouTube videoURL={article.ytSrc} imgSrc={article.image} className={"h-[500px] "} />
+                  ) : (
                     <img
                       src={article.image}
                       alt="Article"
                       className="w-[100%] h-[100%] object-cover rounded-tr-2xl rounded-br-2xl"
                       loading="lazy"
                     />
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
           );
@@ -209,16 +209,18 @@ function MobileCarousel({ currentIndex }) {
               </div>
 
               {/* Article Image */}
-              {article?.image && (
-                <div className="mt-2 ">
+              <div className="sm:w-1/2">
+                {article?.ytSrc ? (
+                  <ResponsiveYouTube videoURL={article.ytSrc} imgSrc={article.image} playBtn={false} />
+                ) : (
                   <img
                     src={article.image}
                     alt="Article"
-                    className="w-full h-full object-cover rounded-lg"
+                    className="w-[100%] h-[100%] object-cover rounded-tr-2xl rounded-br-2xl"
                     loading="lazy"
                   />
-                </div>
-              )}
+                )}
+              </div>
             </div>
           );
         })}

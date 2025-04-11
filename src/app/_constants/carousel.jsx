@@ -64,6 +64,7 @@ export const slides = [
       bio: "The Minister of Finance honored us with a speech commemorating the launch at our event. It’s an inspiration to see young adults make such an incredible movement for finance in the digital area.",
     },
     image: "/sec-6/second.png",
+    ytSrc: "https://www.youtube.com/embed/O7PS6tp1Vtg"
   },
   {
     logo: "/sec-6/BOKS-international-ezgif.com-webp-to-png-converter copy.png",
@@ -79,6 +80,7 @@ export const slides = [
       "Originally published on Times of Malta. An article showcasing the prowess of sheetsway's features and hinting at our launch.",
     image: "/sec-6/fourth.png",
     btnText: "Introductory Video",
+    ytSrc: "https://www.youtube.com/embed/p_8Vu_v9pos"
   },
   {
     logo: "/sec-6/lovinmalta-color-large copy.png",

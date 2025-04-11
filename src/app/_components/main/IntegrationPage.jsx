@@ -43,7 +43,7 @@ const IntegrationPage = () => {
         {/* Word Plugin Section */}
         <Plugin
           link={"Drafting"}
-          videoSrc={"/sec-3/Word plugin Gif.webm"}
+          videoSrc={"/sec-3/word gif final.webm"}
           heading={"Word Plugin"}
           shadow={"shadow-[0px_1px_40px_rgba(0,0,255,0.10)]"}
           p1={"Drafting Letters and preparing"}
@@ -58,7 +58,7 @@ const IntegrationPage = () => {
 
         <Plugin
           link={"Extraction"}
-          videoSrc={"/sec-3/Excel plugin gif.webm"}
+          videoSrc={"/sec-3/Excel Gif.webm"}
           heading={"Excel Plugin"}
           shadow={"shadow-[0px_1px_40px_rgba(0,255,0,0.10)]"}
           p1={"Upload Documents and Extract data"}
