@@ -10,7 +10,7 @@ import {
 } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { getNextId } from "../contact-us/page";
+import { getNextId } from "../contact-us/Contact";
 import { writeData } from "@/api/fb";
 import Image from "next/image";
 
@@ -107,13 +107,13 @@ function Page() {
           </div>
           {submitted ? (
             <div className="col-span-1 relative overflow-clip rounded-xl border flex flex-col justify-center gap-4">
-           <Image
-  src="/call.jpg"
-  width={1200}
-  height={1200}
-  alt="Call demo preview"
-  className="w-full h-full object-cover"
-/>
+              <Image
+                src="/call.jpg"
+                width={1200}
+                height={1200}
+                alt="Call demo preview"
+                className="w-full h-full object-cover"
+              />
 
             </div>
           ) : (
