@@ -82,6 +82,7 @@ const MobileMenu = ({
                                             key={item.label}
                                             href={`${item.href}`}
                                             className="block py-2 text-sm text-gray-700"
+                                            onClick={() => setIsMenuOpen(false)}
                                         >
                                             {item.label}
                                         </Link>
@@ -94,23 +95,33 @@ const MobileMenu = ({
                                             key={item.title}
                                             href={item.href}
                                             className="block py-2 text-sm text-gray-700"
+                                            onClick={() => setIsMenuOpen(false)}
                                         >
                                             {item.title}
                                         </Link>
                                     ))}
                                 </MobileDropdown>
 
-                                <Link href={pricing} className="block">
+                                <Link href={pricing} className="block"
+                                    onClick={() => setIsMenuOpen(false)}
+
+                                >
                                     Pricing
                                 </Link>
-                                <Link href={aboutUs} className="block">
+                                <Link href={aboutUs} className="block"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
                                     Meet Our Team
                                 </Link>
-                                <Link href={contactUs} className="block">
+                                <Link href={contactUs} className="block"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
                                     Contact Us
                                 </Link>
 
-                                <div className="flex w-full gap-2 pt-4">
+                                <div className="flex w-full gap-2 pt-4"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
                                     <DynamicComponentWithNoSSR />
                                 </div>
                             </motion.div>
