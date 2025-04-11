@@ -47,7 +47,7 @@ export const slides = [
     author: {
       name: "Dhruv Aggarwal",
       role: "CTO and Co-Founder",
-      image: "/dhruv.jpg",
+      image: "/Dhuruv-Aggarvwal.png",
       bio: "Dhruv has not only invested his expertise and resources into the project but has also enriched their venture with his deep understanding of AI development.",
     },
     image: "/sec-6/first.png",
@@ -60,7 +60,7 @@ export const slides = [
     author: {
       name: "Clyde Caruana",
       role: "Finance Minister of Malta",
-      image: "/dhruv.jpg",
+      image: "/Clyde_Caruana.png",
       bio: "The Minister of Finance honored us with a speech commemorating the launch at our event. It’s an inspiration to see young adults make such an incredible movement for finance in the digital area.",
     },
     image: "/sec-6/second.png",

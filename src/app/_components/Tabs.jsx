@@ -61,8 +61,8 @@ export default function Tabs({ tabs, currImg, setCurrImg }) {
       <div
         className="absolute inset-0 bg-cover z-10"
         style={{
-          backgroundImage: "url('/Background pattern.png')",
-          opacity: 0.1,
+          backgroundImage: "url('/bg-pattern-low-opacity.svg')",
+          opacity: 0.3,
           width: "314%"
         }}
       ></div>

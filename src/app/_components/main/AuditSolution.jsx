@@ -56,15 +56,18 @@ const ScrollableFeatures = ({ setCurrFeature, currFeature }) => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className={`flex flex-col items-center justify-center bg-white sm:p-4 my-5 p-2 rounded-lg shadow-[0px_1px_10px_rgba(255,140,0,0.1)] min-w-[100px] sm:min-w-[140px] transition-transform ${index === currFeature ? "scale-100" : "scale-90"
+              className={`flex flex-col items-center justify-center bg-white sm:p-4 my-5 p-2 rounded-lg min-w-[100px] cursor-pointer sm:min-w-[140px] transition-transform ${index === currFeature
+                ? "scale-100 shadow-lg"
+                : "scale-90 shadow-md"
                 }`}
+
               whileHover={{ scale: 0.9 }}
               onClick={() => setCurrFeature(index)}
             >
               <img
                 src={feature.icon}
                 alt={feature.label}
-                className="h-8 w-8 sm:h-16 sm:w-16 object-contain mb-2"
+                className="h-8 w-8 sm:h-16 sm:w-16 object-contain mb-2 cursor-pointer"
               />
               <p className="sm:text-sm text-[10px] font-sans font-medium text-gray-600 text-center mb-6">
                 {feature.label}
@@ -84,7 +87,7 @@ const AuditSolution = () => {
   return (
     <div className="px-6 my-10 relative z-40">
       {/* Top Border Decoration */}
-      <div className="border-t-[30px] realtive z-40 border-[#FFB231] mb-6 -mx-6 shadow-xl"></div>
+      <div className="border-t-[30px] realtive z-40 mb-6 -mx-6 shadow-xl"></div>
 
       <FadeUpAnimation
         amount={0.2}

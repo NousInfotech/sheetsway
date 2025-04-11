@@ -112,12 +112,12 @@ export const features = [
 ];
 
 export const images = [
-  { alt: "customizable", src: "/navigation-Page.png" },
+  { alt: "customizable", src: "/client-portal/Customizable_shared_metrics.png" },
   {
     alt: "viewable",
-    src: "/navigation-Page.png",
+    src: "/client-portal/Viewable_Engagements.png",
   },
-  { alt: "shared", src: "/navigation-Page.png" },
+  { alt: "shared", src: "/client-portal/Shared_Queries.png" },
 ];
 
 export const tabs = [
@@ -146,13 +146,13 @@ export const tabs = [
 
 export const enhancedCollection = [
   {
-    src: "/client-portal/img1.png",
+    src: "/client-portal/know_your_client.png",
     alt: "KYC",
     heading: "Know Your Client (KYC)",
     para: "Clients can easily fill in and edit KYC fields, with data linked to the audit portal.",
   },
   {
-    src: "/client-portal/img2.png",
+    src: "/client-portal/Shared_Libraries.png",
     alt: "Shared Libraries",
     heading: "Shared Libraries",
     para: "Shared library where both auditor and client can access and manage documents collaboratively.",

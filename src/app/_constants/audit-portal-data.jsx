@@ -35,13 +35,13 @@ export const tabs = [
 
 export const comprehensiveAudit = [
   {
-    src: "/audit-portal/img1.png",
+    src: "/audit-portal/Client_onboarding.png",
     alt: "Client Onboarding",
     heading: "Client Onboarding",
     para: "The client onboarding feature simplifies the process of adding new clients to the system. It allows auditors to enter comprehensive client details, assign roles, and manage engagement specifics effectively.",
   },
   {
-    src: "/audit-portal/img2.png",
+    src: "/audit-portal/Trial_.png",
     alt: "Trial Balance Management",
     heading: "Trial Balance Management",
     para: "The Trial Balance Management tool helps auditors organize and upload TB documents. It includes features for auto-classifying accounts, manual classification, and detailed review of the TB data.",
