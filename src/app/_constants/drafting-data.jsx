@@ -1,4 +1,5 @@
-import { Cable } from "lucide-react";
+import { Cable, CheckCircle, SaveAll, Target } from "lucide-react";
+
 
 export const draftingPlugin = {
   imgSrc: "/drafting/Microsoft_Office_Word_(2019–present).svg.png",
@@ -25,21 +26,21 @@ export const draftingPlugin = {
 
 export const tabs = [
   {
-    icon: <Cable className="text-primary md:size-6 size-4" />,
+    icon: <SaveAll className="text-primary md:size-6 size-4" />,
     btnText: "Save & Reuse",
     primaryText: "Document Library",
     secondaryText:
       "Store key text once, and reuse it anywhere. Boost productivity while keeping content consistent across all your documents.",
   },
   {
-    icon: <Cable className="text-primary md:size-6 size-4" />,
+    icon: <Target className="text-primary md:size-6 size-4" />,
     btnText: "Precision & Flexibility",
     primaryText: "Variables",
     secondaryText:
       "Set up custom or dynamic variables to quickly adapt your documents. Automate calculations for accurate, professional results every time.",
   },
   {
-    icon: <Cable className="text-primary md:size-6 size-4" />,
+    icon: <CheckCircle className="text-primary md:size-6 size-4" />,
     btnText: "Show or Hide",
     primaryText: "Conditions",
     secondaryText:
@@ -157,13 +158,13 @@ export const features = [
 
 export const nextGeneration = [
   {
-    src: "/drafting/img1.png",
+    src: "/drafting/Save_as_template.png",
     alt: "download in .docx-image",
     heading: "Save Letters as Templates",
     para: "Sheetsway lets you store your audit letters—complete with variables and conditions—as reusable templates. Quickly adapt them across multiple clients or engagements, preserving structure, logic, and efficiency in every draft.",
   },
   {
-    src: "/drafting/img2.png",
+    src: "/drafting/Designed_for_auditors.png",
     alt: "designed for auditors-image",
     heading: "Designed for auditors",
     para: "Sheetsway, designed by auditors, includes all the essential tools needed for drafting, ensuring precise and efficient audit processes.",
