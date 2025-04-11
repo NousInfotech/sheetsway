@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useMobile } from "@/hooks/useMobile";
 import { getfirstSentence } from "@/utils/helper";
 import Button from "./Button";
@@ -8,6 +8,7 @@ import ResponsiveYouTube from "./ResponsiveYoutube";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+
 
 
 const ArticleCarousel = () => {
