@@ -60,13 +60,13 @@ const footerLinks = [
       // { name: "Facebook", href: "/" },
     ],
   },
-  {
-    title: "Pricing",
-    links: [
-      { name: "Overview", href: "/" },
-      // { name: "License", href: "/" },
-    ],
-  },
+  // {
+  //   title: "Pricing",
+  //   links: [
+  //     { name: "Overview", href: "/" },
+  //     // { name: "License", href: "/" },
+  //   ],
+  // },
   {
     title: "Partner with us",
     links: [
