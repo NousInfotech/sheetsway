@@ -39,7 +39,16 @@ export default function IndustryAwareAI() {
                   } text-2xl font-extrabold font-montserrat`}
                 onClick={() => setActive(i)}
               >
-                {el}
+                {el}{"  "}
+                {
+                  industryAwareData[active].title == el && (
+                    industryAwareData[active].tag && (
+                      <span className="text-base font-semibold">
+                        {`(${industryAwareData[active].tag})`}
+                      </span>
+                    )
+                  )
+                }
               </h1>
               {active === i && (
                 <>
@@ -116,7 +125,14 @@ export default function IndustryAwareAI() {
                     }`}
                   onClick={() => setActive(index)}
                 >
-                  {el.title}
+                  {el.title}{"  "}
+                  {
+                    el.tag && (
+                      <span className="text-base font-semibold">
+                        {`(${el.tag})`}
+                      </span>
+                    )
+                  }
                 </h2>
                 {active === index && (
                   <div className="space-y-4">
@@ -151,7 +167,7 @@ export default function IndustryAwareAI() {
           <div
             className="absolute rounded-3xl w-full h-full shadow-[0px_1px_20px_rgba(0,0,0,0.4)] lg:top-5 lg:left-0 lg:h-[80%] lg:w-[90%] md:h-[100%] md:w-[100%] bg-bgprimary/95 sm:w-full sm:h-full"
             style={{
-              backgroundImage: "url('/Background pattern.png')",
+              backgroundImage: "url('/White Background pattern.svg')",
               backgroundSize: "180%",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",

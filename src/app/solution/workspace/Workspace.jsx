@@ -49,7 +49,7 @@ export default function Workspace() {
 
       <ImageDetailsPortal
         data={enhancedCollection}
-        headingtext="Optimize Your Audit Worksapce"
+        headingtext="Optimize Your Audit Workspace"
         paraText="Leverage the powerful tools in Sheeteway’s workspace to enhance your audit processes. Manage documents, extract data, and ensure accurate reconciliations all in one place, allowing you to focus on delivering high-quality audits efficiently."
       />
       {/** */}

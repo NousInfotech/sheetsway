@@ -58,7 +58,7 @@ export const navigationOptions = [
   {
     label: "Dashboard",
     icon: <ChartNetwork className="h-5 w-5" />,
-    src: "/sec-1/Audit_Dashboard_Metric.png",
+    src: "/client-portal/Customizable_shared_metrics.png",
     text: "View critical metrics, deadlines, and audit statuses on a single screen.",
   },
   {

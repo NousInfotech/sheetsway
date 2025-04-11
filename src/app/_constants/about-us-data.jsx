@@ -23,8 +23,8 @@ export const team = [
     src: "/avatars/3.svg",
   },
   {
-    name: "Jean Vella",
-    role: "Co-Founder and CCO",
+    name: "Jean-Luc Vella",
+    role: "Co-Founder and CMO",
     src: "/avatars/2.svg",
   },
   {

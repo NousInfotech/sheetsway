@@ -16,11 +16,11 @@ export default function About() {
           <Heading
             heading={
               <span>
-                A Tools for{" "}
+                The{" "}
                 <span className="text-green-500 italic bg-green-100 px-4">
-                  future
-                </span>{" "}
-                of work
+                  Innovators
+                </span>{" "} <br />
+                Behind Your Success
               </span>
             }
             description="At Sheetsway, our visionary founders are dedicated to pushing the boundaries of what's possible in audit automation. Meet the team driving your business forward."
@@ -31,7 +31,7 @@ export default function About() {
           {team.map((item, i) => (
             <motion.div
               key={i}
-              className={`flex flex-col items-center font-sans p-2 rounded-xl`}
+              className={`flex flex-col items-center font-sans p-2 rounded-xl hover:text-white`}
               initial={{ backgroundColor: "#fff", scale: 1 }}
               whileHover={{
                 backgroundColor: i % 2 === 0 ? "#FFCE33" : "#3B4EFF",
@@ -49,7 +49,7 @@ export default function About() {
                 alt="img"
               />
               <p className="font-semibold max-sm:text-sm">{item.name}</p>
-              <p className="text-white max-sm:text-xs">{item.role}</p>
+              <p className="max-sm:text-xs">{item.role}</p>
               <div className="flex items-center gap-2 mt-2">
                 <Link href={"#"} className="">
                   <CiLinkedin size={16} />

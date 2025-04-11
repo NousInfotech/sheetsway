@@ -33,7 +33,8 @@ export const industryAwareData = [
     },
   },
   {
-    title: "AI Chat Bot ( under devlopment ) ",
+    title: "AI Chat Bot",
+    tag: "under development",
     description:
       "Got a question? Your AI audit partner is standing by 24/7. Tap into expert guidance on-demand, brainstorm ideas, and simplify complex tasks without breaking a sweat. Never feel lost using sheetsway.",
     tags: ["24/7", "Guidance", "Software Support"],
