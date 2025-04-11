@@ -40,9 +40,6 @@ export default function IndustryAwareAI() {
                 onClick={() => setActive(i)}
               >
                 {el}
-                <span className="text-sm text-gray-500">
-                  {industryAwareData[active].smallTag}
-                </span>
               </h1>
               {active === i && (
                 <>

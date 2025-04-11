@@ -1,22 +1,22 @@
-import { Eye } from "lucide-react";
+import { DatabaseIcon, Download, Eye, Upload } from "lucide-react";
 
 export const tabs = [
   {
-    icon: <Eye className="text-primary md:size-6 size-4" />,
+    icon: <Upload className="text-primary md:size-6 size-4" />,
     btnText: "Easy Upload",
     primaryText: "Effortless Document Upload",
     secondaryText:
       "Easily upload your documents and specify the details. You need to extract using our advanced OCR and AI technology. This step ensures precise data capture tailored to your audit requirements.",
   },
   {
-    icon: <Eye className="text-primary md:size-6 size-4" />,
+    icon: <DatabaseIcon className="text-primary md:size-6 size-4" />,
     btnText: "Data Extraction ",
     primaryText: "AI-Powered Data Extraction",
     secondaryText:
       "Automatically extract specified data from your uploaded documents. Our intelligent algorithms accurately identify and retrieve the necessary data, enhancing your audit process.",
   },
   {
-    icon: <Eye className="text-primary md:size-6 size-4" />,
+    icon: <Download className="text-primary md:size-6 size-4" />,
     btnText: "Reference and Export",
     primaryText: "Traceable Export & References",
     secondaryText:

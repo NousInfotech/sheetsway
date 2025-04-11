@@ -17,13 +17,13 @@ export const pricing = "/pricing";
 
 
 const components = [
-  {
-    title: "How to Guide",
-    href: "guide",
-    icon: "GU",
-    description:
-      "Manage and execute audit tasks efficiently.",
-  },
+  // {
+  //   title: "How to Guide",
+  //   href: "guide",
+  //   icon: "GU",
+  //   description:
+  //     "Manage and execute audit tasks efficiently.",
+  // },
   {
     title: "FAQ",
     href: "faq",
@@ -257,6 +257,7 @@ export default function Navbar() {
                       key={component.title}
                       title={component.title}
                       href={`knowledge-base/${component.href}`}
+                      icon={component.icon}
                     >
                       {component.description}
                     </ListItem>

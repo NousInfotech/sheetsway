@@ -5,6 +5,9 @@ import { getfirstSentence } from "@/utils/helper";
 import Button from "./Button";
 import { logos, slides } from "../_constants/carousel";
 import ResponsiveYouTube from "./ResponsiveYoutube";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 
 const ArticleCarousel = () => {
@@ -29,7 +32,7 @@ const ArticleCarousel = () => {
       </div>
 
       {isMobile ? (
-        <MobileCarousel currentIndex={currentIndex} />
+        <MobileCarousel currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
       ) : (
         <Carousel currentIndex={currentIndex} />
       )}
@@ -139,94 +142,108 @@ function Carousel({ currentIndex }) {
   );
 }
 
-function MobileCarousel({ currentIndex }) {
+function MobileCarousel({ currentIndex, setCurrentIndex }) {
+  const swiperRef = useRef(null);
+
+  useEffect(() => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideTo(currentIndex, 0);
+    }
+  }, [currentIndex]);
+
   return (
     <div className="overflow-hidden my-10 max-w-sm sm:max-w-xl mx-auto rounded-3xl shadow-lg relative">
-      <div
-        className="flex transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      <Swiper
+        ref={swiperRef}
+        onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
+        slidesPerView={1}
+        spaceBetween={0}
+        allowTouchMove
       >
         {slides.map((article, index) => {
           const { firstSentence, rest } = getfirstSentence(article.source);
 
           return (
-            <div
-              key={index}
-              className="min-w-full grid grid-rows-[20rem_15rem] bg-white"
-            >
-              {/* Article Header */}
-              <div className="">
-                <div className="flex items-start justify-between m-6">
-                  <img
-                    src={article.logo}
-                    alt="Publication Logo"
-                    className="w-24"
-                  />
-                  <button className="text-gray-500 text-xs font-medium">
-                    Go to Article &gt;
-                  </button>
+            <SwiperSlide key={index}>
+              <div className="min-w-full grid grid-rows-[20rem_15rem] bg-white">
+
+                {/* Article Header */}
+                <div className="">
+                  <div className="flex items-start justify-between m-6">
+                    <img
+                      src={article.logo}
+                      alt="Publication Logo"
+                      className="w-24"
+                    />
+                    <button className="text-gray-500 text-xs font-medium">
+                      Go to Article &gt;
+                    </button>
+                  </div>
+
+                  <h3 className="text-lg mx-4 font-semibold text-gray-700 italic mb-4">
+                    {article?.title}
+                  </h3>
+                  <p className="text-gray-600 text-xs mb-3 mx-4">
+                    <strong>{firstSentence}.</strong> {rest.join(' ')}
+                  </p>
+
+                  {article.btnText && (
+                    <div className="pt-10">
+                      <Button type="primary">{article.btnText}</Button>
+                    </div>
+                  )}
+
+                  {/* Author Section */}
+                  {article?.author && (
+                    <div className="flex items-center gap-4 mt-4 mx-4">
+                      {article?.author?.image && (
+                        <img
+                          src={article.author.image}
+                          alt={article.author.name}
+                          className="w-24 h-20 rounded-full border border-gray-300"
+                          loading="lazy"
+                        />
+                      )}
+                      <div>
+                        <p className="text-sm font-semibold text-gray-900">
+                          {article?.author?.name || 'Anonymous'}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {article?.author?.role || 'No role available'}
+                        </p>
+                        <p className="text-xs text-left text-gray-700 mt-1">
+                          {article?.author?.bio || 'No bio available'}
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
-                {/* Article Content */}
-                <h3 className="text-lg mx-4 font-semibold text-gray-700 italic mb-4">
-                  {article?.title}
-                </h3>
-                <p className="text-gray-600 text-xs mb-3 mx-4">
-                  <strong>{firstSentence}.</strong> {rest.join(" ")}
-                </p>
-                {article.btnText && (
-                  <div className="pt-10">
-                    <Button type="primary" className="">
-                      {article.btnText}
-                    </Button>
-                  </div>
-                )}
-
-                {/* Author Section */}
-                {article?.author && (
-                  <div className="flex items-center gap-4 mt-4 mx-4">
-                    {article?.author?.image && (
-                      <img
-                        src={article.author.image}
-                        alt={article.author.name}
-                        className="w-24 h-20 rounded-full border border-gray-300"
-                        loading="lazy"
-                      />
-                    )}
-                    <div>
-                      <p className="text-sm font-semibold text-gray-900">
-                        {article?.author?.name || "Anonymous"}
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        {article?.author?.role || "No role available"}
-                      </p>
-                      <p className="text-xs text-left text-gray-700 mt-1">
-                        {article?.author?.bio || "No bio available"}
-                      </p>
-                    </div>
-                  </div>
-                )}
+                {/* Article Image */}
+                <div className="sm:w-1/2">
+                  {article?.ytSrc ? (
+                    <ResponsiveYouTube
+                      videoURL={article.ytSrc}
+                      imgSrc={article.image}
+                      playBtn={false}
+                    />
+                  ) : (
+                    <img
+                      src={article.image}
+                      alt="Article"
+                      className="w-full h-full object-cover rounded-tr-2xl rounded-br-2xl"
+                      loading="lazy"
+                    />
+                  )}
+                </div>
               </div>
-
-              {/* Article Image */}
-              <div className="sm:w-1/2">
-                {article?.ytSrc ? (
-                  <ResponsiveYouTube videoURL={article.ytSrc} imgSrc={article.image} playBtn={false} />
-                ) : (
-                  <img
-                    src={article.image}
-                    alt="Article"
-                    className="w-[100%] h-[100%] object-cover rounded-tr-2xl rounded-br-2xl"
-                    loading="lazy"
-                  />
-                )}
-              </div>
-            </div>
+            </SwiperSlide>
           );
         })}
-      </div>
+      </Swiper>
     </div>
   );
 }
+
 
 export default ArticleCarousel;

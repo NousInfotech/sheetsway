@@ -12,59 +12,59 @@ const footerLinks = [
       { name: "Financial Statement Word Plugin", href: "/" },
     ],
   },
-  {
-    title: "What we offer?",
-    links: [
-      { name: "Customizable Audit Methodology", href: "/" },
-      { name: "Advanced Procedures Generation", href: "/" },
-      { name: "Accounting Software Connect", href: "/" },
-      { name: "Secure Clound Storage", href: "/" },
-      { name: "Customizable Branding", href: "/" },
-    ],
-  },
-  {
-    title: "Who we Serve?",
-    links: [
-      { name: "Organizations", href: "/" },
-      { name: "Enterprise", href: "/" },
-      { name: "Audit Firms", href: "/" },
-      { name: "External Auditors", href: "/" },
-    ],
-  },
+  // {
+  //   title: "What we offer?",
+  //   links: [
+  //     { name: "Customizable Audit Methodology", href: "/" },
+  //     { name: "Advanced Procedures Generation", href: "/" },
+  //     { name: "Accounting Software Connect", href: "/" },
+  //     { name: "Secure Clound Storage", href: "/" },
+  //     { name: "Customizable Branding", href: "/" },
+  //   ],
+  // },
+  // {
+  //   title: "Who we Serve?",
+  //   links: [
+  //     { name: "Organizations", href: "/" },
+  //     { name: "Enterprise", href: "/" },
+  //     { name: "Audit Firms", href: "/" },
+  //     { name: "External Auditors", href: "/" },
+  //   ],
+  // },
   {
     title: "Company",
     links: [
-      { name: "About Us", href: "/" },
+      // { name: "About Us", href: "/" },
       { name: "Meet Our Team", href: "/" },
-      { name: "Newsletters", href: "/" },
-      { name: "Media and Broadcast", href: "/" },
+      // { name: "Newsletters", href: "/" },
+      // { name: "Media and Broadcast", href: "/" },
     ],
   },
   {
     title: "Knowledge Base",
     links: [
       { name: "Blogs", href: "/" },
-      { name: "Media and Broadcast", href: "/" },
-      { name: "Case Studies", href: "/" },
-      { name: "Seminars and Webinars", href: "/" },
+      // { name: "Media and Broadcast", href: "/" },
+      // { name: "Case Studies", href: "/" },
+      // { name: "Seminars and Webinars", href: "/" },
       { name: "Tutorials & Guides", href: "/" },
-      { name: "Community", href: "/" },
+      // { name: "Community", href: "/" },
     ],
   },
   {
     title: "Social Media",
     links: [
-      { name: "Twitter", href: "/" },
+      // { name: "Twitter", href: "/" },
       { name: "Linkedin", href: "/" },
       { name: "Youtube", href: "/" },
-      { name: "Facebook", href: "/" },
+      // { name: "Facebook", href: "/" },
     ],
   },
   {
     title: "Pricing",
     links: [
       { name: "Overview", href: "/" },
-      { name: "License", href: "/" },
+      // { name: "License", href: "/" },
     ],
   },
   {
@@ -78,10 +78,10 @@ const footerLinks = [
     title: "Care Center",
     links: [
       { name: "Contact Us", href: "/" },
-      { name: "Invest in us", href: "/" },
+      // { name: "Invest in us", href: "/" },
       { name: "Meet with us", href: "/" },
-      { name: "Career", href: "/" },
-      { name: "Security", href: "/" },
+      // { name: "Career", href: "/" },
+      // { name: "Security", href: "/" },
     ],
   },
 ];
