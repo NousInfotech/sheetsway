@@ -18,53 +18,53 @@ export const pricing = "/pricing";
 
 const components = [
   {
-    title: "Introduction",
-    href: "/docs/primitives/tooltip",
+    title: "How to Guide",
+    href: "guide",
     description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+      "Manage and execute audit tasks efficiently.",
   },
   {
-    title: "Tutorials",
-    href: "/docs/primitives/tooltip",
+    title: "FAQ",
+    href: "faq",
     description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+      "Editor for financial statements and audit letters.",
   },
-  {
-    title: "Help Desk",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-  {
-    title: "Commnunity",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-  {
-    title: "Blogs",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-  {
-    title: "Webinars",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-  {
-    title: "Partners",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-  {
-    title: "Support Us",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
+  // {
+  //   title: "Help Desk",
+  //   href: "/docs/primitives/tooltip",
+  //   description:
+  //     "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  // },
+  // {
+  //   title: "Commnunity",
+  //   href: "/docs/primitives/tooltip",
+  //   description:
+  //     "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  // },
+  // {
+  //   title: "Blogs",
+  //   href: "/docs/primitives/tooltip",
+  //   description:
+  //     "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  // },
+  // {
+  //   title: "Webinars",
+  //   href: "/docs/primitives/tooltip",
+  //   description:
+  //     "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  // },
+  // {
+  //   title: "Partners",
+  //   href: "/docs/primitives/tooltip",
+  //   description:
+  //     "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  // },
+  // {
+  //   title: "Support Us",
+  //   href: "/docs/primitives/tooltip",
+  //   description:
+  //     "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  // },
 ];
 
 const solutions = [
@@ -239,14 +239,14 @@ export default function Navbar() {
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>knowledge base</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Knowledge base</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white">
                   {components.map((component) => (
                     <ListItem
                       key={component.title}
                       title={component.title}
-                      href={component.href}
+                      href={`knowledge-base/${component.href}`}
                     >
                       {component.description}
                     </ListItem>
