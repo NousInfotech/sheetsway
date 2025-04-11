@@ -1,4 +1,8 @@
-import { Eye } from "lucide-react";
+import {
+  SlidersHorizontal, // for "Customizable Shared Metrics"
+  FileBarChart,      // for "Viewable Engagements"
+  MessageCircleCheck // for "Shared Queries"
+} from "lucide-react";
 
 export const features = [
   {
@@ -121,27 +125,30 @@ export const images = [
 ];
 
 export const tabs = [
+
+
   {
-    icon: <Eye className="text-primary  md:size-6 size-4" />,
+    icon: <SlidersHorizontal className="text-primary md:size-6 size-4" />,
     btnText: "Customizable Shared Metrics",
     primaryText: "Client retention and transparent work",
     secondaryText:
       "Auditors can customize and share key metrics for better visibility and understanding.",
   },
   {
-    icon: <Eye className="text-primary  md:size-6 size-4" />,
+    icon: <FileBarChart className="text-primary md:size-6 size-4" />,
     btnText: "Viewable Engagements",
     primaryText: "Client retention and transparent work",
     secondaryText:
       "Clients can easily view and track the status of their audit engagements in real-time.",
   },
   {
-    icon: <Eye className="text-primary md:size-6 size-4" />,
+    icon: <MessageCircleCheck className="text-primary md:size-6 size-4" />,
     btnText: "Shared Queries",
     primaryText: "Client retention and transparent work",
     secondaryText:
       "Clients and auditors can manage and respond to audit queries collaboratively in real-time.",
   },
+
 ];
 
 export const enhancedCollection = [

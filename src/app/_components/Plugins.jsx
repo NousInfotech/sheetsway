@@ -35,7 +35,7 @@ export default function Plugins({ plugin }) {
           </h2>
 
           <div
-            className="xs:text-3xl text-2xl w-full top-[30%] lg:top-[45%] left-0 z-10 font-bold p-4 absolute mb-4"
+            className="xs:text-3xl text-2xl w-full top-[35%] lg:top-[45%] left-0 z-10 font-bold p-4 absolute mb-4"
             style={{
               backgroundColor: plugin.color,
               color: plugin.color

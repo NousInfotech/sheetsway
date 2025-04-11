@@ -19,7 +19,7 @@ const ArticleCarousel = () => {
 
   return (
     <>
-      <div className="flex relative justify-evenly gap-4 gap-y-6 items-center flex-wrap mt-10 bg-white border-2 border-gray-200 opacity-100 p-5">
+      <div className="grid grid-cols-3 lg:grid-cols-6 relative justify-items-center gap-4 gap-y-6 items-center mt-10 bg-white border-2 border-gray-200 opacity-100 p-5">
         {logos.map((logo, index) => (
           <img
             onClick={() => setCurrentIndex(index)}
@@ -232,7 +232,7 @@ function MobileCarousel({ currentIndex, setCurrentIndex }) {
                     <img
                       src={article.image}
                       alt="Article"
-                      className="w-full h-full object-cover rounded-tr-2xl rounded-br-2xl"
+                      className="w-full h-full object-cover object-top rounded-tr-2xl rounded-br-2xl"
                       loading="lazy"
                     />
                   )}
