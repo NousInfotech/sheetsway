@@ -47,7 +47,7 @@ export const slides = [
     author: {
       name: "Dhruv Aggarwal",
       role: "CTO and Co-Founder",
-      image: "/Dhuruv-Aggarvwal.png",
+      image: "/Dhruv-Aggarwal.png",
       bio: "Dhruv has not only invested his expertise and resources into the project but has also enriched their venture with his deep understanding of AI development.",
     },
     image: "/sec-6/first.png",
