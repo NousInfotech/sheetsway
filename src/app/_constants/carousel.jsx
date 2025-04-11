@@ -51,6 +51,7 @@ export const slides = [
       bio: "Dhruv has not only invested his expertise and resources into the project but has also enriched their venture with his deep understanding of AI development.",
     },
     image: "/sec-6/first.png",
+    gotoArticle:true,
   },
   {
     logo: "/sec-6/SheetSway Final Logo rgb copy.png",
@@ -64,7 +65,8 @@ export const slides = [
       bio: "The Minister of Finance honored us with a speech commemorating the launch at our event. It’s an inspiration to see young adults make such an incredible movement for finance in the digital area.",
     },
     image: "/sec-6/second.png",
-    ytSrc: "https://www.youtube.com/embed/O7PS6tp1Vtg"
+    ytSrc: "https://www.youtube.com/embed/O7PS6tp1Vtg",
+    gotoArticle:false,
   },
   {
     logo: "/sec-6/BOKS-international-ezgif.com-webp-to-png-converter copy.png",
@@ -72,6 +74,8 @@ export const slides = [
     source:
       "Our time abroad showcasing our work. We were given the opportunity to showcase Sheetsway, to over 90+ BOKS Members at their annual global conferences in Prague and Barcelona.",
     image: "/sec-6/third.png",
+    gotoArticle:false,
+
   },
   {
     logo: "/sec-6/times-of-malta-1 copy.png",
@@ -80,7 +84,9 @@ export const slides = [
       "Originally published on Times of Malta. An article showcasing the prowess of sheetsway's features and hinting at our launch.",
     image: "/sec-6/fourth.png",
     btnText: "Introductory Video",
-    ytSrc: "https://www.youtube.com/embed/p_8Vu_v9pos"
+    ytSrc: "https://www.youtube.com/embed/p_8Vu_v9pos",
+    gotoArticle:true,
+
   },
   {
     logo: "/sec-6/lovinmalta-color-large copy.png",
@@ -88,6 +94,7 @@ export const slides = [
     source:
       "Originally published on Lovin Malta. Sheetsway's invitation to industry experts for a firsthand experience of the future in streamlined finance management.",
     image: "/sec-6/fifth.png",
+    gotoArticle:true,
   },
   {
     logo: "/sec-6/EU-Startups-Logo-Transparent copy.png",
@@ -95,5 +102,6 @@ export const slides = [
     source:
       "Every moving mountain started humbly. Sheetsway's unforgettable summit experience! We connected with industry leaders and investors alike. With two days of meaningful interactions, we gathered feedback and reviews valuable to our development.",
     image: "/sec-6/sixth.png",
+    gotoArticle:true,
   },
 ];

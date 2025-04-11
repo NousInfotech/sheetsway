@@ -93,7 +93,7 @@ const MobileMenu = ({
                                     {components.map((item) => (
                                         <Link
                                             key={item.title}
-                                            href={item.href}
+                                            href={`/knowledge-base/${item.href}`}
                                             className="block py-2 text-sm text-gray-700"
                                             onClick={() => setIsMenuOpen(false)}
                                         >
@@ -102,12 +102,12 @@ const MobileMenu = ({
                                     ))}
                                 </MobileDropdown>
 
-                                <Link href={pricing} className="block"
+                                {/* <Link href={pricing} className="block"
                                     onClick={() => setIsMenuOpen(false)}
 
                                 >
                                     Pricing
-                                </Link>
+                                </Link> */}
                                 <Link href={aboutUs} className="block"
                                     onClick={() => setIsMenuOpen(false)}
                                 >

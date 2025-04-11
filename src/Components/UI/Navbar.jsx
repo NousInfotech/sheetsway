@@ -10,10 +10,11 @@ import { ChevronDown } from "lucide-react";
 import Button from "@/app/_components/Button";
 import MobileMenu from "./MobileMenu";
 import Call from "./call";
+import { usePathname } from "next/navigation";
 
 export const contactUs = "/contact-us";
 export const aboutUs = "/about-us";
-export const pricing = "/pricing";
+// export const pricing = "/pricing";
 
 
 const components = [
@@ -27,7 +28,7 @@ const components = [
   {
     title: "FAQ",
     href: "faq",
-    icon: "FAQ",
+    // icon: "FAQ",
     description:
       "Editor for financial statements and audit letters.",
   },
@@ -171,30 +172,40 @@ const NavigationMenuIndicator = React.forwardRef(({ className, ...props }, ref) 
 ));
 NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;
 
-const ListItem = React.forwardRef(({ className, title, icon, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
+const ListItem = React.forwardRef(
+  ({ className, title, icon, children, href, ...props }, ref) => {
+    const pathname = usePathname();
 
-        <a
-          ref={ref}
-          className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors focus:bg-sidebar focus:bg-accent focus:text-accent-foreground ${className || ""}`}
-          {...props}
-        >
-          <div className="flex gap-4 justify-start items-center">
-            <span className="p-2 w-10 flex italic justify-center items-center font-extrabold border text-gray-800 rounded-lg ">
-              {icon}
-            </span>
-            <div className="space-y-1">
-              <div className="font-bold text-sprimary text-base -none">{title}</div>
-              <p className="line-clamp-2 text-sm leading-snug">{children}</p>
+    const isActive = pathname === href;
+
+    return (
+      <li>
+        <NavigationMenuLink asChild>
+          <a
+            ref={ref}
+            href={href}
+            className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all focus:bg-sidebar hover:bg-gray-50 focus:bg-accent focus:text-accent-foreground ${isActive ? "bg-[#fdf2e6] text-primary" : ""
+              } ${className || ""}`}
+            {...props}
+          >
+            <div className="flex gap-4 justify-start items-center">
+              {icon && (
+                <span className="p-4 h-full flex italic justify-center items-center font-extrabold border text-gray-800 rounded-lg">
+                  {icon}
+                </span>
+              )}
+              <div className="space-y-1">
+                <div className="font-bold text-sprimary text-base">{title}</div>
+                <p className="line-clamp-2 text-sm leading-snug">{children}</p>
+              </div>
             </div>
-          </div>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  );
-});
+          </a>
+        </NavigationMenuLink>
+      </li>
+    );
+  }
+);
+
 ListItem.displayName = "ListItem";
 
 
@@ -202,7 +213,12 @@ ListItem.displayName = "ListItem";
 
 export default function Navbar() {
   const [isMobile] = useMobile(800);
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const pathname = usePathname();
+
+  console.log(pathname);
+
 
   return (
     <nav className="flex relative z-[100] w-full p-8 items-center justify-between">
@@ -213,7 +229,7 @@ export default function Navbar() {
         setIsMenuOpen={setIsMenuOpen}
         solutions={solutions}
         components={components}
-        pricing="/pricing"
+        // pricing="/pricing"
         aboutUs="/about-us"
         contactUs="/contact"
       />
@@ -256,8 +272,9 @@ export default function Navbar() {
                     <ListItem
                       key={component.title}
                       title={component.title}
-                      href={`knowledge-base/${component.href}`}
+                      href={`/knowledge-base/${component.href}`}
                       icon={component.icon}
+
                     >
                       {component.description}
                     </ListItem>
@@ -265,13 +282,13 @@ export default function Navbar() {
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <Link href={pricing} legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle}>
                   Pricing
                 </NavigationMenuLink>
               </Link>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
             <NavigationMenuItem>
               <Link href={aboutUs} legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle}>

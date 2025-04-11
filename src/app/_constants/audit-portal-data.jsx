@@ -1,12 +1,12 @@
 import { AlertCircle, Cable, Handshake } from "lucide-react";
 
 export const images = [
-  { alt: "customizable", src: "/navigation-Page.png" },
+  { alt: "customizable", src: "/audit-portal/Industry_Intelligence_AI.png" },
   {
     alt: "viewable",
-    src: "/navigation-Page.png",
+    src: "/audit-portal/Auto_Classification.png"
   },
-  { alt: "shared", src: "/navigation-Page.png" },
+  { alt: "shared", src: "/audit-portal/Shared_Queries.png" },
 ];
 
 export const tabs = [
@@ -19,7 +19,7 @@ export const tabs = [
   },
   {
     icon: <AlertCircle className="text-primary md:size-6 size-4" />,
-    btnText: "Risk Analysis",
+    btnText: "Auto Classification",
     primaryText: "Comprehensive Risk Overview",
     secondaryText:
       "Get a clear view of high-risk accounts. AI flags potential issues, helping you focus on what matters most in every audit.",

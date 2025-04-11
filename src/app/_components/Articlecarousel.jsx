@@ -73,9 +73,13 @@ function Carousel({ currentIndex }) {
                         alt="Publication Logo"
                         className="lg:w-36 md:w-28 w-20"
                       />
-                      <button className="text-gray-500 lg:text-sm text-xs font-medium">
-                        Go to Article &gt;
-                      </button>
+                      {article.gotoArticle &&
+                        (
+                          <button className="text-gray-500 text-xs font-medium">
+                            Go to Article &gt;
+                          </button>
+                        )
+                      }
                     </div>
 
                     <div
@@ -176,9 +180,13 @@ function MobileCarousel({ currentIndex, setCurrentIndex }) {
                       alt="Publication Logo"
                       className="w-24"
                     />
-                    <button className="text-gray-500 text-xs font-medium">
-                      Go to Article &gt;
-                    </button>
+                    {article.gotoArticle &&
+                      (
+                        <button className="text-gray-500 text-xs font-medium">
+                          Go to Article &gt;
+                        </button>
+                      )
+                    }
                   </div>
 
                   <h3 className="text-lg mx-4 font-semibold text-gray-700 italic mb-4">

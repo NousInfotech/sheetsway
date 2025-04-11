@@ -81,7 +81,7 @@ export default function Plugins({ plugin }) {
           </ul>
         </div>
 
-        <div className="mt-6 max-[700px]:w-full rounded-2xl shadow-[0px_1px_30px_rgba(0,0,0,0.3)] p-4 z-10">
+        <div className="mt-6 max-[700px]:w-full rounded-2xl p-4 z-10">
           {/* <Video src={plugin.videoSrc} /> */}
           <ResponsiveYouTube videoURL={plugin.videoSrc} imgSrc={plugin.imgURL} playBtn={true}
             className="rounded-xl shadow-[0px_0px_20px_rgba(0,0,0,0.4)] lg:w-[600px] lg:h-[300px] md:w-[500px] md:h-[300px] w-[350px] h-[200px]"
