@@ -90,8 +90,8 @@ const ResponsiveYouTube = ({ videoURL, imgSrc, className = "", playBtn = false }
     );
 
     return (
-        <div style={{ width: "100%", textAlign: "center" }}>
-            <div className={`w-full select-none relative flex justify-center items-center ${className}`}>
+        <div style={{ width: "100%", textAlign: "center", height: "100%" }}>
+            <div className={`w-full h-full select-none relative flex justify-center items-center ${className}`}>
                 <Image
                     src={imgSrc}
                     alt="Video Thumbnail"

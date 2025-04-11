@@ -166,7 +166,7 @@ function MobileCarousel({ currentIndex, setCurrentIndex }) {
 
           return (
             <SwiperSlide key={index}>
-              <div className="min-w-full grid grid-rows-[20rem_15rem] bg-white">
+              <div className="min-w-full gap-[50px] grid grid-rows-[20rem_15rem] bg-white">
 
                 {/* Article Header */}
                 <div className="">
@@ -221,7 +221,7 @@ function MobileCarousel({ currentIndex, setCurrentIndex }) {
                 </div>
 
                 {/* Article Image */}
-                <div className="sm:w-1/2">
+                <div className="w-full h-full">
                   {article.ytSrc ? (
                     <ResponsiveYouTube
                       videoURL={article.ytSrc}
