@@ -1,8 +1,5 @@
-import {
-  SlidersHorizontal, // for "Customizable Shared Metrics"
-  FileBarChart,      // for "Viewable Engagements"
-  MessageCircleCheck // for "Shared Queries"
-} from "lucide-react";
+import { FileBarChart, MessageCircleReply, SlidersHorizontalIcon } from "lucide-react";
+
 
 export const features = [
   {
@@ -125,10 +122,8 @@ export const images = [
 ];
 
 export const tabs = [
-
-
   {
-    icon: <SlidersHorizontal className="text-primary md:size-6 size-4" />,
+    icon: <SlidersHorizontalIcon className="text-primary md:size-6 size-4" />,
     btnText: "Customizable Shared Metrics",
     primaryText: "Client retention and transparent work",
     secondaryText:
@@ -142,13 +137,12 @@ export const tabs = [
       "Clients can easily view and track the status of their audit engagements in real-time.",
   },
   {
-    icon: <MessageCircleCheck className="text-primary md:size-6 size-4" />,
+    icon: <MessageCircleReply className="text-primary md:size-6 size-4" />,
     btnText: "Shared Queries",
     primaryText: "Client retention and transparent work",
     secondaryText:
       "Clients and auditors can manage and respond to audit queries collaboratively in real-time.",
   },
-
 ];
 
 export const enhancedCollection = [
