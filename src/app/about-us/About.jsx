@@ -9,6 +9,34 @@ import { badges, team } from "../_constants/about-us-data";
 import { motion } from "framer-motion";
 
 export default function About() {
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2, // delay between each card
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      backgroundColor: "#fff",
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+
   return (
     <>
       <div className="max-w-screen-xl mx-auto">
@@ -27,31 +55,37 @@ export default function About() {
           />
         </div>
         {/* <div className="grid grid-cols-[repeat(auto-fit,_minmax(10rem,15rem))] justify-between gap-4 sm:mt-20 mt-8"> */}
-        <div className="grid lg:grid-cols-[repeat(3,15rem)] sm:grid-cols-[repeat(2,15rem)] xs:grid-cols-[repeat(2,10rem)] lg:justify-center justify-center gap-4 sm:mt-20 mt-5">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-[repeat(1,15rem)] lg:grid-cols-[repeat(3,15rem)] lg:justify-center justify-center gap-4 sm:mt-20 mt-5"
+        >
           {team.map((item, i) => (
             <motion.div
               key={i}
-              className={`flex flex-col items-center font-sans p-2 rounded-xl hover:text-white`}
-              initial={{ backgroundColor: "#fff", scale: 1 }}
+              variants={cardVariants}
               whileHover={{
                 backgroundColor: i % 2 === 0 ? "#FFCE33" : "#3B4EFF",
+                color: "white",
                 scale: 1.05,
                 boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
                 rotate: 3,
               }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="flex flex-col items-center font-sans p-2 rounded-xl"
             >
               <Image
                 width={500}
                 height={500}
-                className={`rounded-b-full sm:w-32 w-20 object-cover mb-2 `}
+                className="rounded-b-full sm:w-32 w-20 object-cover mb-2"
                 src={item.src}
                 alt="img"
               />
               <p className="font-semibold max-sm:text-sm">{item.name}</p>
               <p className="max-sm:text-xs">{item.role}</p>
               <div className="flex items-center gap-2 mt-2">
-                <Link href={"#"} className="">
+                <Link href={"#"}>
                   <CiLinkedin size={16} />
                 </Link>
                 <Link href={"#"}>
@@ -60,7 +94,8 @@ export default function About() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+
 
         <div className="my-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 px-4 md:px-0">
           <div className="flex flex-col items-center md:items-end gap-8 md:gap-16">
