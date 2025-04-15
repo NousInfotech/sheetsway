@@ -5,6 +5,7 @@ import Button from "../Button";
 import React, { useEffect, useState, useRef } from "react";
 import { features } from "@/app/_constants/audit-platform-data";
 import { useMobile } from "@/hooks/useMobile";
+import Link from "next/link";
 
 function AnimatedOrbit() {
   const [isVisible, setIsVisible] = useState(false);
@@ -53,7 +54,7 @@ function AnimatedOrbit() {
             animate={isVisible ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: index * 0.2 }}
           >
-            {src && <img src={src} alt={alt} className={` ${imgClass}`} />}
+            {src && <img src={src} alt={alt} className={`${imgClass}`} />}
             {Text}
           </motion.div>
         ))}
@@ -101,10 +102,12 @@ export default function AuditPlatform() {
             in one portal.
           </p>
           <div className="mt-8 flex gap-4 justify-center lg:justify-start relative z-20">
-            <Button type="secondary" size="lg">
+            {/* <Button type="secondary" size="lg">
               Pricing
-            </Button>
-            <Button type="primary">Solutions</Button>
+            </Button> */}
+            <Link href="/solution/audit-software">
+              <Button type="primary" className={'w-full h-full'}>Solutions</Button>
+            </Link>
           </div>
         </div>
         {/* Right Section */}

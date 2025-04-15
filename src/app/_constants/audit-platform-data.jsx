@@ -74,7 +74,7 @@ export const features = [
     Text: "",
     className:
       "md:-top-10 md:left-[75%] -top-8 left-[80%] max-xs:-top-7 max-xs:left-[80%]",
-    imgClass: "md:h-12 h-10 max-xs:h-8",
+    imgClass: "md:h-12 h-10 max-xs:h-8 shadow-lg",
   },
   {
     src: "/sec-2/word_4726038.png",
@@ -82,14 +82,14 @@ export const features = [
     Text: "",
     className:
       "left-0 top-[45%] max-xs:-left-12 max-xs:top-[30%] bg-transparent shadow-none",
-    imgClass: "md:h-12 h-9 max-xs:h-8",
+    imgClass: "md:h-12 h-9 max-xs:h-8 shadow-lg",
   },
   {
     src: "/sec-2/xls_4726040.png",
     alt: "XLS",
     Text: "",
     className: "right-28 top-[72%] max-xs:right-16 bg-transparent shadow-none",
-    imgClass: "md:h-12 h-9 max-xs:h-8",
+    imgClass: "md:h-12 h-9 max-xs:h-8 shadow-lg",
   },
   {
     src: "/sec-2/chat_769236.png",

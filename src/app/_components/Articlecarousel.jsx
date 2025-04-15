@@ -75,9 +75,9 @@ function Carousel({ currentIndex }) {
                       />
                       {article.gotoArticle &&
                         (
-                          <button className="text-gray-500 text-xs font-medium">
+                          <a target="_blank" href={article.href} className="text-gray-500 text-xs font-medium">
                             Go to Article &gt;
-                          </button>
+                          </a>
                         )
                       }
                     </div>

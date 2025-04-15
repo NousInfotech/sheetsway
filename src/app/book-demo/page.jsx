@@ -49,7 +49,7 @@ function Page() {
       radius: 10,
     },
     position: {
-      label: "What Descripe you the best? ",
+      label: "What Describes you the best? ",
       description: "We'll make sure you're connected to the right expert",
       required: true,
       radius: 10,
@@ -79,7 +79,7 @@ function Page() {
         <Navbar />
         <div className="grid grid-cols-2 mb-56 mx-auto mt-24 gap-8">
           <div className="flex flex-col gap-4">
-            <p className="text-7xl heading">Book a Demo</p>
+            <p className="text-7xl heading">Book an Demo</p>
             <p className="text-gray-500">
               Experience the power of SheetSway firsthand. Schedule a
               personalized demo and discover how our intelligent automation
@@ -121,7 +121,7 @@ function Page() {
               onSubmit={handleSubmit(onSubmit)}
               className="col-span-1 rounded-xl border py-8 flex flex-col gap-4 p-8"
             >
-              <p className="text-semibold text-3xl">Book a Demo</p>
+              <p className="text-semibold text-3xl">Book an Demo</p>
               <p className="text-gray-500">
                 Feel free to send us a message or call us. Our team is ready to
                 assist you with professional advice and personalized solutions.

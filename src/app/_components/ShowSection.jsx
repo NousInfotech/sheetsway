@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "./Button";
 import FadeUpAnimation from "./FadeUpAnimation";
 import TryButton from "./TryButton";
@@ -20,7 +21,11 @@ export default function ShowSection() {
         <br />
         <span className="font-medium ">Meets every Audit need.</span>
       </h1>
-      <TryButton type="primary" className="relative z-50" />
+      <Link href={'/contact-us'} className="relative z-50">
+        <Button type="primary" className="relative z-50" >
+          Early Adopter
+        </Button>
+      </Link>
     </FadeUpAnimation>
   );
 }

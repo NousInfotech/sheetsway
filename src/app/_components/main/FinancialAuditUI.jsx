@@ -6,6 +6,8 @@ import useInterval from "@/hooks/useInterval";
 import useAutoScroll from "@/hooks/useAutoScroll";
 import { navigationOptions } from "@/app/_constants/section-1-data";
 import Button from "../Button";
+import Link from "next/link";
+import BookAnDemo from "@/Components/UI/BookAnDemoBtn";
 
 export default function FinancialAuditUI() {
   const [currImg, setCurrImg] = useInterval(0, navigationOptions.length, 5000);
@@ -44,12 +46,11 @@ export default function FinancialAuditUI() {
       >
         <AnimatedHeading />
         <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-2 w-full sm:w-2/3 mx-auto justify-center items-center sm:justify-evenly relative z-20 my-3 sm:my-5">
-          <Button type="secondary" size="lg" className="w-full sm:w-auto">
-            Try it for Free
-          </Button>
-          <Button type="primary" className="w-full sm:w-auto">
-            Book an Demo
-          </Button>
+
+          <Link href={'/contact-us'}>
+           <Button type="secondary" className={'w-full h-full'}>Early Adopter</Button>
+          </Link>
+          <BookAnDemo />
         </div>
       </motion.div>
 
@@ -108,9 +109,9 @@ export default function FinancialAuditUI() {
                   </motion.div>
                 ))}
               </div>
-              <div className="mt-4 sm:mt-5 md:mt-6">
+              <Link className="mt-4 sm:mt-5 md:mt-6" href={`/solution/${navigationOptions[currImg].ctaLink}`}>
                 <Button type="primary">Learn More</Button>
-              </div>
+              </Link>
             </motion.div>
           </div>
         </motion.div>

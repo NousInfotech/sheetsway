@@ -15,7 +15,9 @@ import {
   tabs,
   workspacePlugin,
 } from "@/app/_constants/workspace-data";
+import BookAnDemo from "@/Components/UI/BookAnDemoBtn";
 import useInterval from "@/hooks/useInterval";
+import Link from "next/link";
 
 export default function Workspace() {
   const [currImg, setCurrImg] = useInterval(0, images.length, 7000);
@@ -29,8 +31,10 @@ export default function Workspace() {
         />
 
         <div className="flex justify-center gap-4 relative z-20">
-          <Button type="secondary">Try For Free</Button>
-          <Button type="primary">Book a Demo</Button>
+          <Link href={'/contact-us'}>
+           <Button type="secondary" className={'w-full h-full'}>Early Adopter</Button>
+          </Link>
+          <BookAnDemo />
         </div>
       </FadeUpAnimation>
 

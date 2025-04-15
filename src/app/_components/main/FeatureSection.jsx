@@ -4,6 +4,7 @@ import { features } from "@/app/_constants/features-section-data";
 import Video from "@/app/_components/Video";
 import { getfirstSentence } from "@/utils/helper";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function FeatureSection() {
   return (
@@ -44,7 +45,9 @@ export default function FeatureSection() {
                   <strong>{firstSentence}.</strong> {rest.join(" ")}
                 </p>
                 <div className="mt-6">
-                  <Button type="secondary">Learn more &gt;</Button>
+                  <Link href={feature.ctaLink}>
+                    <Button type="secondary">Learn more &gt;</Button>
+                  </Link>
                 </div>
               </div>
             </FadeUpAnimation>

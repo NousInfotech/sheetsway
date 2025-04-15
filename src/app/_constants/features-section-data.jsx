@@ -11,6 +11,7 @@ export const features = [
     videoSrc: "/sec-4/tb classification.webm",
     reverse: false,
     shapeSrc: "/sec-4/shape2.svg",
+    ctaLink: "/solution/audit-software",
     imgClass:
       "absolute top-[-10px] left-[0px] z-0 lg:scale-[1.15] hidden sm:block md:scale-[1.2]",
   },
@@ -27,6 +28,7 @@ export const features = [
     videoSrc: "/sec-4/Ai Procedures.webm",
     reverse: true,
     shapeSrc: "/sec-4/shape1.svg",
+    ctaLink: "/solution/audit-software",
     imgClass:
       "absolute md:top-[-50px] left-0 z-0 hidden sm:block sm:top-[-15px] sm:scale-105 md:scale-100",
   },
@@ -42,6 +44,7 @@ export const features = [
     videoSrc: "/sec-4/client Gif.webm",
     reverse: false,
     shapeSrc: "/sec-4/shape3.svg",
+    ctaLink: "/solution/client-portal",
     // imgClass: "absolute top-[-15px] left-0 z-0 lg:scale-[1.15]",
     imgClass:
       "absolute top-[-10px] left-0 z-0 hidden sm:block sm:top-[-15px] md:top-[-20px] sm:scale-105 md:scale-110 lg:scale-[1.15]",

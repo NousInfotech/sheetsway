@@ -51,7 +51,8 @@ export const slides = [
       bio: "Dhruv has not only invested his expertise and resources into the project but has also enriched their venture with his deep understanding of AI development.",
     },
     image: "/sec-6/first.png",
-    gotoArticle:true,
+    gotoArticle: true,
+    href: "https://whoswho.mt/en/a-new-era-of-audit-automation-a4-services-unveils-a-game-changing-solution-for-malta-s-professional-auditors"
   },
   {
     logo: "/sec-6/SheetSway Final Logo rgb copy.png",
@@ -66,7 +67,7 @@ export const slides = [
     },
     image: "/sec-6/second.png",
     ytSrc: "https://www.youtube.com/embed/O7PS6tp1Vtg",
-    gotoArticle:false,
+    gotoArticle: false,
   },
   {
     logo: "/sec-6/BOKS-international-ezgif.com-webp-to-png-converter copy.png",
@@ -74,7 +75,7 @@ export const slides = [
     source:
       "Our time abroad showcasing our work. We were given the opportunity to showcase Sheetsway, to over 90+ BOKS Members at their annual global conferences in Prague and Barcelona.",
     image: "/sec-6/third.png",
-    gotoArticle:false,
+    gotoArticle: false,
 
   },
   {
@@ -85,7 +86,8 @@ export const slides = [
     image: "/sec-6/fourth.png",
     btnText: "Introductory Video",
     ytSrc: "https://www.youtube.com/embed/p_8Vu_v9pos",
-    gotoArticle:true,
+    gotoArticle: true,
+    href: "https://timesofmalta.com/article/new-ai-audit-software-workspace-vat-automation-a2.1079067"
 
   },
   {
@@ -94,7 +96,8 @@ export const slides = [
     source:
       "Originally published on Lovin Malta. Sheetsway's invitation to industry experts for a firsthand experience of the future in streamlined finance management.",
     image: "/sec-6/fifth.png",
-    gotoArticle:true,
+    gotoArticle: true,
+    href: "https://lovinmalta.com/sponsored/auditors-accountants-youre-invited-to-the-software-launch-of-sheetsways-ai-audit-workspace-vat-automation-tools/"
   },
   {
     logo: "/sec-6/EU-Startups-Logo-Transparent copy.png",
@@ -102,6 +105,7 @@ export const slides = [
     source:
       "Every moving mountain started humbly. Sheetsway's unforgettable summit experience! We connected with industry leaders and investors alike. With two days of meaningful interactions, we gathered feedback and reviews valuable to our development.",
     image: "/sec-6/sixth.png",
-    gotoArticle:true,
+    gotoArticle: true,
+    href: "https://www.eu-startups.com/directory/sheetsway/"
   },
 ];

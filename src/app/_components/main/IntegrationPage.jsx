@@ -1,7 +1,8 @@
 import FadeUpAnimation from "@/app/_components/FadeUpAnimation";
 import Video from "@/app/_components/Video";
+import Link from "next/link";
 
-function Plugin({ heading, p1, p2, p3, link, videoSrc, shadow }) {
+function Plugin({ heading, p1, p2, p3, link, videoSrc, shadow, linkName }) {
   return (
     <FadeUpAnimation className="flex flex-col items-center w-full md:w-1/2 lg:w-2/5 font-sans">
       <h3 className="text-2xl sm:text-3xl font-montserrat font-bold text-gray-700 mb-4">
@@ -18,9 +19,9 @@ function Plugin({ heading, p1, p2, p3, link, videoSrc, shadow }) {
         src={videoSrc}
         className={`w-60 sm:w-72 rounded-xl border ${shadow}`}
       />
-      <p className="mt-6 text-sm cursor-pointer font-medium">
-        Explore our <span className="text-primary">{link}</span> tool &gt;
-      </p>
+      <Link href={link} className="mt-6 text-sm cursor-pointer font-medium">
+        Explore our <span className="text-primary">{linkName}</span> tool &gt;
+      </Link>
     </FadeUpAnimation>
   );
 }
@@ -42,7 +43,8 @@ const IntegrationPage = () => {
       <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-6 w-full">
         {/* Word Plugin Section */}
         <Plugin
-          link={"Drafting"}
+          linkName={"Drafting"}
+          link={'/solution/drafting'}
           videoSrc={"/sec-3/word gif final.webm"}
           heading={"Word Plugin"}
           shadow={"shadow-[0px_1px_40px_rgba(0,0,255,0.10)]"}
@@ -57,7 +59,8 @@ const IntegrationPage = () => {
         <div className="hidden md:flex w-[2px] bg-gray-100 min-h-[500px] mx-8"></div>
 
         <Plugin
-          link={"Extraction"}
+          linkName={"Extraction"}
+          link={"/solution/workspace"}
           videoSrc={"/sec-3/Excel Gif.webm"}
           heading={"Excel Plugin"}
           shadow={"shadow-[0px_1px_40px_rgba(0,255,0,0.10)]"}

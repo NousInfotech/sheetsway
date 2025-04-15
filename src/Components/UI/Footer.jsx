@@ -1,92 +1,64 @@
 "use client";
 import * as React from "react";
+import Link from "next/link";
 import Logo from "@/app/_components/Logo";
+import { PopupModal } from "react-calendly";
 
 const footerLinks = [
   {
     title: "Solutions",
     links: [
-      { name: "Sheetsway Audit Software", href: "/" },
-      { name: "Sheetsway Client Connect", href: "/" },
-      { name: "Advanced Extraction Excel Plugin", href: "/" },
-      { name: "Financial Statement Word Plugin", href: "/" },
+      { name: "Sheetsway Audit Software", href: "/solution/audit-software" },
+      { name: "Sheetsway Client Connect", href: "/solution/client-portal" },
+      { name: "Advanced Extraction Excel Plugin", href: "/solution/workspace" },
+      { name: "Financial Statement Word Plugin", href: "/solution/drafting" },
     ],
   },
-  // {
-  //   title: "What we offer?",
-  //   links: [
-  //     { name: "Customizable Audit Methodology", href: "/" },
-  //     { name: "Advanced Procedures Generation", href: "/" },
-  //     { name: "Accounting Software Connect", href: "/" },
-  //     { name: "Secure Clound Storage", href: "/" },
-  //     { name: "Customizable Branding", href: "/" },
-  //   ],
-  // },
-  // {
-  //   title: "Who we Serve?",
-  //   links: [
-  //     { name: "Organizations", href: "/" },
-  //     { name: "Enterprise", href: "/" },
-  //     { name: "Audit Firms", href: "/" },
-  //     { name: "External Auditors", href: "/" },
-  //   ],
-  // },
   {
     title: "Company",
-    links: [
-      // { name: "About Us", href: "/" },
-      { name: "Meet Our Team", href: "/" },
-      // { name: "Newsletters", href: "/" },
-      // { name: "Media and Broadcast", href: "/" },
-    ],
+    links: [{ name: "Meet Our Team", href: "/about-us" }],
   },
   {
     title: "Knowledge Base",
     links: [
-      { name: "Blogs", href: "/" },
-      // { name: "Media and Broadcast", href: "/" },
-      // { name: "Case Studies", href: "/" },
-      // { name: "Seminars and Webinars", href: "/" },
-      { name: "Tutorials & Guides", href: "/" },
-      // { name: "Community", href: "/" },
+      { name: "Tutorials & Guides", href: "/knowledge-base/faq" },
     ],
   },
   {
     title: "Social Media",
     links: [
-      // { name: "Twitter", href: "/" },
-      { name: "Linkedin", href: "/" },
-      { name: "Youtube", href: "/" },
-      // { name: "Facebook", href: "/" },
+      {
+        name: "LinkedIn",
+        href: "https://www.linkedin.com/company/sheetsway-audit",
+      },
+      { name: "YouTube", href: "https://www.youtube.com/@Sheetsway" },
     ],
   },
-  // {
-  //   title: "Pricing",
-  //   links: [
-  //     { name: "Overview", href: "/" },
-  //     // { name: "License", href: "/" },
-  //   ],
-  // },
   {
     title: "Partner with us",
-    links: [
-      { name: "Overview", href: "/" },
-      { name: "Grow with us", href: "/" },
-    ],
+    links: [{ name: "Grow with us", href: "/about-us#brd" }],
   },
   {
     title: "Care Center",
     links: [
-      { name: "Contact Us", href: "/" },
-      // { name: "Invest in us", href: "/" },
-      { name: "Meet with us", href: "/" },
-      // { name: "Career", href: "/" },
-      // { name: "Security", href: "/" },
+      { name: "Contact Us", href: "/contact-us" },
+      { name: "Meet with us", href: "/" }, // this one will be handled by Calendly modal
     ],
   },
 ];
 
 export default function FooterSection() {
+  const [open, setOpen] = React.useState(false);
+  const [rootEl, setRootEl] = React.useState(null);
+
+  React.useEffect(() => {
+    // Runs only on client after component mounts
+    const el = document.getElementById("calendly-root");
+    if (el) {
+      setRootEl(el);
+    }
+  }, []);
+
   return (
     <footer className="w-full bg-background border-t px-6 lg:px-32 py-12">
       <div className="mx-auto max-w-screen-xl">
@@ -99,15 +71,47 @@ export default function FooterSection() {
           {footerLinks.map((section, index) => (
             <div key={index} className="flex flex-col gap-4">
               <h3 className="text-md pt-1 font-semibold">{section.title}</h3>
-              {section.links.map((link, linkIndex) => (
-                <a
-                  key={linkIndex}
-                  href={link.href}
-                  className="text-sm text-muted-foreground hover:underline"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {section.links.map((link, linkIndex) => {
+                const isExternal =
+                  section.title === "Social Media" &&
+                  link.href.startsWith("http");
+
+                const isCalendly =
+                  section.title === "Care Center" &&
+                  link.name === "Meet with us";
+
+                if (isCalendly) {
+                  return (
+                    <button
+                      key={linkIndex}
+                      onClick={() => setOpen(true)}
+                      className="text-left text-sm text-muted-foreground hover:underline"
+                    >
+                      {link.name}
+                    </button>
+                  );
+                }
+
+                return isExternal ? (
+                  <a
+                    key={linkIndex}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-muted-foreground hover:underline"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={linkIndex}
+                    href={link.href}
+                    className="text-sm text-muted-foreground hover:underline"
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
             </div>
           ))}
         </div>
@@ -116,13 +120,23 @@ export default function FooterSection() {
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border pt-4 text-xs text-muted-foreground sm:flex-row">
           <div>© {new Date().getFullYear()} A4 Malta. All rights reserved</div>
           <div className="flex items-center gap-4">
-            <a href="/">Privacy Policy</a>
-            <a href="/">Terms of Service</a>
-            <a href="/">License</a>
-            <a href="/">Application Security</a>
+            <Link href="/">Privacy Policy</Link>
+            <Link href="/">Terms of Service</Link>
+            <Link href="/">License</Link>
+            <Link href="/">Application Security</Link>
           </div>
         </div>
       </div>
+      {rootEl && (
+        <PopupModal
+          url="https://calendly.com/dhruv-sheetsway/30min"
+          onModalClose={() => setOpen(false)}
+          open={open}
+          rootElement={rootEl}
+        />
+      )}
     </footer>
+
+
   );
 }

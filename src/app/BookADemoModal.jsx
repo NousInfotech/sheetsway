@@ -39,7 +39,7 @@ function DemoModal() {
   className="w-full object-cover h-72 rounded"
 />
           <br />
-          <p className="text-3xl heading">Book a Demo</p>
+          <p className="text-3xl heading">Book an Demo</p>
           <p className="text-zinc-500 text-sm">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.

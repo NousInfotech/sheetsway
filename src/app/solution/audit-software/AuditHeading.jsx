@@ -2,6 +2,8 @@ import Button from "@/app/_components/Button";
 import ChangingText from "@/app/_components/ChangingText";
 import FadeUpAnimation from "@/app/_components/FadeUpAnimation";
 import TryButton from "@/app/_components/TryButton";
+import BookAnDemo from "@/Components/UI/BookAnDemoBtn";
+import Link from "next/link";
 
 const changingText = [
   "results",
@@ -31,9 +33,11 @@ export default function AuditHeading() {
       />
 
       <div className="flex justify-center gap-4 relative z-20">
-        <Button type="secondary">Try For Free</Button>
-        <Button type="primary">Book a Demo</Button>
+        <Link href={'/contact-us'}>
+         <Button type="secondary" className={'w-full h-full'}>Early Adopter</Button>
+        </Link>
+        <BookAnDemo />
       </div>
-    </FadeUpAnimation>
+    </FadeUpAnimation >
   );
 }

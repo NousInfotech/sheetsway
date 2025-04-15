@@ -114,7 +114,7 @@ export default function About() {
               alt="Image 2"
             />
           </div>
-          <div className="flex flex-col items-center md:items-start gap-8 md:gap-16 text-center md:text-left font-sans">
+          <div id="brd" className="flex flex-col items-center md:items-start gap-8 md:gap-16 text-center md:text-left font-sans">
             <h4 className="text-4xl md:text-7xl font-bold font-bodoni">
               Become a <br />
               Regional <br />
