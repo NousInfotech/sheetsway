@@ -45,10 +45,9 @@ export default function FinancialAuditUI() {
         className="pt-8 lg:mb-10 md:mb-6 sm:mb-4 mb-2 z-50 gap-4 sm:gap-5 flex flex-col justify-center items-center max-w-4xl mx-auto"
       >
         <AnimatedHeading />
-        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-2 w-full sm:w-2/3 mx-auto justify-center items-center sm:justify-evenly relative z-20 my-3 sm:my-5">
-
+        <div className="flex justify-center gap-4 relative z-20">
           <Link href={'/contact-us'}>
-           <Button type="secondary" className={'w-full h-full'}>Early Adopter</Button>
+            <Button type="secondary" className={'w-full h-full'}>Early Adopter</Button>
           </Link>
           <BookAnDemo />
         </div>

@@ -40,7 +40,7 @@ const IntegrationPage = () => {
       </FadeUpAnimation>
 
       {/* Integration Sections */}
-      <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-6 w-full">
+      <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-20 md:gap-6 w-full">
         {/* Word Plugin Section */}
         <Plugin
           linkName={"Drafting"}
