@@ -31,13 +31,13 @@ function DemoModal() {
     >
       <div className="flex gap-4">
         <div className="bg-zinc-50 grid gap-4 p-4 rounded">
-        <Image
-  src="https://images.pexels.com/photos/7605974/pexels-photo-7605974.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-  width={500}
-  height={500}
-  alt="Demo preview"
-  className="w-full object-cover h-72 rounded"
-/>
+          <Image
+            src="https://images.pexels.com/photos/7605974/pexels-photo-7605974.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            width={500}
+            height={500}
+            alt="Demo preview"
+            className="w-full object-cover h-72 rounded"
+          />
           <br />
           <p className="text-3xl heading">Book an Demo</p>
           <p className="text-zinc-500 text-sm">
@@ -52,19 +52,18 @@ function DemoModal() {
               size="md"
               variant="light"
             >
-             {"Let's Meet"}
-
+              {"Let's Meet"}
             </Button>
           </Link>
         </div>
         <div className="bg-zinc-100 flex flex-col gap-4 p-4 rounded">
-        <Image
-  src="/signup.png"
-  width={500}
-  height={500}
-  alt="Signup illustration"
-  className="w-full object-cover h-72 rounded"
-/>
+          <Image
+            src="/signup.png"
+            width={500}
+            height={500}
+            alt="Signup illustration"
+            className="w-full object-cover h-72 rounded"
+          />
           <br />
           <p className="text-3xl heading">Get 30 Days Free Trial</p>
           <p className="text-zinc-500 text-sm">

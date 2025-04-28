@@ -1,37 +1,29 @@
-'use client'
+"use client";
 
 import Button from "@/app/_components/Button";
 import React, { useEffect, useState } from "react";
-import { PopupModal } from "react-calendly";
 
-function BookAnDemo() {
-    const [open, setOpen] = useState(false);
-    const [rootEl, setRootEl] = useState(null);
+import { useDisclosure } from "@mantine/hooks";
+import { Modal } from "@mantine/core";
 
-    useEffect(() => {
-        // Runs only on client after component mounts
-        const el = document.getElementById("calendly-root");
-        if (el) {
-            setRootEl(el);
-        }
-    }, []);
+function Call() {
+  const [opened, { open, close }] = useDisclosure(false);
 
-    return (
-        <>
-            <Button type="primary" onClick={() => setOpen(true)}>
-                Book an Demo
-            </Button>
+  return (
+    <>
+      <Button type="primary" size="lg" onClick={open}>
+        Book a Demo
+      </Button>
 
-            {rootEl && (
-                <PopupModal
-                    url="https://calendly.com/dhruv-sheetsway/30min"
-                    onModalClose={() => setOpen(false)}
-                    open={open}
-                    rootElement={rootEl}
-                />
-            )}
-        </>
-    );
+      <Modal withCloseButton={false} size="auto" opened={opened} onClose={close}>
+        <iframe
+          src="https://meet.brevo.com/sheetsway-meet"
+          width="1000px"
+          height="1000px"
+        ></iframe>
+      </Modal>
+    </>
+  );
 }
 
-export default BookAnDemo;
+export default Call;

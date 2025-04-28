@@ -1,10 +1,10 @@
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import BookADemoModal from "./BookADemoModal";
-import Header from "./_components/Header";
 import "./globals.css";
 import FooterSection from "@/Components/UI/Footer";
 import Navbar from "@/Components/UI/Navbar";
+import Script from "next/script";
 
 export const metadata = {
   title: {
@@ -19,17 +19,23 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <ColorSchemeScript />
-        {/* <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-          rel="stylesheet"
-        /> */}
         <link rel="preconnect" href="https://assets.calendly.com" />
         <link rel="dns-prefetch" href="https://assets.calendly.com" />
 
+        <Script id="brevo-conversations" strategy="afterInteractive">
+          {`
+            (function(d, w, c) {
+              w.BrevoConversationsID = '67ff9b3b1d63d0756b00eaa8';
+              w[c] = w[c] || function() {
+                  (w[c].q = w[c].q || []).push(arguments);
+              };
+              var s = d.createElement('script');
+              s.async = true;
+              s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+              if (d.head) d.head.appendChild(s);
+            })(document, window, 'BrevoConversations');
+          `}
+        </Script>
       </head>
       <body id="calendly-root">
         <MantineProvider

@@ -10,7 +10,6 @@ const ResponsiveYouTube = ({ videoURL, imgSrc, className = "", playBtn = false }
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const iframeRef = useRef(null);
     const [isMounted, setIsMounted] = useState(false); // for SSR safety
-
     useEffect(() => {
         setIsMounted(true); // required for portal rendering on client
     }, []);
@@ -92,11 +91,9 @@ const ResponsiveYouTube = ({ videoURL, imgSrc, className = "", playBtn = false }
     return (
         <div style={{ width: "100%", textAlign: "center", height: "100%" }}>
             <div className={`w-full h-full select-none relative flex justify-center items-center ${className}`}>
-                <Image
+                <img
                     src={imgSrc}
                     alt="Video Thumbnail"
-                    width={1139}
-                    height={641}
                     className={`rounded-lg absolute ${playBtn ? "brightness-75" : ""}`}
                     style={{ cursor: "pointer", width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
                     onClick={() => setIsPopupOpen(true)}

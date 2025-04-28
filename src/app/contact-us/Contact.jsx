@@ -1,7 +1,4 @@
 "use client";
-
-import { writeData } from "@/api/fb";
-import { SubHeading } from "@/Components/UI/Heading";
 import { Button, Image, Textarea, TextInput } from "@mantine/core";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
@@ -34,13 +31,14 @@ const ContactUS = ({ setSubmitted }) => {
     },
     mobile: {
       label: "Mobile phone number",
+      placeholder: "+12125554567",
       description:
         "We'll give you a short call to book a time slot that suits you best",
       required: true,
       radius: 10,
     },
     position: {
-      label: "What Discribes you the best? ",
+      label: "What Describe you the best? ",
       description: "We'll make sure you're connected to the right expert",
       required: true,
       radius: 10,
@@ -64,10 +62,36 @@ const ContactUS = ({ setSubmitted }) => {
   });
   const onSubmit = async (data) => {
     const id = getNextId();
-    await writeData(`/leads/${id}`, {
-      ...data,
-      id,
+    const res = await fetch("https://api.brevo.com/v3/contacts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "api-key": process.env.NEXT_PUBLIC_BREVO_KEY,
+      },
+      body: JSON.stringify({
+        email: data.email,
+        attributes: {
+          FIRSTNAME: data.name,
+          MESSAGE: data.message,
+          SMS: data.mobile, // make sure it's valid international format!
+          JOB_TITLE: data.position,
+        },
+        listIds: [7],
+        updateEnabled: true,
+      }),
     });
+
+    let resData;
+    try {
+      resData = await res.json();
+    } catch (error) {
+      resData = { message: "No response body", status: res.status };
+    }
+
+    if (!res.ok) {
+      alert(resData?.message || "Submission failed");
+      return;
+    }
     await localStorage.setItem("contact-us", id);
     setSubmitted(true);
     reset();
@@ -220,8 +244,8 @@ export default function Contact() {
               src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=52.70967533219885, -8.020019531250002&amp;q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
               // frameborder="0"
               scrolling="no"
-            // marginheight="0"
-            // marginwidth="0"
+              // marginheight="0"
+              // marginwidth="0"
             ></iframe>
           </div>
         </div>

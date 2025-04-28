@@ -121,7 +121,7 @@ export default function FooterSection() {
           <div>© {new Date().getFullYear()} A4 Malta. All rights reserved</div>
           <div className="flex items-center gap-4">
             <Link href="/">Privacy Policy</Link>
-            <Link href="/">Terms of Service</Link>
+            <Link href="/terms-and-conditions">Terms and Conditions</Link>
             <Link href="/">License</Link>
             <Link href="/">Application Security</Link>
           </div>

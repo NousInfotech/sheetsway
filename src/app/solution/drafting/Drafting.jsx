@@ -31,8 +31,10 @@ export default function Drafting() {
         />
 
         <div className="flex justify-center gap-4 relative z-20">
-          <Link href={'/contact-us'}>
-           <Button type="secondary" className={'w-full h-full'}>Early Adopter</Button>
+          <Link href={"/contact-us"}>
+            <Button type="secondary" className={"w-full h-full"}>
+              Early Adopter
+            </Button>
           </Link>
           <BookAnDemo />
         </div>

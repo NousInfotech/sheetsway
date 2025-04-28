@@ -11,7 +11,6 @@ import {
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { getNextId } from "../contact-us/Contact";
-import { writeData } from "@/api/fb";
 import Image from "next/image";
 
 function Page() {
@@ -63,14 +62,6 @@ function Page() {
     ...Datatype[name],
   });
   const onSubmit = async (data) => {
-    const id = getNextId();
-    await writeData(`/demos/${id}`, {
-      ...data,
-      id,
-    });
-    await localStorage.setItem("demo-us", id);
-    setSubmitted(true);
-    reset();
   };
 
   return (
