@@ -3,7 +3,7 @@ import DynamicIcon from "./DynamicIcon";
 import FadeUpAnimation from "./FadeUpAnimation";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ChevronUp, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export default function FeaturesPortal({
   features,
@@ -131,75 +131,96 @@ export default function FeaturesPortal({
                 className="flex flex-row justify-between items-start gap-4 cursor-pointer"
                 onClick={() => handleFeatureClick(index)}
               >
-                {/* Left side icon and text in a row, but icon and title in columns */}
+                {/* Left side content */}
                 <div className="flex flex-col items-start gap-3">
-                  {/* Left side icon now aligned to the top */}
+                  {/* Desktop icon - always visible on desktop */}
                   <div
-                    className={`${
-                      currFeature === index ? "text-primary" : "text-gray-300"
-                    } mt-1`}
+                    className={`${currFeature === index ? "text-primary" : "text-gray-300"} 
+                      mt-1 hidden md:block`}
                   >
                     <DynamicIcon iconName={feature.icon} />
                   </div>
                   
-                  {/* Column for title and subtitle */}
-                  <div className="flex flex-col">
-  <h4
-    className={`text-base font-serif font-bold ${
-      currFeature === index ? "text-primary" : "text-gray-800"
-    }`}
-  >
-    {feature.title}
-  </h4>
-  
-  {mobileOpenFeature !== index && (
-    <p className="text-gray-600 text-xs md:hidden block mt-2">
-      {feature.description}
-    </p>
-  )}
-
-  
-<p className="text-gray-600 text-xs md:block hidden mt-1">
-    {feature.description}
-  </p>
-</div>
+                  {/* Mobile icon - only visible when NOT active */}
+                  {mobileOpenFeature !== index && (
+                    <div
+                      className={`${currFeature === index ? "text-primary" : "text-gray-300"} 
+                        mt-1 md:hidden block`}
+                    >
+                      <DynamicIcon iconName={feature.icon} />
+                    </div>
+                  )}
+                  
+                  {/* Desktop title and description - always visible on desktop */}
+                  <div className="flex flex-col hidden md:block">
+                    <h4
+                      className={`text-base font-serif font-bold ${
+                        currFeature === index ? "text-primary" : "text-gray-800"
+                      }`}
+                    >
+                      {feature.title}
+                    </h4>
+                    <p className="text-gray-600 text-xs mt-1">
+                      {feature.description}
+                    </p>
+                  </div>
+                  
+                  {/* Mobile title and description - only visible when NOT active */}
+                  {mobileOpenFeature !== index && (
+                    <div className="flex flex-col md:hidden">
+                      <h4
+                        className={`text-base font-serif font-bold ${
+                          currFeature === index ? "text-primary" : "text-gray-800"
+                        }`}
+                      >
+                        {feature.title}
+                      </h4>
+                      <p className="text-gray-600 text-xs mt-2">
+                        {feature.description}
+                      </p>
+                    </div>
+                  )}
                 </div>
                 
-                {/* Mobile-only open/close icon with circle */}
+                {/* Mobile-only open/close icon */}
                 <div className="md:hidden block">
-                  {mobileOpenFeature === index ? (
-                    <div className="bg-primary/10 mt-7 rounded-full h-8 w-8 flex items-center justify-center">
-                      <ChevronUp size={16} className="text-primary" />
-                    </div>
-                  ) : (
-                    <div className="border border-gray-300 mt-7 rounded-full h-8 w-8 flex items-center justify-center">
+                  {mobileOpenFeature !== index && (
+                    <div className="border border-gray-300 mt-2 rounded-full h-8 w-8 flex items-center justify-center">
                       <ChevronDown size={16} className="text-gray-500" />
                     </div>
                   )}
                 </div>
               </div>
               
-              {/* Mobile-only content */}
+              {/* Mobile-only expanded content */}
               <div className="md:hidden block">
-               {/* Expandable content when feature is selected on mobile */}
-               {mobileOpenFeature === index && (
-  <motion.div
-    className="mt-4 "
-    initial="hidden"
-    animate="visible"
-    variants={listVariants}
-  >
-    {/* Mobile GIF centered */}
-    {feature.gif && (
-      <div className="flex justify-center mb-3">
-        <img src={feature.gif} className="w-20" alt="" />
-      </div>
-    )}
-    
-    {/* Description below GIF when active */}
-    <p className="text-gray-600 text-xs mb-4 text-center">
-      {feature.description}
-    </p>        
+                {mobileOpenFeature === index && (
+                  <motion.div
+                    className="mt-4"
+                    initial="hidden"
+                    animate="visible"
+                    variants={listVariants}
+                  >
+                    {/* Mobile content in active mode */}
+                    <div className="flex flex-col items-start">
+                      {/* 1. Mobile GIF centered horizontally */}
+                      {feature.gif && (
+                        <div className="w-full flex justify-center mb-3">
+                          <img src={feature.gif} className="w-20" alt="" />
+                        </div>
+                      )}
+                      
+                      {/* 2. Title left-aligned in active mode */}
+                      <h4 className="text-base font-serif font-bold text-primary mb-2">
+                        {feature.title}
+                      </h4>
+                      
+                      {/* 3. Description left-aligned when active */}
+                      <p className="text-gray-600 text-xs mb-4">
+                        {feature.description}
+                      </p>
+                    </div>
+                    
                     {/* Mobile list items */}
                     <motion.ul className="space-y-2">
                       {feature.boxText.map((text, idx) => (
