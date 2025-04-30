@@ -202,7 +202,7 @@ export default function FeaturesPortal({
                     variants={listVariants}
                   >
                     {/* Mobile content in active mode */}
-                    <div className="flex flex-col items-start">
+                    <div className="flex flex-col items-start gap-2">
                       {/* 1. Mobile GIF centered horizontally */}
                       {feature.gif && (
                         <div className="w-full flex justify-center mb-3">
