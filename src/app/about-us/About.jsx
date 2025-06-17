@@ -60,7 +60,7 @@ export default function About() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-[repeat(1,15rem)] lg:grid-cols-[repeat(3,15rem)] lg:justify-center justify-center gap-4 sm:mt-20 mt-5"
+          className="grid grid-cols-[repeat(1,15rem)] lg:grid-cols-[repeat(2,15rem)] lg:justify-center justify-center gap-4 sm:mt-20 mt-5"
         >
           {team.map((item, i) => (
             <motion.div
