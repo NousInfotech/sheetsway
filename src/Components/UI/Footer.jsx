@@ -129,7 +129,7 @@ export default function FooterSection() {
       </div>
       {rootEl && (
         <PopupModal
-          url="https://calendly.com/dhruv-sheetsway/30min"
+          url="https://calendly.com/sheetsway-availabilities/online-meet"
           onModalClose={() => setOpen(false)}
           open={open}
           rootElement={rootEl}
