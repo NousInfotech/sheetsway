@@ -44,12 +44,12 @@ export const slides = [
     title: "A 'game-changing solution' for Malta’s professional auditors",
     source:
       "Originally published on WhosWho.mt. An article about sheetsway's team, growth and achievements.",
-    author: {
-      name: "Dhruv Aggarwal",
-      role: "CTO and Co-Founder",
-      image: "/Dhruv-Aggarwal.png",
-      bio: "Dhruv has not only invested his expertise and resources into the project but has also enriched their venture with his deep understanding of AI development.",
-    },
+    // author: {
+    //   name: "Dhruv Aggarwal",
+    //   role: "CTO and Co-Founder",
+    //   image: "/Dhruv-Aggarwal.png",
+    //   bio: "Dhruv has not only invested his expertise and resources into the project but has also enriched their venture with his deep understanding of AI development.",
+    // },
     image: "/sec-6/first.png",
     gotoArticle: true,
     href: "https://whoswho.mt/en/a-new-era-of-audit-automation-a4-services-unveils-a-game-changing-solution-for-malta-s-professional-auditors"

@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 export default {
-  output:"export",
+  // output:"export",
   images: {
     unoptimized: true,
     remotePatterns: [

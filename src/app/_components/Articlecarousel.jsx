@@ -8,6 +8,8 @@ import ResponsiveYouTube from "./ResponsiveYoutube";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { Autoplay } from 'swiper/modules';
+
 
 
 
@@ -52,7 +54,20 @@ const ArticleCarousel = () => {
   );
 };
 
-function Carousel({ currentIndex }) {
+
+function Carousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const totalSlides = slides.length;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % totalSlides); // Loop
+    }, 7000); // 3s delay
+
+    return () => clearInterval(interval); // Clean up on unmount
+  }, [totalSlides]);
+
   return (
     <div className="overflow-hidden my-10 lg:max-w-4xl md:max-w-2xl sm:max-w-xl max-w-sm mx-auto rounded-3xl shadow-[0px_1px_20px_rgba(0,0,0,0.2)]">
       <div
@@ -164,7 +179,13 @@ function MobileCarousel({ currentIndex, setCurrentIndex }) {
         slidesPerView={1}
         spaceBetween={0}
         allowTouchMove
+        modules={[Autoplay]}
+        autoplay={{
+          delay: 3000, // Time in ms (3 seconds)
+          disableOnInteraction: false, // Keeps autoplay even after user interacts
+        }}
       >
+
         {slides.map((article, index) => {
           const { firstSentence, rest } = getfirstSentence(article.source);
 

@@ -27,11 +27,11 @@ export const team = [
     role: "Co-Founder and CMO",
     src: "/avatars/2.svg",
   },
-  {
-    name: "Dhruv Aggarwal",
-    role: "Co-Founder and CTO",
-    src: "/avatars/1.svg",
-  },
+  // {
+  //   name: "Dhruv Aggarwal",
+  //   role: "Co-Founder and CTO",
+  //   src: "/avatars/1.svg",
+  // },
   // {
   //   name: "Xiaoyang Lou",
   //   role: "Co-Founder and CFO",
