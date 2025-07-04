@@ -11,7 +11,6 @@ import Button from "@/app/_components/Button";
 import MobileMenu from "./MobileMenu";
 import Call from "./call";
 import { usePathname } from "next/navigation";
-
 export const contactUs = "/contact-us";
 export const aboutUs = "/about-us";
 // export const pricing = "/pricing";
@@ -243,7 +242,7 @@ export default function Navbar() {
                 <ul className="grid gap-3 p-4 md:w-[500px] lg:w-[700px] lg:grid-cols-[.75fr_1fr] bg-white">
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
-                      <a
+                      <Link
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                         href="/"
                       >
@@ -251,7 +250,7 @@ export default function Navbar() {
                         <p className="text-sm mt-4 leading-tight text-muted-foreground">
                           We are not just software we are communtiy
                         </p>
-                      </a>
+                      </Link>
                     </NavigationMenuLink>
                   </li>
                   <div className="flex flex-col gap-3 bg-white">
