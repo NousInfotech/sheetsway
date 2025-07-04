@@ -3,48 +3,30 @@ import React from "react";
 export default function Button({
   children,
   onClick,
-  size,
-  type,
-  className,
+  size = "md",
+  type = "primary",
+  className = "",
+  pill = false,
+  large = false,
+  color = "theme",
   ...props
 }) {
-  if (type === "primary") {
-    return (
-      <button
-        onClick={onClick}
-        className={`bg-theme text-white font-semibold font-sans lg:px-6 lg:py-3 px-4 py-2 max-sm:text-sm rounded-lg shadow-md hover:bg-theme/85 transition ${className}`}
-        {...props}
-      >
-        {children}
-      </button>
-    );
-  }
-
-  if (type === "secondary") {
-    return (
-      <button
-        onClick={onClick}
-        className={`bg-accent text-theme font-semibold font-sans lg:px-4 lg:py-2 py-2 px-4 max-sm:text-sm ${
-          size === "lg" && "lg:px-6 lg:py-3 px-4 py-2"
-        } rounded-lg shadow-sm hover:bg-accent/85 ${className}`}
-        {...props}
-      >
-        {children}
-      </button>
-    );
-  }
-
-  if (type === "tertiary") {
-    return (
-      <button
-        onClick={onClick}
-        className={`text-gray-600 hover:text-gray-800 px-4 py-2`}
-        {...props}
-      >
-        {children}
-      </button>
-    );
-  }
+  let base = "font-semibold font-sans transition duration-300 flex items-center justify-center";
+  let rounded = pill ? "rounded-full" : "rounded-lg";
+  let sizeClass = large ? "text-lg px-8 py-3" : size === "lg" ? "lg:px-6 lg:py-3 px-4 py-2" : size === "sm" ? "px-3 py-1 text-sm" : "px-4 py-2";
+  let colorClass = "";
+  if (type === "primary") colorClass = `bg-${color} text-white shadow-md hover:bg-${color}/85`;
+  if (type === "secondary") colorClass = `bg-accent text-${color} shadow-sm hover:bg-accent/85`;
+  if (type === "tertiary") colorClass = `text-gray-600 hover:text-gray-800`;
+  return (
+    <button
+      onClick={onClick}
+      className={`${base} ${rounded} ${sizeClass} ${colorClass} ${className}`}
+      {...props}
+    >
+      {children}
+    </button>
+  );
 }
 
 // import React from "react";

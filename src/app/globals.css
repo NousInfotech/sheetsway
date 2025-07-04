@@ -47,7 +47,9 @@ body {
   background-color: #fa8c32; /* Orange */
   border-radius: 8px;
 }
-
+.orange{
+  background-color: #fa8c32;
+}
 .button {
   display: inline-block;
   position: relative;
