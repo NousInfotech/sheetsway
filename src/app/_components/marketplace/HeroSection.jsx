@@ -46,7 +46,7 @@ export default function HeroSection() {
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden ">
       {/* Main Content - Orange Section with Rounded Bottom */}
-      <div className='w-full bg-gradient-to-b from-[#FF8C1A] to-[#FFB347] pb-20 rounded-b-[120px]'>
+      <div className='w-full bg-gradient-to-b from-[#FF8C1A] to-[#FFB347] pb-20 rounded-b-[200px]'>
         <div className="w-full max-w-5xl mx-auto pt-16 px-6 flex flex-col items-center text-center">
           {/* Main Heading */}
           <h1 className={`text-5xl md:text-6xl font-bold leading-tight mb-2 ${montserrat.className}`} style={{ color: '#fff' }}>
@@ -169,7 +169,7 @@ export default function HeroSection() {
       {/* Bottom Cards Section */}
       <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 px-6 mt-12">
         {/* Left Card - Need an Audit */}
-        <div className={`rounded-2xl shadow-xl p-10 flex flex-col items-start lg:w-2/5 relative min-h-[400px] ${nunito.className}`} style={{ background: '#FF8C1A' }}>
+        <div className={`rounded-2xl shadow-xl p-10 flex flex-col items-start lg:w-2/6 relative min-h-[400px] ${nunito.className}`} style={{ background: '#FF8C1A' }}>
           <div className={`font-bold text-2xl mb-3 ${montserrat.className}`} style={{ color: '#fff' }}>
             Need an Audit?
           </div>
@@ -198,7 +198,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right Card - Certified Auditors */}
-        <div className={`bg-gradient-to-r from-[#1A237E] to-[#1976D2] rounded-2xl shadow-xl flex flex-col lg:flex-row items-center lg:w-3/5 p-10 gap-10 relative overflow-hidden min-h-[400px] ${nunito.className}`}>
+        <div className={`bg-gradient-to-r from-[#1A237E] to-[#1976D2] rounded-2xl shadow-xl flex flex-col lg:flex-row items-center lg:w-3/4 p-10 gap-10 relative overflow-hidden min-h-[400px] ${nunito.className}`}>
           <div className="flex-1 text-center lg:text-left z-10">
             <div className={`font-medium text-lg mb-3 ${nunito.className}`} style={{ color: '#fff' }}>
               Pick from <span className={`font-bold ${montserrat.className}`} style={{ color: '#FFD600' }}>verified</span> and <span className={`font-bold ${montserrat.className}`} style={{ color: '#FFD600' }}>Trusted</span>
