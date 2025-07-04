@@ -44,7 +44,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden ">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden bg-white z-40">
       {/* Main Content - Orange Section with Rounded Bottom */}
       <div className='w-full bg-gradient-to-b from-[#FF8C1A] to-[#FFB347] pb-20 rounded-b-[200px]'>
         <div className="w-full max-w-5xl mx-auto pt-16 px-6 flex flex-col items-center text-center">
@@ -57,7 +57,7 @@ export default function HeroSection() {
           </h2>
           {/* Subheading */}
           <p className={`text-xl mb-8 font-medium max-w-3xl ${nunito.className}`} style={{ color: '#3A3A3A' }}>
-            Audit Firms Bid. Compare Quotes in Minutes. You Choose. It's That Simple.
+            {"Audit Firms Bid. Compare Quotes in Minutes. You Choose. It's That Simple."}
           </p>
           {/* Form Section */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8 w-full max-w-5xl mx-auto">
